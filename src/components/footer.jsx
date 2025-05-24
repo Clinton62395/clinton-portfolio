@@ -24,7 +24,7 @@ function Footer() {
 
       <div className="bi-flex bi-justify-center bi-items-center bi-mt-4 bi-space-x-6">
         <a
-          href="https://github.com/ton_github"
+          href="https://github.com/Clinton62395"
           target="_blank"
           rel="noopener noreferrer"
           className="bi-text-xl bi-text-gray-300 hover:bi-text-white transition"
