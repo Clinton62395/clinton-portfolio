@@ -1,4 +1,5 @@
 import React from "react";
+import motion from "framer-motion";
 import { BackgroundParticles } from "../components/Animation";
 import airbnb from "../assets/airbnb.png";
 import dropbox from "../assets/airbnb.png";
@@ -82,15 +83,10 @@ function Projects() {
       <BackgroundParticles />
 
       <div
-        className="bi-relative bi-z-10 bi-h-full bi-container bi-mx-auto  bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-52"
+        className="bi-relative bi-h-full bi-z-10 bi-h-full bi-container bi-mx-auto  bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-52"
         id="projects"
       >
-        <div
-          className="bi- bi-h-screen bi-mx-auto bi-w-full"
-          data-aos="slide-down"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
-        >
+        <div>
           <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8">
             Mes Projets
           </h2>
@@ -98,7 +94,7 @@ function Projects() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bi-backdrop-blur border-2 border-warning bi-rounded-lg bi-shadow-md bi-text-center bi-shadow-white-500/50 bi-p-5 gap-5 bi-transition-transform bi-duration-300 hover:bi-shadow-lg hover:bi-shadow-yellow-500/50 hover:bi-scale-105"
+                className="bi-backdrop-blur border-2 bi-border-dashed border-warning bi-rounded-lg bi-shadow-md bi-text-center bi-shadow-white-500/50 bi-p-5 gap-5 bi-transition-transform bi-duration-300 hover:bi-shadow-lg hover:bi-shadow-yellow-500/50 hover:bi-scale-105"
               >
                 <img
                   src={project.image}
@@ -133,6 +129,34 @@ function Projects() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* les images en animation */}
+
+      <div style={{overflow:'hidden', width:'100%'}}></div>
+
+      <div className="bi-h-screen bi-w-full bi-relative bi-mx-auto bi-p-10 bi-mt-24">
+        <h2 className="bi-text-5xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8 display-5 bi-bg-gradient-to-r bi-from-teal-500 bi-via-dark bi-text-transparent bi-bg-clip-text bi-to-purple-500">
+          A vos services
+        </h2>
+        <motion.div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-4 bi-gap-10 bi-place-items-center animate-parent" style={{display:'flex', whiteSpace:"nowrap"}} animate={{ x: ["-100%", "0%"] }} transition={{ duration: 10, ease: "lenear", repeat: "Infinity" }}>
+          {projects.map((proj, idex) => (
+            <div
+              key={idex}
+              className="bi-backdrop-blur border-2 bi-border-dotted border-primary bi-rounded-lg bi-shadow-md bi-text-center bi-shadow-white-500/50 bi-p-5 gap-5 bi-transition-transform bi-duration-300 hover:bi-shadow-lg hover:bi-shadow-blue-500/50 hover:bi-scale-105 image-animation"
+            >
+              <h3 className="bi-text-xl bi-font-bold bi-text-orange-400 bi-mt-4">
+                {proj.title}
+              </h3>
+              <img
+                src={proj.image}
+                alt={proj.title}
+                className="bi-w-full bi-h-40 bi-object-cover bi-rounded-lg
+                bi-transition-transform bi-duration-300 bi-hover:bi-scale-105 hover:bi-backdrop-blur image-backdrop"
+              />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </>
   );
