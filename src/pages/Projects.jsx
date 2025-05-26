@@ -9,7 +9,7 @@ import netflix from "../assets/neipal.png";
 import pinterest from "../assets/pinterest.png";
 import whatsapp from "../assets/whasapp.png";
 function Projects() {
- const projects= [
+  const projects = [
     {
       title: "netflix",
       description:
@@ -80,64 +80,63 @@ function Projects() {
   return (
     <>
       <BackgroundParticles />
-      <div className="bi-relative bi-z-10 bi-h-screen bi-container bi-bg-black/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-96"
+      <div
+        className="bi-relative bi-z-10 bi-h-full bi-container bi-mx-auto  bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-52"
         id="projects"
-        data-aos="slide-down"
-        data-aos-once="true"
+        data-aos="zoom-in"
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"
-       >
-    <div>
-        <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8"
-          data-aos="fade-down"
-          data-aos-duration="1000">
-          Mes Projets
-        </h2>
-        <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-6"
-          data-aos="slide-up"
-          data-aos-once="true"
-          data-aos-duration="1000"
+        data-aos-delay="0"
+      >
+        <div>
+          <h2
+            className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8"
           >
+            Mes Projets
+          </h2>
+          <div
+            className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center"
+           
+          >
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="bi-backdrop-blur border-2 border-warning bi-rounded-lg bi-shadow-md bi-text-center bi-shadow-white-500/50 bi-p-5 gap-5 bi-transition-transform bi-duration-300 hover:bi-shadow-lg hover:bi-shadow-yellow-500/50 hover:bi-scale-105"
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="bi-w-full bi-h-40 bi-object-cover bi-rounded-lg
+                bi-transition-transform bi-duration-300 bi-hover:bi-scale-105 image-backdrop"
+                />
+                <h3 className="bi-text-xl bi-font-bold bi-text-orange-400 bi-mt-4">
+                  {project.title}
+                </h3>
+                <p className="bi-text-gray-300">{project.description}</p>
 
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bi-bg-white/10 bi-backdrop-blur bi-rounded-lg bi-shadow-md bi-text-center bi-shadow-white-500/50 bi-p-5"
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="bi-w-full bi-h-40 bi-object-cover bi-rounded-lg
-                bi-transition-transform bi-duration-300 hover:bi-scale-105"
-                data-aos="zoom-out-down"
-                data-aos-duration="1000"
-              />
-              <h3 className="bi-text-xl bi-font-bold bi-text-orange-400 bi-mt-4">
-                {project.title}
-              </h3>
-              <p className="bi-text-gray-300">{project.description}</p>
-              <div className="bi-flex bi-space-x-4 mt-4">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bi-bg-blue-300/50 bi-px-4 bi-py-2 bi-rounded-lg bi-flex bi-justify-center bi-items-center hover:bi-bg-blue-600 bi-text-center animate__animated animate__bounce"
-                >
-                  Demo
-                </a>
-                <a
-                  href={project.code}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bi-bg-green-500/50 bi-px-4 bi-py-2 bi-rounded-lg bi-flex bi-justify-center bi-items-center hover:bi-bg-green-600 bi-text-center animate__animated animate__bounce"
-                >
-                  Code
-                </a>
+
+                <div className="bi-flex bi-justify-center bi-items-center bi-gap-4 bi-mt-4">
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bi-bg-blue-300/50 bi-px-4 bi-py-2 bi-rounded-lg bi-flex bi-justify-center bi-items-center hover:bi-bg-blue-600 bi-text-center animate__animated animate__bounce"
+                  >
+                    Demo
+                  </a>
+                  <a
+                    href={project.code}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bi-bg-green-500/50 bi-px-4 bi-py-2 bi-rounded-lg bi-flex bi-justify-center bi-items-center hover:bi-bg-green-600 bi-text-center animate__animated animate__bounce"
+                  >
+                    Code
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-    </div>
       </div>
     </>
   );

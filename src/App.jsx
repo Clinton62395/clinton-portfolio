@@ -12,16 +12,17 @@ import Home from "./pages/Home.jsx";
 import Contact from "./pages/contact.jsx";
 import Services from "./pages/service.jsx";
 import About from "./pages/About.jsx";
-import FQA from "./pages/FQA.jsx";
+import FAQ from "./pages/FQA.jsx";
 import Projects from "./pages/Projects.jsx";
 import RoutOutlet from "./Layout/outlet.jsx";
 import Footer from "./components/footer.jsx";
 
 export default function App() {
-    useEffect(() => {
+  useEffect(() => {
     AOS.init({
       duration: 1000, // Durée par défaut des animations
-      once: false,     // L'animation se joue une seule fois
+      once: false,
+      mirror: true, // L'animation se joue une seule fois
     });
   }, []);
 
@@ -31,8 +32,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<RoutOutlet />}>
             <Route index element={<Home />} />
-            <Route path="/Service" element={<Services />} />
-            <Route path="/FQA" element={<FQA />} />
+            <Route path="/service" element={<Services />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="/Projects" element={<Projects />} />
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />

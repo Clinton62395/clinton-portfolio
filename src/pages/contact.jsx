@@ -1,10 +1,14 @@
 import React from "react";
+import { Carousel } from "react-bootstrap";
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { BackgroundParticles } from "../components/Animation";
 import { BsWhatsapp } from "react-icons/bs";
+import { BiHelpCircle } from "react-icons/bi";
+import { FcContacts } from "react-icons/fc";
 
 // Schéma de validation avec Yup
 const schema = yup.object().shape({
@@ -117,6 +121,123 @@ const Contact = () => {
             </form>
           </div>
         </div>
+      </div>
+
+      {/* FAQ */}
+
+      <section
+        id="faq"
+        className="bi-relative  text-white py-5 bi-bg-gradient-to-r bi-from-[#0a142f] bi-to-[#222240]"
+        data-aos="fade-up"
+        data-aos-duration="500"
+      >
+        <div className="container center mx-auto px-4 py-5">
+          <h2 className="text-center mb-5 bi-text-3xl bi-font-bold bi-text-orange-400 bi-flex bi-items-center bi-justify-center gap-2">
+            <BiHelpCircle className=" bi-text-3xl text-center" />
+            Foire Aux Questions (FAQ)
+          </h2>
+          <Carousel indicators={false} interval={8000} className="mt-5">
+            <Carousel.Item>
+              <div className="text-center px-4">
+                <h5 className=" text-center fs-3 fw-bold mb-4">
+                  Quels services proposes-tu ?
+                </h5>
+                <p className="text-lg text-gray-300 mb-4">
+                  Je propose la création de sites web modernes, du développement
+                  front-end avec React, ainsi que du design d'interfaces
+                  interactives.
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="text-center px-4 fs-3 fw-bold mb-4 ">
+                <h5>Travailles-tu à distance ?</h5>
+                <p className="bi-text-lg bi-text-gray-300 mb-4">
+                  Oui, je travaille à distance avec des clients dans plusieurs
+                  pays.
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="text-center px-4">
+                <h5 className="bi-text-lg fs-3 fw-bold mb-4">
+                  Quels langages et outils maîtrises-tu ?
+                </h5>
+                <p className="bi-text-lg bi-text-gray-300 mb-4">
+                  Je maîtrise plusieurs technologies web modernes telles que
+                  HTML, CSS, JavaScript, React, Tailwind CSS, Git, Bootstrap et
+                  bien d’autres.
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="text-center px-4">
+                <h5 className="bi-text-lg fs-3 fw-bold mb-4">
+                  Peux-tu créer un site vitrine ou un portfolio personnalisé ?
+                </h5>
+                <p className="bi-text-lg bi-text-gray-300 mb-4">
+                  Oui, je peux concevoir un site vitrine responsive, adapté à
+                  ton identité ou ton activité.
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="text-center px-4">
+                <h5 className="bi-text-lg fs-3 fw-bold mb-4">
+                  Combien de temps prends un projet moyen ?
+                </h5>
+                <p className="bi-text-lg bi-text-gray-300 mb-4">
+                  Cela dépend du projet, mais un site simple peut être prêt en 1
+                  à 2 semaines.
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="text-center px-4">
+                <h5 className="bi-text-lg fs-3 fw-bold mb-4">
+                  Comment peut-on te contacter ?
+                </h5>
+                <p className="bi-text-lg bi-text-gray-300 mb-4">
+                  Vous pouvez me contacter de plusieurs manières : Via le
+                  formulaire de contact, par email ou sur les réseaux sociaux
+                  (voir le bas de la page).
+                </p>
+              </div>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+
+        {/* Bouton de contact */}
+        <div
+          className="text-center mt-5"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <p>Vous avez d'autres questions ?</p>
+          <a
+            href="#contact"
+            className=" border-warning border-2 d-flex bi-w-52 mx-auto mt-2 align-items-center justify-content-center  btn  bi-text-white bi-bg-transparent bi-rounded-full bi-px-6 bi-py-3 hover:bi-bg-teal-500 hover:bi-text-white bi-transition-all bi-duration-300"
+          >
+            <FcContacts /> Me contacter
+          </a>
+        </div>
+      </section>
+
+      {/* Bouton WhatsApp */}
+      <div className="bi-fixed bi-right-5 bi-top-1/2 bi-transform  bi-z-50 bi-translate-y-[-50%] bi-flex bi-flex-col bi-gap-4 bi-mr-10 whatsat-anime">
+        <a
+          href="https://api.whatsapp.com/send?phone=224623952011&text=Bonjour%20Monsieur,%20j'aimerais%20avoir%20une%20discussion%20avec%20vous!."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bi-bg-green-500 bi-text-white bi-p-3 bi-rounded-full hover:bi-bg-green-600 bi-transition-all bi-duration-300"
+        >
+          <BsWhatsapp className="bi-text-5xl" />
+        </a>
       </div>
     </>
   );

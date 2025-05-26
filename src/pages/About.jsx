@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "aos/dist/aos.css";
 import { BackgroundParticles } from "../components/Animation";
@@ -20,33 +20,69 @@ function About() {
     {
       Categories: "Web languages",
       Langages: [
-        { title: "HTML5", icon: <FaHtml5 />, value: 80 },
-        { title: "CSS3", icon: <FaCss3Alt />, value: 70 },
-        { title: "JavaScript", icon: <FaJsSquare />, value: 40 },
+        {
+          title: "HTML5",
+          icon: <FaHtml5 className="bi-text-red-500 icone-rotate" />,
+          value: 80,
+        },
+        {
+          title: "CSS3",
+          icon: <FaCss3Alt className="bi-text-blue-500  icone-rotate" />,
+          value: 70,
+        },
+        {
+          title: "JavaScript",
+          icon: <FaJsSquare className="bi-text-yellow-400  icone-rotate" />,
+          value: 40,
+        },
       ],
     },
     // les frameworks et librairies
     {
       Categories: "Frameworks and Libraries",
       Langages: [
-        { title: "React JS", icon: <FaReact />, value: 50 },
-        { title: "Bootstrap", icon: <FaBootstrap />, value: 70 },
-        { title: "Tailwind CSS", icon: <SiTailwindcss />, value: 60 },
+        {
+          title: "React JS",
+          icon: <FaReact className="bi-text-blue-400 icone-rotate" />,
+          value: 50,
+        },
+        {
+          title: "Bootstrap",
+          icon: <FaBootstrap className="bi-text-purple-500  icone-rotate" />,
+          value: 70,
+        },
+        {
+          title: "Tailwind CSS",
+          icon: <SiTailwindcss className="bi-text-cyan-400  icone-rotate" />,
+          value: 60,
+        },
       ],
     },
     // les outils et methodes
     {
       Categories: "Tools and Methods",
       Langages: [
-        { title: "Git", icon: <FaGitAlt />, value: 60 },
-        { title: "GitHub", icon: <FaGithub />, value: 55 },
-        { title: "Visual Studio Code", icon: <VscVscode />, value: 80 },
+        {
+          title: "Git",
+          icon: <FaGitAlt className="bi-text-orange-500 icone-rotate" />,
+          value: 60,
+        },
+        {
+          title: "GitHub",
+          icon: <FaGithub className="bi-text-white-500 icone-rotate" />,
+          value: 55,
+        },
+        {
+          title: "Visual Studio Code",
+          icon: <VscVscode className="bi-text-blue-500  icone-rotate" />,
+          value: 80,
+        },
       ],
     },
   ];
   return (
     <>
-      <div className="bi-relative bi-h-screen bi-bg-[#0a192f] bi-text-white bi-px-6 bi-py-10 bi-flex bi-items-center bi-justify-center bi-mt-20">
+      <div className="bi-relative bi-h-screen bi-bg-[#0a192f] bi-text-white bi-px-6 bi-py-10 bi-flex bi-items-center bi-justify-center bi-mt-20 ">
         <BackgroundParticles />
 
         <div
@@ -98,7 +134,7 @@ function About() {
       {/* sections des competences */}
 
       <div
-        className="bi-relative bi-container bi-mx-auto bi-text-white m-5"
+        className="bi-relative bi-container bi-mx-auto bi-text-white m-5 bi-mb-52"
         id="skills"
       >
         <h2
@@ -112,10 +148,12 @@ function About() {
           {/* Langages */}
           <div
             className="bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
-            data-aos="fade-right"
-            data-aos-delay="100"
+            
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4">
+            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4"
+             data-aos="fade-left"
+            data-aos-delay="500"
+            >
               Langages
             </h3>
             <ul className="bi-space-y-2">
@@ -138,7 +176,10 @@ function About() {
             data-aos="zoom-in"
             data-aos-delay="200"
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-2">
+            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-2"
+             data-aos="fade-right"
+            data-aos-delay="500"
+            >
               Frameworks
             </h3>
             <ul className="bi-space-y-2">
@@ -162,7 +203,10 @@ function About() {
             data-aos="fade-left"
             data-aos-delay="300"
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4">
+            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4"
+            data-aos="fade-right"
+            data-aos-delay="500"
+            >
               Outils
             </h3>
             <ul className="bi-space-y-2">
@@ -182,30 +226,50 @@ function About() {
         </div>
       </div>
 
-
       {/* l'affichage de ma barre e progression en tableau */}
 
       {skillsCategories.map((category, index) => (
-        <div key={index} className="bi-mt-10 bi-max-w-4xl bi-mx-auto bi-p-5 bi-bg-black/50 bi-backdrop-blur-md bi-rounded-xl bi-shadow-lg bi-shadow-yellow-500/30">
-          <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4">
+        <div
+          key={index}
+          className="bi-mt-10 bi-max-w-6xl bi-mx-auto bi-p-5 bi-bg-black/50 bi-backdrop-blur-md bi-rounded-xl bi-shadow-lg  bi-shadow-yellow-500/30"
+        >
+          <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4 bi-text-center">
             {category.Categories}
           </h3>
-          {category.Langages.map((skill, idx) => (
-            <div key={idx} className="bi-mb-4">
-              <div className="bi-flex bi-items-center bi-justify-between">
-                <span className="bi-flex bi-items-center">
-                  {skill.icon}
-                  <span className="bi-ml-2">{skill.title}</span>
-                </span>
-                <span>{skill.value}%</span>
-              </div>
-              <ProgressBar
-                now={skill.value}
-                variant="warning"
-                className="bi-h-2 bi-rounded-full"
-              />
-            </div>
-          ))}
+
+          <Row className="g-4">
+            {category.Langages.map((skill, idx) => (
+              <Col key={idx} md={4}>
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay={idx * 100}
+                  className="bi-p-4 bi-bg-gray-800/50 bi-rounded-lg bi-shadow-md bi-shadow-yellow-500/30 bi-text-white bi-text-center bi-transition-transform bi-duration-300 bi-transform bi-hover:-translate-y-2 bi-hover:scale-105"
+                >
+                  {/* Icône colorée et centrée */}
+                  <div className="bi-text-4xl bi-mb-2 bi-text-center d-flex bi-items-center bi-justify-center">
+                    {skill.icon}
+                  </div>
+
+                  {/* Titre */}
+                  <div className="bi-text-lg bi-font-semibold bi-mb-2 bi-text-center">
+                    {skill.title}
+                  </div>
+
+                  {/* Pourcentage + barre */}
+                  <div className="bi-flex bi-items-center bi-justify-between bi-text-sm bi-mb-1">
+                    <span className="bi-text-gray-300">Level</span>
+                    <span>{skill.value}%</span>
+                  </div>
+                  <ProgressBar
+                    animated
+                    now={skill.value}
+                    variant="warning"
+                    className="bi-h-6 bi-rounded-full bi-bg-yellow-500/30"
+                  />
+                </div>
+              </Col>
+            ))}
+          </Row>
         </div>
       ))}
     </>

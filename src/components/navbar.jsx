@@ -1,8 +1,8 @@
 import React from "react";
-import { BiSolidContact } from "react-icons/bi";
+import { BiHelpCircle, BiSolidContact } from "react-icons/bi";
 import { FaAddressCard } from "react-icons/fa";
 import { HiHome } from "react-icons/hi";
-import { MdOutlineWork } from "react-icons/md";
+import { MdHomeRepairService, MdOutlineWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 function PagesNavbar() {
@@ -33,11 +33,26 @@ function PagesNavbar() {
             <span>Projects</span>
           </Link>
           <Link
+            to="/service"
+            className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
+          >
+            <MdHomeRepairService />
+            <span>Services</span>
+          </Link>
+          <Link
             to="/contact"
             className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
           >
             <BiSolidContact />
             <span>Contact</span>
+          </Link>
+          <Link
+
+            to="/faq"
+            className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
+          >
+            <BiHelpCircle/>
+            <span>FAQ</span>
           </Link>
         </div>
       </div>
