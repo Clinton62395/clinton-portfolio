@@ -80,24 +80,21 @@ function Projects() {
   return (
     <>
       <BackgroundParticles />
+
       <div
         className="bi-relative bi-z-10 bi-h-full bi-container bi-mx-auto  bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-52"
         id="projects"
-        data-aos="zoom-in"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-out"
-        data-aos-delay="0"
       >
-        <div>
-          <h2
-            className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8"
-          >
+        <div
+          className="bi- bi-h-screen bi-mx-auto bi-w-full"
+          data-aos="slide-down"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
+          <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8">
             Mes Projets
           </h2>
-          <div
-            className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center"
-           
-          >
+          <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center">
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -107,13 +104,12 @@ function Projects() {
                   src={project.image}
                   alt={project.title}
                   className="bi-w-full bi-h-40 bi-object-cover bi-rounded-lg
-                bi-transition-transform bi-duration-300 bi-hover:bi-scale-105 image-backdrop"
+                bi-transition-transform bi-duration-300 bi-hover:bi-scale-105 hover:bi-backdrop-blur image-backdrop"
                 />
                 <h3 className="bi-text-xl bi-font-bold bi-text-orange-400 bi-mt-4">
                   {project.title}
                 </h3>
                 <p className="bi-text-gray-300">{project.description}</p>
-
 
                 <div className="bi-flex bi-justify-center bi-items-center bi-gap-4 bi-mt-4">
                   <a

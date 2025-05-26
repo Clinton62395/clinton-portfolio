@@ -28,9 +28,10 @@ function Home() {
         <div className="row align-items-center">
           {/* Texte + typing effect */}
           <div className="col-md-7 text-center text-md-start text-white px-4 mb-5">
-            <h1 className="display-4 fw-bold text-warning mb-3">
-              Bonjour ! <br /> Bienvenue sur mon portfolio
+            <h1 className="display-4 fw-bold text-warning mb-3 text-center">
+              Bonjour !
             </h1>
+            <span className="display-5 fw-bold text-warning mb-3 d-block"> Bienvenue sur mon portfolio</span>
             <p
               className="lead text-light mb-2 max-w-lg mx-auto mx-md-0"
               style={{ maxWidth: "600px", textAlign: "justify" }}

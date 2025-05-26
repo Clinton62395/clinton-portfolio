@@ -86,7 +86,7 @@ function About() {
         <BackgroundParticles />
 
         <div
-          className="bi-relative bi-z-10 bi-max-w-4xl bi-bg-black/50 bi-backdrop-blur-md bi-p-8 bi-rounded-xl bi-shadow-md bi-shadow-yellow-700/50 bi-text-justify"
+          className="bi-relative bi-z-10 bi-max-w-4xl bi-bg-black-500/80 bi-backdrop-blur-md bi-p-8 bi-rounded-xl bi-shadow-md bi-shadow-yellow-700/50 bi-text-justify"
           data-aos="fade-up"
         >
           <h1
@@ -131,10 +131,14 @@ function About() {
           </p>
         </div>
       </div>
+      <hr className="bi-border-yellow-500 bi-border-[10px] bi-mx-24 bi-my-5" 
+        data-aos="zoom-out"
+        data-aos-duration="1000"
+      />
       {/* sections des competences */}
 
       <div
-        className="bi-relative bi-container bi-mx-auto bi-text-white m-5 bi-mb-52"
+        className="bi-relative bi-container bi-mx-auto bi-text-white bi-mb-52 bi-d-flex bi-justify-center bi-items-center"
         id="skills"
       >
         <h2
@@ -144,7 +148,7 @@ function About() {
           Mes Compétences
         </h2>
 
-        <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-3 bi-gap-5 bi-rounded-xl bi-p-5 bi-shadow-lg bi-shadow-yellow-500/30 bi-w-full bi-max-w-6xl bi-mx-auto bi-mt-10">
+        <div className=" bi-grid bi-grid-cols-1 md:bi-grid-cols-3 bi-gap-5  bi-rounded-xl bi-p-5 bi-shadow-lg bi-shadow-yellow-500/30 bi-m-x-auto bi-mt-10 bi-space-x-10">
           {/* Langages */}
           <div
             className="bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
@@ -231,15 +235,15 @@ function About() {
       {skillsCategories.map((category, index) => (
         <div
           key={index}
-          className="bi-mt-10 bi-max-w-6xl bi-mx-auto bi-p-5 bi-bg-black/50 bi-backdrop-blur-md bi-rounded-xl bi-shadow-lg  bi-shadow-yellow-500/30"
+          className="bi-mt-10 bi-container bi-mx-auto bi-p-5 bi-bg-black/50 bi-backdrop-blur-md bi-rounded-xl bi-shadow-lg  bi-shadow-yellow-500/30"
         >
           <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4 bi-text-center">
             {category.Categories}
           </h3>
 
-          <Row className="g-4">
+          <Row className="gap-5 d-flex bi-justify-center bi-items-center flex-wrap">
             {category.Langages.map((skill, idx) => (
-              <Col key={idx} md={4}>
+              <Col key={idx} md={3}>
                 <div
                   data-aos="fade-up"
                   data-aos-delay={idx * 100}
