@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./index.css";
 // import AOS for animations
@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<RoutOutlet />}>
             <Route index element={<Home />} />
@@ -44,7 +44,7 @@ export default function App() {
           </Route>
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
