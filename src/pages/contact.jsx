@@ -9,6 +9,7 @@ import { BackgroundParticles } from "../components/Animation";
 import { BsWhatsapp } from "react-icons/bs";
 import { BiHelpCircle } from "react-icons/bi";
 import { FcContacts } from "react-icons/fc";
+import FAQCarousel from "../components/FQA";
 
 // Schéma de validation avec Yup
 const schema = yup.object().shape({
@@ -39,23 +40,23 @@ const Contact = () => {
     <>
       <BackgroundParticles />
       <div
-        className="bi-relative bi-z-10 bi-min-h-screen bi-bg-[#0a192f] bi-text-white bi-flex bi-items-center bi-justify-center bi-p-10 bi-pt-24"
+        className="bi-relative bi-z-10 bi-min-h-screen bi-text-white bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-24"
         id="contact"
-        data-aos="zoom-in"
-        data-aos-duration="1000"
-        data-aos-once="true"
       >
-        <div className="bi-bg-black-500/50 bi-backdrop-blur bi-rounded-xl bi-shadow-lg bi-shadow-yellow-500/50 bi-p-10 bi-w-full bi-max-w-5xl">
-          <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8">
+        <div
+          className="bi-bg-black-500/50 bi-backdrop-blur bi-rounded-xl bi-shadow-lg bi-shadow-yellow-500/50 bi-p-10 bi-w-full bi-max-w-5xl bi-border-t-2 border-t-orange-400/50"
+        >
+          <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8 bi-bg-gradient-to-r bi-from-purple-500 bi-via-lime-500 bi-to-fuchsia-500 mb-5 bi-text-transparent bi-bg-clip-text  animate__animated animate__fadeInDown animate__repeat-2 animate__delay-1s animate__slow"
+           >
             Contactez-moi
           </h2>
 
           <div className="bi-flex bi-flex-col md:bi-flex-row bi-justify-between bi-gap-10">
             {/* Infos de contact */}
-            <div className="bi-flex bi-flex-col bi-space-y-4">
+            <div className="bi-flex bi-flex-col bi-space-y-4 animate__animated animate__backInRight animate__repeat-2 animate__delay-2s animate__slow">
               <div className="bi-flex bi-items-center">
                 <FaEnvelope className="bi-text-orange-400 bi-text-xl bi-mr-3" />
-                <span>billy.doumbouya@example.com</span>
+                <span>billydoumbouya5210@.com</span>
               </div>
               <div className="bi-flex bi-items-center">
                 <FaPhoneAlt className="bi-text-orange-400 bi-text-xl bi-mr-3" />
@@ -73,14 +74,14 @@ const Contact = () => {
 
             {/* Formulaire de contact */}
             <form
-              className="bi-space-y-4 bi-w-full md:bi-w-1/2"
+              className="bi-space-y-4 bi-w-full md:bi-w-1/2 animate__animated animate__backInLeft animate__repeat-2 animate__delay-2s animate__slow"
               onSubmit={handleSubmit(onSubmit)}
             >
               <input
                 type="text"
                 placeholder="Votre nom"
                 {...register("nom", { required: "Nom requis" })}
-                className="bi-w-full bi-p-3 bi-rounded bi-bg-white/10 bi-border bi-border-gray-500 bi-placeholder-gray-300 bi-text-white focus:bi-outline-none"
+                className="bi-w-full bi-p-3 bi-rounded bi-bg-white/10 bi-border border-2  focus:bi-border-dotted  bi-border-gray-500 bi-placeholder-gray-300 bi-text-white focus:bi-outline-none"
               />
               {errors.nom && (
                 <p className="bi-text-red-400 bi-text-sm">
@@ -92,7 +93,7 @@ const Contact = () => {
                 type="email"
                 placeholder="Votre email"
                 {...register("email", { required: "Email requis" })}
-                className="bi-w-full bi-p-3 bi-rounded bi-bg-white/10 bi-border bi-border-gray-500 bi-placeholder-gray-300 bi-text-white focus:bi-outline-none"
+                className="bi-w-full bi-p-3 bi-rounded bi-bg-white/10 bi-border border-2 focus:bi-border-dotted  bi-border-gray-500 bi-placeholder-gray-300 bi-text-white focus:bi-outline-none"
               />
               {errors.email && (
                 <p className="bi-text-red-400 bi-text-sm">
@@ -104,7 +105,7 @@ const Contact = () => {
                 rows="4"
                 placeholder="Votre message"
                 {...register("message", { required: "Message requis" })}
-                className="bi-w-full bi-p-3 bi-rounded bi-bg-white/10 bi-border bi-border-gray-500 bi-placeholder-gray-300 bi-text-white focus:bi-outline-none"
+                className="bi-w-full bi-p-3 bi-rounded bi-bg-white/10 bi-border border-2 focus:bi-border-dotted bi-border-gray-500 bi-placeholder-gray-300 bi-text-white focus:bi-outline-none"
               ></textarea>
               {errors.message && (
                 <p className="bi-text-red-400 bi-text-sm">
@@ -114,7 +115,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="bi-bg-orange-400 bi-text-black bi-py-2 bi-px-6 bi-rounded bi-font-semibold hover:bi-bg-orange-500 bi-transition-all bi-duration-300"
+                className="bi-bg-orange-400 bi-text-light bi-py-2 bi-px-6 bi-rounded border-4 hover:bi-border-dotted border-warning bi-font-semibold bi-bg-[#1f2257] bi-transition-all bi-duration-300  animate__animated animate__pulse animate__delay-2s animate__infinite"
               >
                 Envoyer
               </button>
@@ -125,18 +126,13 @@ const Contact = () => {
 
       {/* FAQ */}
 
-      <section
-        id="faq"
-        className="bi-relative  text-white py-5 bi-bg-gradient-to-r bi-from-[#0a142f] bi-to-[#222240]"
-        data-aos="fade-up"
-        data-aos-duration="500"
-      >
-        <div className="container center mx-auto px-4 py-5">
+      <FAQCarousel />
+      {/* <div className="container center mx-auto px-4 py-5">
           <h2 className="text-center mb-5 bi-text-3xl bi-font-bold bi-text-orange-400 bi-flex bi-items-center bi-justify-center gap-2">
             <BiHelpCircle className=" bi-text-3xl text-center" />
             Foire Aux Questions (FAQ)
           </h2>
-          <Carousel indicators={false} interval={8000} className="mt-5">
+          <Carousel indicators={true} controls={false} interval={8000} className="mt-5 carousel-indicator">
             <Carousel.Item>
               <div className="text-center px-4">
                 <h5 className=" text-center fs-3 fw-bold mb-4">
@@ -210,23 +206,9 @@ const Contact = () => {
               </div>
             </Carousel.Item>
           </Carousel>
-        </div>
+        </div> */}
 
-        {/* Bouton de contact */}
-        <div
-          className="text-center mt-5"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <p>Vous avez d'autres questions ?</p>
-          <a
-            href="#contact"
-            className=" border-warning border-2 d-flex bi-w-52 mx-auto mt-2 align-items-center justify-content-center  btn  bi-text-white bi-bg-transparent bi-rounded-full bi-px-6 bi-py-3 hover:bi-bg-teal-500 hover:bi-text-white bi-transition-all bi-duration-300"
-          >
-            <FcContacts /> Me contacter
-          </a>
-        </div>
-      </section>
+      {/* Bouton de contact */}
 
       {/* Bouton WhatsApp */}
       <div className="bi-fixed bi-right-5 bi-top-1/2 bi-transform  bi-z-50 bi-translate-y-[-50%] bi-flex bi-flex-col bi-gap-4 bi-mr-10 whatsat-anime">
@@ -236,7 +218,7 @@ const Contact = () => {
           rel="noopener noreferrer"
           className="bi-bg-green-500 bi-text-white bi-p-3 bi-rounded-full hover:bi-bg-green-600 bi-transition-all bi-duration-300"
         >
-          <BsWhatsapp className="bi-text-5xl" />
+          <BsWhatsapp title="Cliquez pour me contacter!" className="bi-text-5xl" />
         </a>
       </div>
     </>

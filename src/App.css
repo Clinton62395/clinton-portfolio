@@ -59,7 +59,6 @@ transition: backdrop-filter 0.3s ease-in-out;
 /* whatsat-anime */
 
 .whatsat-anime {
-  position: absolute !important; 
   background-color: #25D366; /* Couleur de fond de WhatsApp */
   border-radius: 50%;
   display: flex;
@@ -69,11 +68,38 @@ transition: backdrop-filter 0.3s ease-in-out;
 }
 @keyframes scale {
   0%, 100% {
-    transform: scale(1);
+    transform: scale(0.5);
   }
   50% {
     transform: scale(1.1);
   }
+  100% {
+    transform: scale(0.5);
+  }
+}
+.whatsat-anime:hover {
+animation: none;
+transform: scale(1.5);  
+}  
+
+/* carousel-indicator */
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators .active {
+  background-color: #10b981; /* Tailwind green-500 */
+}
+.carousel-indicators [data-bs-target]:hover {
+  background-color: #effb06; 
+  transform: scale(1.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 

@@ -13,7 +13,9 @@ function PagesNavbar() {
           to="/"
           className="text-warning bi-font-bold bi-text-2xl bi-flex bi-items-center bi-space-x-2"
         >
-          <span className="bi-w-20 bi-mr-10"><img src="my logo.png" alt="logo" /></span>
+          <span className="bi-w-20 bi-mr-10">
+            <img src="mylogo.png" alt="logo" />
+          </span>
           <HiHome />
           <span>Home</span>
         </Link>
@@ -46,14 +48,7 @@ function PagesNavbar() {
             <BiSolidContact />
             <span>Contact</span>
           </Link>
-          <Link
-
-            to="/faq"
-            className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
-          >
-            <BiHelpCircle/>
-            <span>FAQ</span>
-          </Link>
+         
         </div>
       </div>
     </nav>

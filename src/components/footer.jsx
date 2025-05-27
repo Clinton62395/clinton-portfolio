@@ -4,7 +4,6 @@ import {
   FaLinkedin,
   FaEnvelope,
   FaFacebook,
-  FaDiscord,
   FaInstagram,
   FaTelegram,
   FaYoutube,
@@ -13,10 +12,7 @@ import {
 function Footer() {
   return (
     <footer
-      className="bi-absolute bi-right-5 bi-left-5 bi-bg-[#1f2937] bi-text-white bi-text-center bi-py-6 bi-mt-10"
-      data-aos="fade-up"
-      data-aos-duration="500"
-      data-aos-once="true"
+      className="bi-absolute bi-right-5 bi-left-5 bi-bg-[#1f2937] bi-text-white bi-text-center bi-py-6 bi-mt-10"      
     >
       <p className="bi-text-sm">
         &copy; {new Date().getFullYear()} Bill Clinton. Tous droits réservés.
