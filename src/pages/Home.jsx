@@ -20,19 +20,19 @@ function Home() {
 
   return (
     <>
-      <div className="bi-relative bi-h-screen bi-w-full d-flex align-items-center justify-content-center bi-mt-10 ">
+      <div className="bi-relative bi-h-screen bi-w-full d-flex align-items-center mt-sm-5 justify-content-center bi-mt-10 ">
         {/* Fond animé */}
         <BackgroundParticles />
 
         {/* Grille Bootstrap container */}
         <div className="container bi-relative bi-z-10 ">
-          <div className="row align-items-center">
+          <div className="row align-items-center justify-centent-center mx-auto ">
             {/* Texte + typing effect */}
-            <div className="col-md-7 text-center text-md-start text-white px-4 mb-5">
+            <div className="col-block col-md-7 text-center text-md-start text-white px-4 mb-5 ">
               <h1 className="display-4 fw-bold text-warning mb-3 text-center">
                 Bonjour !
               </h1>
-              <span className="display-5 fw-bold text-warning mb-3 d-block">
+              <span className="display-6 fw-bold text-warning mb-3 d-block">
                 {" "}
                 Bienvenue sur mon portfolio
               </span>

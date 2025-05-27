@@ -14,7 +14,7 @@ function TypingText() {
       wrapper="span"
       speed={50}
       repeat={Infinity}
-      className="bi-text-6xl bi-font-bold bi-text-transparent bi-bg-gradient-to-r bi-from-blue-500 bi-via-teal-400 bi-to-purple-500 bi-bg-clip-text"
+      className=" bi-text-6xl bi-font-bold bi-text-transparent bi-bg-gradient-to-r bi-from-blue-500 bi-via-teal-400 bi-to-purple-500 bi-bg-clip-text "
     />
   );
 }
