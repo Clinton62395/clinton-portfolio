@@ -1,4 +1,4 @@
-html{
+html{ 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -117,3 +117,66 @@ transform: scale(1.5);
     transform: translateX(-50%);
   }
 } */
+
+/* underling center */
+.underling-center {
+  position: relative;
+  right: 40% ;left: 40%;
+  display: inline-block;
+}
+.underling-center::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Ajustez la position verticale de la ligne */
+  width: 100%;
+  height: 5px; /* Épaisseur de la ligne */
+  background-color: orange; /* Couleur de la ligne */
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.underling-center:hover::after {
+  transform: scaleX(1);
+}
+
+/*  */
+.underling-cente {
+  position: relative;
+  right: 40% ;left: 40%;
+  display: inline-block;
+}
+.underling-cente::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Ajustez la position verticale de la ligne */
+  width: 100%;
+  height: 3px; /* Épaisseur de la ligne */
+  background-color: rgb(88, 79, 4); /* Couleur de la ligne */
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.underling-cente:hover::after {
+  transform: scaleX(1);
+}
+.underling-cente {
+  position: relative;
+  right: 40% ;left: 40%;
+  display: inline-block;
+}
+.underling-cente::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Ajustez la position verticale de la ligne */
+  width: 100%;
+  height: 3px; /* Épaisseur de la ligne */
+  background-color: rgb(88, 79, 4); /* Couleur de la ligne */
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.underling-cente:hover::after {
+  transform: scaleX(1);
+}
+
+

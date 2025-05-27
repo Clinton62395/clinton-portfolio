@@ -17,7 +17,7 @@ function PagesNavbar() {
             <img src="mylogo.png" alt="logo" />
           </span>
           <HiHome />
-          <span>Home</span>
+          <span className="underline-middle">Home</span>
         </Link>
         <div className="bi-flex bi-space-x-6">
           <Link
@@ -25,28 +25,28 @@ function PagesNavbar() {
             className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
           >
             <FaAddressCard />
-            <span>About ME</span>
+            <span className="underline-middle">About ME</span>
           </Link>
           <Link
             to="/projects"
             className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
           >
             <MdOutlineWork />
-            <span>Projects</span>
+            <span className="underline-middle">Projects</span>
           </Link>
           <Link
             to="/service"
             className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
           >
             <MdHomeRepairService />
-            <span>Services</span>
+            <span className="underline-middle">Services</span>
           </Link>
           <Link
             to="/contact"
             className="text-warning bi-font-semibold bi-flex bi-items-center bi-space-x-2"
           >
             <BiSolidContact />
-            <span>Contact</span>
+            <span className="underline-middle">Contact</span>
           </Link>
          
         </div>

@@ -46,7 +46,7 @@ const Contact = () => {
         <div
           className="bi-bg-black-500/50 bi-backdrop-blur bi-rounded-xl bi-shadow-lg bi-shadow-yellow-500/50 bi-p-10 bi-w-full bi-max-w-5xl bi-border-t-2 border-t-orange-400/50"
         >
-          <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8 bi-bg-gradient-to-r bi-from-purple-500 bi-via-lime-500 bi-to-fuchsia-500 mb-5 bi-text-transparent bi-bg-clip-text  animate__animated animate__fadeInDown animate__repeat-2 animate__delay-1s animate__slow"
+          <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8 bi-bg-gradient-to-r bi-from-purple-500 bi-via-lime-500 bi-to-fuchsia-500 mb-5 hvr-grow bi-text-transparent bi-bg-clip-text  animate__animated animate__fadeInDown animate__repeat-2 animate__delay-1s animate__slow"
            >
             Contactez-moi
           </h2>

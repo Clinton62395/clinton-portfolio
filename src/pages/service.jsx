@@ -65,27 +65,21 @@ function Services() {
       <BackgroundParticles />
 
       <section className="bi-relative bi-bg-[#111827] bi-text-white bi-py-20 bi-px-4 bi-min-h-screen">
-        <div className="bi-text-center bi-mb-12" data-aos="slide-up">
-          <h2
-            className="bi-text-3xl md:bi-text-4xl bi-font-bold bi-text-yellow-400"
-            data-aos="fade-right"
-          >
+        <div className="bi-text-center bi-mb-12">
+          <h2 className="bi-text-3xl md:bi-text-4xl bi-font-bold bi-text-yellow-400  hover:bi-animate-bounce">
             Mes Services
           </h2>
-          <p
-            className="bi-text-gray-400 bi-mt-2 bi-text-xl bi-max-w-2xl bi-mx-auto"
-            data-aos="fade-left"
-          >
+          <p className="bi-text-gray-400 bi-mt-2 bi-text-xl bi-max-w-2xl bi-mx-auto bi-leading-relaxed animate__animated animate__fadeIn animate__delay-1s animate__slow">
             Voici ce que je propose pour accompagner vos projets avec
             professionnalisme et passion.
           </p>
         </div>
 
-        <div className="bi-grid bi-gap-8 md:bi-grid-cols-3 bi-container bi-mx-auto bi-gap-5 bi-space-y-5">
+        <div className="bi-grid bi-gap-8 md:bi-grid-cols-3 bi-container bi-mx-auto bi-gap-5 mt-5 bi-space-y-5">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bi-bg-gray-800 bi-rounded-xl bi-p-6 bi-shadow-lg hover:bi-shadow-yellow-400/40 bi-transition-transform bi-duration-300 bi-text-center hover:bi-scale-105"
+              className=" bi-bg-gray-800 bi-rounded-xl bi-p-6 bi-shadow-lg hover:bi-shadow-yellow-400/ hvr-shadow 40 bi-transition-transform bi-duration-300 bi-text-center hover:bi-scale-105"
             >
               {service.icon}
               <h4 className="bi-text-xl bi-font-semibold bi-text-yellow-400 bi-mb-2">

@@ -90,7 +90,7 @@ function About() {
           data-aos="fade-up"
         >
           <h1
-            className="bi-text-4xl bi-font-extrabold bi-text-orange-400 bi-mb-6 border-b bi-border-orange-500 bi-pb-2 bi-text-center"
+            className="bi-text-4xl bi-font-extrabold bi-text-orange-400 bi-mb-6 border-b underling-center bi-border-orange-500 bi-pb-2 bi-text-center"
             data-aos="fade-right"
             data-aos-delay="800"
           >
@@ -142,7 +142,7 @@ function About() {
         id="skills"
       >
         <h2
-          className="bi-text-4xl bi-font-bold bi-text-center bi-text-orange-400 bi-mb-12"
+          className="bi-text-4xl bi-font-bold bi-text-center bi-text-orange-400 bi-mb-12 underling-center"
           data-aos="fade-up"
         >
           Mes Compétences
@@ -154,7 +154,7 @@ function About() {
             className="bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
             
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4"
+            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4  underling-cente"
              data-aos="fade-left"
             data-aos-delay="500"
             >
@@ -180,7 +180,7 @@ function About() {
             data-aos="zoom-in"
             data-aos-delay="200"
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-2"
+            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-2  underling-cente"
              data-aos="fade-right"
             data-aos-delay="500"
             >
@@ -207,9 +207,8 @@ function About() {
             data-aos="fade-left"
             data-aos-delay="300"
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4"
+            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4 underling-cente"
             data-aos="fade-right"
-            data-aos-delay="500"
             >
               Outils
             </h3>
