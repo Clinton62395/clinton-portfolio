@@ -16,7 +16,7 @@ function Loader() {
             repeatType: "reverse",
           }}
         >
-          <h1 className="bi-text-6xl text-warning loader-text">
+          <h1 className="bi-text-3xl md:bi-text-6xl text-warning loader-text">
             Bienvenue sur Mon portfolio
           </h1>
           <h2 className=" text-warning fs-1 fw-bold bi-text-center mt-5 mb-5">

@@ -1,9 +1,13 @@
-html{ 
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
+
+
+
 /* titre animation */
 .loader-text {
   background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff) !important;

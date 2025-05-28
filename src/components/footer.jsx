@@ -12,13 +12,13 @@ import {
 function Footer() {
   return (
     <footer
-      className="bi-absolute bi-right-5 bi-left-5 bi-bg-[#1f2937] bi-text-white bi-text-center bi-py-6 bi-mt-10"      
+      className="bi-absolute bi-right-5 bi-left-5 bi-bg-[#1f2937] bi-text-white bi-text-center bi-py-6 sm:bi-max-w-auto bi-mt-10"      
     >
       <p className="bi-text-sm">
         &copy; {new Date().getFullYear()} Bill Clinton. Tous droits réservés.
       </p>
 
-      <div className="bi-flex bi-justify-center bi-items-center bi-mt-4 bi-space-x-6">
+      <div className="bi-flex bi-justify-center bi-items-center bi-mt-4 bi-space-x-6 sm:bi-w-full">
         <a
           href="https://github.com/Clinton62395"
           target="_blank"
