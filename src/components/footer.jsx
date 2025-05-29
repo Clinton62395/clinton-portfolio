@@ -12,7 +12,7 @@ import {
 function Footer() {
   return (
     <footer
-      className="bi-absolute bi-right-5 bi-left-5 bi-bg-[#1f2937] bi-text-white bi-text-center bi-py-6 sm:bi-max-w-auto bi-mt-10"      
+      className="bi-absolute bi-right-0 bi-left-0 bi-bg-[#1f2937] bi-text-white bi-text-center bi-py-6 sm:bi-max-w-auto bi-mt-10"      
     >
       <p className="bi-text-sm">
         &copy; {new Date().getFullYear()} Bill Clinton. Tous droits réservés.

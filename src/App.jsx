@@ -9,7 +9,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 // import animate.css for additional animations
 import "animate.css";
-
+// 
+import './assets/ihover.css';
 // components importation
 import Home from "./pages/Home.jsx";
 import Contact from "./pages/contact.jsx";

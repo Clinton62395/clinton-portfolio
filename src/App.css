@@ -143,10 +143,10 @@ transform: scale(1.5);
   transform: scaleX(1);
 }
 
-/*  */
+/* les titres des competences */
 .underling-cente {
   position: relative;
-  right: 40% ;left: 40%;
+  right: 0% ;left: 0%;
   display: inline-block;
 }
 .underling-cente::after {

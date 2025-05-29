@@ -23,11 +23,11 @@ function Home() {
       <div className="bi-overflow-x-hidden bi-mt-24">
         <BackgroundParticles />
 
-        <div className="bi-relative bi-w-full bi-flex bi-mt-24 bi-mx-4 bi-bg-gradient-to-r bi-from-gray-800/50 bi-via-gray-900/50 bi-to-black bi-backdrop-blur-lg bi-py-10 bi-rounded-lg bi-shadow-lg bi-shadow-blue-500/50 bi-py-24">
+        <div className="bi-relative bi-pt-5 bi-mt-5 bi-w-full bi-flex bi-mt-24 bi-mx-auto bi-bg-gradient-to-r  bi-from-gray-500/10 bi-via-gray-900/50 bi-to-blue-500/10 bi-backdrop-blur bi-py-10 bi-rounded-lg bi-shadow-lg bi-shadow-blue-500/50 bi-py-24  md:pt-24">
           <div className="bi-flex bi-flex-col-reverse lg:bi-flex-row bi-items-center bi-justify-center bi-gap-24 ">
             {/* Texte */}
-            <div className="bi-text-lg bi-w-full lg:bi-w-1/ bi-text-center lg:bi-text-left bi-text-white bi-mx-auto bi-px-10">
-              <h1 className="sm:bi-text-5xl md:bi-text-6xl bi-font-bold bi-mb-5 bi-text-center bi-bg-gradient-to-r bi-from-yellow-500 bi-via-purple-500 bi-to-green-500 bi-text-transparent bi-bg-clip-text">
+            <div className="bi-text-lg md:bi-text-xl bi-w-full bi-text-center lg:bi-text-left bi-text-white bi-mx-auto bi-px-10">
+              <h1 className="bi-text-5xl md:bi-text-6xl bi-font-bold bi-mb-5 bi-text-center bi-bg-gradient-to-r bi-from-yellow-500 bi-via-purple-500 bi-to-green-500 bi-text-transparent bi-bg-clip-text">
                 Bonjour !
               </h1>
               <span className="bi-text-2xl md:bi-text-5xl bi-font-semibold md:bi-text-yellow-500 bi-block bi-mb-4 md:bi-text-center bi-max-w-xl mb-5">
@@ -43,13 +43,13 @@ function Home() {
                 pas à me contacter pour une collaboration.
               </p>
 
-              <div className="bi-absolute bi-left-44 bi-mt-4  mb:bi-left-96  bi-mx-auto lg:bi-mx-auto">
+              <div className="bi-absolute bi-mt-4  bi-left-0 bi-px-2 md:bi-mx-auto  md:bi-left-24 ">
                 <TypingText />
               </div>
             </div>
 
             {/* Image */}
-            <div className="bi-w-full sm:bi-w-72 lg:bi-w-1/3 bi-mx-auto bi-h-auto">
+            <div className="bi-w-full sm:bi-w-72 md:bi-w-1/2 bi-mx-auto bi-h-auto]  ">
               <img
                 src="/image.png"
                 alt="ma photo"

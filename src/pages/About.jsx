@@ -90,7 +90,7 @@ function About() {
           data-aos="fade-up"
         >
           <h1
-            className="bi-text-4xl bi-font-extrabold bi-text-orange-400 bi-mb-6 border-b underling-center bi-border-orange-500 bi-pb-2 bi-text-center"
+            className="bi-text-2xl bi-left-10 md:bi-text-4xl bi-font-extrabold bi-text-orange-400 bi-mb-6 border-b underling-center bi-border-orange-500 bi-pb-2 bi-text-center"
             data-aos="fade-right"
             data-aos-delay="800"
           >
@@ -131,18 +131,19 @@ function About() {
           </p>
         </div>
       </div>
-      <hr className="bi-border-yellow-500 bi-border-[10px] bi-mx-24 bi-my-5" 
+      <hr
+        className="bi-border-yellow-500 bi-border-[10px] bi-mx-24 bi-my-5"
         data-aos="zoom-out"
         data-aos-duration="1000"
       />
       {/* sections des competences */}
 
       <div
-        className="bi-relative bi-container bi-mx-auto bi-text-white bi-mb-52 bi-d-flex bi-justify-center bi-items-center"
+        className="bi-relative bi-container bi-p-y-5  bi-mx-auto bi-text-white bi-mb-52 md:bi-d-flex bi-justify-center bi-items-center"
         id="skills"
       >
         <h2
-          className="bi-text-4xl bi-font-bold bi-text-center bi-text-orange-400 bi-mb-12 underling-center"
+          className="bi-text-3xl bi-left-10 md:bi-text-4xl bi-font-bold bi-text-center bi-text-orange-400 bi-mb-12 underling-center"
           data-aos="fade-up"
         >
           Mes Compétences
@@ -150,13 +151,12 @@ function About() {
 
         <div className=" bi-grid bi-grid-cols-1 md:bi-grid-cols-3 bi-gap-5  bi-rounded-xl bi-p-5 bi-shadow-lg bi-shadow-yellow-500/30 bi-m-x-auto bi-mt-10 bi-space-x-10">
           {/* Langages */}
-          <div
-            className="bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
-            
-          >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4  underling-cente"
-             data-aos="fade-left"
-            data-aos-delay="500"
+          <div className="bi-border-b-2 md:bi-border-r-2 bi-border-yellow-500/30 bi-pr-2">
+            <h3
+              className="
+          className= bi-text-3xl md:bi-text-4xl bi-left-0 md:bi-text-4xl bi-font-semibold bi-text-yellow-400 bi-mb-4  underling-cente"
+              data-aos="fade-left"
+              data-aos-delay="500"
             >
               Langages
             </h3>
@@ -176,13 +176,14 @@ function About() {
 
           {/* Frameworks & Librairies */}
           <div
-            className="bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
+            className="bi-border-b-2 md:bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
             data-aos="zoom-in"
             data-aos-delay="200"
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-2  underling-cente"
-             data-aos="fade-right"
-            data-aos-delay="500"
+            <h3
+              className="bi-text-3xl bi-left-0 md:bi-text-4xl bi-font-semibold bi-text-yellow-400 bi-mb-2  underling-cente"
+              data-aos="fade-right"
+              data-aos-delay="500"
             >
               Frameworks
             </h3>
@@ -203,12 +204,13 @@ function About() {
 
           {/* Outils & Méthodes */}
           <div
-            className="bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
+            className="bi-border-b-2 md:bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
             data-aos="fade-left"
             data-aos-delay="300"
           >
-            <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4 underling-cente"
-            data-aos="fade-right"
+            <h3
+              className="bi-text-3xl bi-left-0 md:bi-text-4xl bi-font-semibold bi-text-yellow-400 bi-mb-4 underling-cente"
+              data-aos="fade-right"
             >
               Outils
             </h3>

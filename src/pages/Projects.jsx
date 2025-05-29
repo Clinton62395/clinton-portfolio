@@ -1,5 +1,4 @@
 import React from "react";
-import { hover, motion } from "framer-motion";
 import { BackgroundParticles } from "../components/Animation";
 import airbnb from "../assets/airbnb.png";
 import dropbox from "../assets/dropbox.png";
@@ -11,7 +10,7 @@ import pinterest from "../assets/pinterest.png";
 import whatsapp from "../assets/whasapp.png";
 import { FaCode } from "react-icons/fa";
 import { GiLookAt } from "react-icons/gi";
-import ImageAnimation from "../components/ImageAnime";
+import AutoScrollLogos from "../components/ImageAnime";
 function Projects() {
   const projects = [
     {
@@ -86,14 +85,15 @@ function Projects() {
       <BackgroundParticles />
 
       <div
-        className="bi-relative bi-h-full bi-z-10 bi-h-full bi-container bi-mx-auto  bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-52"
+        className="bi-relative bi-h-full bi-z-10 bi-h-full bi-container bi-mx-auto  bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-24"
         id="projects"
       >
         <div>
           <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8 hover:bi-animate-bounce">
             Mes Projets
           </h2>
-          <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center">
+          <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center bi-space-y-5 animate__animated animate__fadeIn animate__delay-1s animate__slow"
+          >
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -136,7 +136,7 @@ function Projects() {
       </div>
 
       {/* les images en animation */}
-      <ImageAnimation />
+      <AutoScrollLogos />
     </>
   );
 }
