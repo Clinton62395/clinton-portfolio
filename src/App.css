@@ -184,3 +184,59 @@ transform: scale(1.5);
 }
 
 
+/* bordure animeted */
+/* .bordure-animed {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bordure-animed::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #444444, #000000, #2f2f35);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Le hover s’applique sur le parent, pas ::after */
+/* .bordure-animed:hover::after {
+  transform: scaleX(1);
+} */ */
+
+/* bordure animeted 2 */
+.bordure-animed {
+  position: relative;
+  z-index: 0;
+  background-color: wheat;
+  padding: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@keyframes rotate-border {
+    0% {
+        border: 5px solid red;
+    }
+    25% {
+        border: 5px solid blue;
+    }
+    50% {
+        border: 5px solid green;
+    }
+    75% {
+        border: 5px solid yellow;
+    }
+    100% {
+        border: 5px solid red;
+    }
+}
+
+.bordure-animed {
+   
+    border: 5px solid red;
+    animation: rotate-border 5s infinite;
+}

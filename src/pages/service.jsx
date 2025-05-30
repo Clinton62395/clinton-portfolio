@@ -79,7 +79,7 @@ function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className=" bi-bg-gray-800 bi-rounded-xl bi-p-6 bi-shadow-lg hover:bi-shadow-yellow-400/ hvr-shadow 40 bi-transition-transform bi-duration-300 bi-text-center hover:bi-scale-105"
+              className=" bi-bg-gray-800 bi-rounded-xl bi-p-6 bi-shadow-lg hover:bi-shadow-yellow-400/ hvr-shadow 40 bi-transition-transform bi-duration-300 bi-text-center hover:bi-scale-105 bordure-animed"
             >
               {service.icon}
               <h4 className="bi-text-xl bi-font-semibold bi-text-yellow-400 bi-mb-2">
