@@ -14,12 +14,12 @@ import AutoScrollLogos from "../components/ImageAnime";
 function Projects() {
   const projects = [
     {
-      title: "netflix",
+      title: "Airbnb",
       description:
         "This is a student project made for educational purposes only.",
-      image: netflix,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      image: airbnb,
+      demo: "https://clinton62395.github.io/clinton-projects/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/clinton-projects",
     },
 
     {
@@ -27,56 +27,56 @@ function Projects() {
       description:
         "This is a student project made for educational purposes only.",
       image: asana,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      demo: "https://clinton62395.github.io/clinton-projects/Asana/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/Asana",
     },
     {
       title: "Dropbox",
       description:
         "This is a student project made for educational purposes only.",
       image: dropbox,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      demo: "https://clinton62395.github.io/clinton-projects/Dropbox/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/Dropbox",
     },
     {
       title: "Khan Academy",
       description:
         "This is a student project made for educational purposes only.",
       image: khan_academy,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      demo: "https://clinton62395.github.io/clinton-projects/Khan-academy/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/Khan-academy",
     },
     {
       title: "Neipatel",
       description:
         "This is a student project made for educational purposes only.",
-      image: neipal,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      image: neipaltel,
+      demo: "https://clinton62395.github.io/clinton-projects/Neipatel/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/Neipatel",
     },
     {
       title: "Pinterest",
       description:
         "This is a student project made for educational purposes only.",
       image: pinterest,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      demo: "https://clinton62395.github.io/clinton-projects/Pinterest/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/Pinterest",
     },
     {
       title: "WhatsApp",
       description:
         "This is a student project made for educational purposes only.",
       image: whatsapp,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      demo: "https://clinton62395.github.io/clinton-projects/Whatsapp/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/Whatsapp",
     },
     {
-      title: "Airbnb",
+      title: "Netflix",
       description:
         "This is a student project made for educational purposes only.",
-      image: airbnb,
-      demo: "https://clinton62395.github.io/My-frontend-projects/",
-      code: "https://github.com/Clinton62395/My-frontend-projects.git",
+      image: 'Netflix',
+      demo: "https://clinton62395.github.io/clinton-projects/Netflix",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/Netflix",
     },
   ];
 
@@ -92,8 +92,7 @@ function Projects() {
           <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8 hover:bi-animate-bounce">
             Mes Projets
           </h2>
-          <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center bi-space-y-5 animate__animated animate__fadeIn animate__delay-1s animate__slow"
-          >
+          <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center bi-space-y-5 animate__animated animate__fadeIn animate__delay-1s animate__slow">
             {projects.map((project, index) => (
               <div
                 key={index}

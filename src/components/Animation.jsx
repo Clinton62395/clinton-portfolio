@@ -58,6 +58,7 @@ export function BackgroundParticleModern() {
     <Particles
       id="tsparticles"
       init={particlesInit}
+      className="d-flex d-sm-none"
       options={{
         fullScreen: { enable: true },
         background: { color: "#0d47a1" },
@@ -67,6 +68,7 @@ export function BackgroundParticleModern() {
           move: { enable: true, speed: 2 },
           size: { value: 2 },
           color: { value: "#ffffff" },
+          
         },
         interactivity: {
           events: { onHover: { enable: true, mode: "repulse" } },
