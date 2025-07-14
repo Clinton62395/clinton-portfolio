@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
-import { BackgroundParticles } from "../components/Animation";
+import  BackgroundParticles  from "../components/Animation";
 import { BsWhatsapp } from "react-icons/bs";
 import { BiHelpCircle } from "react-icons/bi";
 import { FcContacts } from "react-icons/fc";

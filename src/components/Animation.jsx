@@ -1,15 +1,48 @@
-// Animation.jsx
-import { useCallback } from "react";
+import { useEffect, useState } from "react";
+import { BiBrightness } from "react-icons/bi";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-// Fonction réutilisable
 const particlesInit = async (engine) => {
   await loadFull(engine);
 };
 
-// Premier type d'animation
-export function BackgroundParticles() {
+function BackgroundParticles() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 576); // max-width: 576px
+    };
+
+    handleResize(); // check on mount
+    window.addEventListener("resize", handleResize); // update on resize
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (isMobile) {
+    // 🌙 fond simple pour mobile
+    return (
+      <div
+        style={{
+          position: "fixed",
+          backgroundImage: 'URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvLkuswwgtI7H_3SMeQtXsO7bmCAEnz4CJZA&s")',
+          backgroundRepeat:"no-repeat",
+          backgroundSize:'cover',
+          backgroundPosition: "center",
+          filter: "brightness(30%)",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          zIndex: 0,
+        }}
+      ></div>
+    );
+  }
+
+  // 🌌 animation complète pour les écrans larges
   return (
     <Particles
       id="tsparticles"
@@ -17,7 +50,6 @@ export function BackgroundParticles() {
       options={{
         fullScreen: { enable: true, zIndex: 0 },
         background: { color: "#0f172a" },
-
         fpsLimit: 60,
         particles: {
           number: { value: 80, density: { enable: true, area: 800 } },
@@ -53,28 +85,4 @@ export function BackgroundParticles() {
   );
 }
 
-// Deuxième type d'animation
-export function BackgroundParticleModern() {
-  return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      className="d-flex d-sm-none"
-      options={{
-        fullScreen: { enable: true },
-        background: { color: "#0d47a1" },
-        particles: {
-          number: { value: 60 },
-          links: { enable: true, color: "#ffffff", distance: 150 },
-          move: { enable: true, speed: 2 },
-          size: { value: 2 },
-          color: { value: "#ffffff" },
-        },
-        interactivity: {
-          events: { onHover: { enable: true, mode: "repulse" } },
-          modes: { repulse: { distance: 100 } },
-        },
-      }}
-    />
-  );
-}
+export default BackgroundParticles;

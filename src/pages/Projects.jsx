@@ -1,11 +1,11 @@
 import React from "react";
-import { BackgroundParticles } from "../components/Animation";
+import  BackgroundParticles  from "../components/Animation";
 import airbnb from "../assets/airbnb.png";
 import dropbox from "../assets/dropbox.png";
 import asana from "../assets/asana.png";
 import khan_academy from "../assets/khan_academy.png";
-import neipal from "../assets/neipal.png";
-import netflix from "../assets/neipal.png";
+import neipaltel from "../assets/neipal.png";
+import Netflix from "../assets/netflix.png";
 import pinterest from "../assets/pinterest.png";
 import whatsapp from "../assets/whasapp.png";
 import { FaCode } from "react-icons/fa";
@@ -19,7 +19,7 @@ function Projects() {
         "This is a student project made for educational purposes only.",
       image: airbnb,
       demo: "https://clinton62395.github.io/clinton-projects/",
-      code: "https://github.com/Clinton62395/clinton-projects/tree/master/clinton-projects",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/",
     },
 
     {
@@ -74,7 +74,7 @@ function Projects() {
       title: "Netflix",
       description:
         "This is a student project made for educational purposes only.",
-      image: "Netflix",
+      image: Netflix,
       demo: "https://clinton62395.github.io/clinton-projects/Netflix",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Netflix",
     },

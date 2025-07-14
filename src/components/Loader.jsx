@@ -16,18 +16,22 @@ function Loader() {
             repeatType: "reverse",
           }}
         >
-          <h1 className="bi-text-3xl md:bi-text-6xl text-warning loader-text">
+          <h2 className="bi-text-2xl md:bi-text-6xl bi-text-center loader-text">
             Bienvenue sur Mon portfolio
-          </h1>
-          <h2 className=" text-warning fs-1 fw-bold bi-text-center mt-5 mb-5">
-            Chargement en cours...{" "}
           </h2>
-
-         <span className="bi-text-center bi-flex bi-items-center"> <Spinner
-            animation="grow"
-            variant="warning"
-            className="  bi-text-center bi-mx-auto"
-          /> </span>
+          <div className="d-flex text-center justify-content-center">
+            <h2 className=" text-muted fs-1 fw-bold bi-text-center mt-5 mb-5">
+              Chargement en cours...{" "}
+            </h2>
+          </div>
+          <span className="bi-text-center bi-flex bi-items-center">
+            {" "}
+            <Spinner
+              animation="grow"
+              variant="warning"
+              className="  bi-text-center bi-mx-auto"
+            />{" "}
+          </span>
         </motion.div>
       </div>
     </>

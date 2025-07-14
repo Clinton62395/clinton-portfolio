@@ -7,7 +7,7 @@ import {
   FaMobileAlt,
   FaChalkboardTeacher,
 } from "react-icons/fa";
-import { BackgroundParticles } from "../components/Animation";
+import  BackgroundParticles  from "../components/Animation";
 import { PiPhoneCall } from "react-icons/pi";
 
 function Services() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TypingText from "../components/TypingEffect";
-import { BackgroundParticles } from "../components/Animation";
+import  BackgroundParticles  from "../components/Animation";
 import Loader from "../components/Loader";
 import { BiDownload } from "react-icons/bi";
 

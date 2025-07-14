@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "aos/dist/aos.css";
-import { BackgroundParticles } from "../components/Animation";
+import  BackgroundParticles  from "../components/Animation";
 import {
   FaHtml5,
   FaCss3Alt,
