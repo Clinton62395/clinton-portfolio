@@ -74,7 +74,7 @@ function Projects() {
       title: "Netflix",
       description:
         "This is a student project made for educational purposes only.",
-      image: 'Netflix',
+      image: "Netflix",
       demo: "https://clinton62395.github.io/clinton-projects/Netflix",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Netflix",
     },

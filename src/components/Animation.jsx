@@ -17,6 +17,7 @@ export function BackgroundParticles() {
       options={{
         fullScreen: { enable: true, zIndex: 0 },
         background: { color: "#0f172a" },
+
         fpsLimit: 60,
         particles: {
           number: { value: 80, density: { enable: true, area: 800 } },
@@ -68,7 +69,6 @@ export function BackgroundParticleModern() {
           move: { enable: true, speed: 2 },
           size: { value: 2 },
           color: { value: "#ffffff" },
-          
         },
         interactivity: {
           events: { onHover: { enable: true, mode: "repulse" } },
