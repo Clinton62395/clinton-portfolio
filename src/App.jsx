@@ -20,6 +20,7 @@ import Projects from "./pages/Projects.jsx";
 import RoutOutlet from "./Layout/outlet.jsx";
 import Footer from "./components/footer.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Store from "./pages/Store.jsx";
 
 export default function App() {
   useEffect(() => {
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/Projects" element={<Projects />} />
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />
+            <Route path="/store" element={<Store />} />
             {/* Redirection vers la page d'accueil pour les routes non définies */}
             <Route path="*" element={<NotFound />} />
           </Route>

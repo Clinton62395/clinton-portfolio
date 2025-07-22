@@ -1,6 +1,8 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-export default {
+import withMT from "@material-tailwind/react/utils/withMT";
+
+export default withMT({
   prefix: 'bi-',
   content: [
     "./index.html",
@@ -10,4 +12,4 @@ export default {
     extend: {},
   },
   plugins: [],
-}
+})

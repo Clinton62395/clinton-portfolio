@@ -63,7 +63,7 @@ function Home() {
       <section
         className="bi-relative bi-w-full sm:bi-mx-auto bi-text-white bi-py-10 bi-px-4 bi-text-center bi-rounded bi-shadow-lg bi-shadow-blue bi-backdrop-blur bi-bg-gradient-to-r bi-from-teal-500/50 bi-via-dark bi-to-purple-500/50 bi-pt-24 bi-mb-24 bi-mt-24"
         id="cv"
-        data-aos="zoom-in"
+       
       >
         <h2 className="bi-text-2xl sm:bi-text-3xl bi-font-bold bi-mb-4">
           Téléchargez mon CV

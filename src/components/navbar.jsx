@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HiHome } from "react-icons/hi";
 import { FaAddressCard } from "react-icons/fa";
 import { MdOutlineWork, MdHomeRepairService } from "react-icons/md";
-import { BiSolidContact } from "react-icons/bi";
+import { BiSolidContact, BiStore } from "react-icons/bi";
 
 function PagesNavbar() {
   return (
@@ -68,6 +68,15 @@ function PagesNavbar() {
               >
                 <BiSolidContact className="me-1" />
                 Contact
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link d-flex align-items-center"
+                to="/store"
+              >
+                <BiStore className="me-1" />
+                Store
               </Link>
             </li>
           </ul>

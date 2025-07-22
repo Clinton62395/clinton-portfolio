@@ -4,8 +4,8 @@ import PagesNavbar from "../components/navbar";
 function RoutOutlet() {
   return (
     <>
-      <Outlet />
       <PagesNavbar />
+      <Outlet />
     </>
   );
 }
