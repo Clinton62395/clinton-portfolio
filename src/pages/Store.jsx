@@ -109,18 +109,38 @@ export default function Store() {
   // drower open and close to the left side
   const [open, setOpen] = React.useState(false);
   const openDrawer = () => setOpen(true);
-  const closeDrawer = () => setOpen(false);
+  const toggloDrawer = () => setOpen(!open);
 
   return (
     <>
       {!showForm && (
-        <div className="bi-flex bi-justify-center bi-items-center bi-pt-20">
+        <div className="bi-flex bi-flex-col bi-justify-center bi-items-center bi-pt-20 bi-h-screen">
           <button
             className="bi-p-3 bi-rounded-lg bi-bg-cyan-900 bi-text-white"
             onClick={() => setShowForm(true)}
           >
             Add New Product
           </button>
+
+          <div className="bi-text-center bi-py-12 sm:bi-col-span-2 md:bi-col-span-3 lg:bi-col-span-4">
+            <CheckCircle2 className="bi-w-16 bi-h-16 bi-text-gray-300 bi-mx-auto bi-mb-4" />
+
+            {arrayProducts.length === 0 ? (
+              <>
+                <h3 className="bi-text-lg bi-font-medium bi-text-gray-900 bi-mb-2">
+                  No Products yet
+                </h3>
+                <p className="bi-text-gray-500">Add your first Products</p>
+              </>
+            ) : (
+              <>
+                <h3 className="bi-w-10 bi-h-10 bi-rounded-full bi-bg-green-500 bi-text-white bi-flex bi-items-center bi-justify-center bi-text-sm bi-font-bold bi-mx-auto">
+                  {arrayProducts.length}
+                </h3>
+                <p className="bi-text-gray-500">You can still add more!</p>
+              </>
+            )}
+          </div>
         </div>
       )}
 
@@ -303,68 +323,73 @@ export default function Store() {
         </div>
       )}
 
-      <React.Fragment>
-        <Button
-          onClick={openDrawer}
-          className="bi-my-4 bi-bg-cyan-700 bi-text-white"
-        >
-          Voir les produits ajoutés
-        </Button>
+      <div className="bi-fixed bi-top-14 bi-left-0 ">
+        <React.Fragment>
+          <Button
+            onClick={toggloDrawer}
+            className="bi-my-4 bi-bg-cyan-900 bi-text-white bi-ml-4 bi-font-bold bi-px-10 rounded-3 "
+          >
+            See all added produits
+          </Button>
 
-        <Drawer open={open} onClose={closeDrawer}>
-          <div className="bi-px-4 bi-py-4">
-            <Typography variant="h5" color="blue-gray" className="bi-mb-4">
-              Produits ajoutés ({arrayProducts.length})
-            </Typography>
+          <Drawer
+            open={open}
+            onClose={() => setOpen(true)}
+            className=" bi-bg-cyan-900 bi-shadow-md bi-justify-start bi-items-center bi-p-3 bi-max-w-100 bi-w-[700px]"
+          >
+            <div className="bi-px-4 bi-py-4">
+              <Typography variant="h5" color="blue-gray" className="bi-mb-4">
+                Produits added{" "}
+                <span className="bg-red-500 rounded-circle ">
+                  ({arrayProducts.length})
+                </span>
+              </Typography>
 
-            {arrayProducts.length === 0 ? (
-              <p className="bi-text-sm bi-text-gray-500">
-                Aucun produit pour le moment.
-              </p>
-            ) : (
-              <div className="bi-space-y-4 bi-max-h-[70vh] bi-overflow-y-auto">
-                {arrayProducts.map((product, index) => (
-                  <div
-                    key={product.id || index}
-                    className="bi-flex bi-items-center bi-gap-4 bi-p-2 bi-bg-gray-100 bi-rounded-lg"
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="bi-w-16 bi-h-16 bi-object-cover bi-rounded"
-                    />
-                    <div>
-                      <Typography variant="h6" className="bi-text-base">
-                        {product.name}
-                      </Typography>
-                      <p className="bi-text-sm">{product.description}</p>
-                      <p className="bi-text-sm bi-text-green-700">
-                        Prix : {product.price} €
-                      </p>
+              {arrayProducts.length === 0 ? (
+                <p className="bi-text-sm bi-text-gray-500">
+                  No produit added yet.
+                </p>
+              ) : (
+                <div className="bi-space-y-4 bi-max-h-[70vh] bi-overflow-y-auto">
+                  {arrayProducts.map((product, index) => (
+                    <div
+                      key={product.id || index}
+                      className="bi-flex bi-items-center bi-gap-4 bi-p-2 bi-bg-gray-100 bi-rounded-lg bi-w-100"
+                    >
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="bi-w-16 bi-h-16 bi-object-cover bi-rounded"
+                      />
+                      <div>
+                        <Typography variant="h6" className="bi-text-base">
+                          {product.name}
+                        </Typography>
+                        <p className="bi-text-sm">{product.description}</p>
+                        <p className="bi-text-sm bi-text-green-700">
+                          Prix : N{product.price}
+                        </p>
 
-                      {arrayProducts.map((product) => {
-                        return (
-                          <div key={product.id}>
-                            <button
-                              onClick={() => deleteProduct(product.id)}
-                              className="bi-px-4 bi-space-x-3 bi-flex bi-items-center bi-py-2 bi-bg-red-500 bi-text-black bi-text-sm bi-rounded bi-hover:bg-indigo-700 bi-transition"
-                            >
-                              <Trash2 size={16} />
-                              Delete
-                            </button>
-                          </div>
-                        );
-                      })}
-
-                      
+                        <button
+                          onClick={() => deleteProduct(product.id)}
+                          className="bi-group bi-rounded-full bi-bg-red-500 bi-p-2 bi-flex bi-justify-center bi-items-center hover:bi-bg-red-600 bi-transition-all bi-duration-300 bi-transform hover:bi-scale-110 focus:bi-outline-none focus:bi-ring-2 focus:bi-ring-red-400 focus:bi-ring-offset-1 bi-shadow-lg hover:bi-shadow-xl"
+                          aria-label="delete  product"
+                          title="Delete"
+                        >
+                          <Trash2
+                            size={18}
+                            className="bi-text-white group-hover:bi-animate-pulse"
+                          />
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </Drawer>
-      </React.Fragment>
+                  ))}
+                </div>
+              )}
+            </div>
+          </Drawer>
+        </React.Fragment>
+      </div>
     </>
   );
 }
