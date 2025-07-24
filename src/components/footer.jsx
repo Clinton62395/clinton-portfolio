@@ -100,7 +100,7 @@ function Footer() {
                 Projets
               </a>
               <a
-                href=""
+                href="#contact"
                 className="bi-text-gray-400 hover:bi-text-white bi-transition-colors bi-duration-300 bi-text-sm"
               >
                 Contact

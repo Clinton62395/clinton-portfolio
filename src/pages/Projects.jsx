@@ -1,5 +1,5 @@
 import React from "react";
-import  BackgroundParticles  from "../components/Animation";
+import BackgroundParticles from "../components/Animation";
 import airbnb from "../assets/airbnb.png";
 import dropbox from "../assets/dropbox.png";
 import asana from "../assets/asana.png";
@@ -77,6 +77,15 @@ function Projects() {
       image: Netflix,
       demo: "https://clinton62395.github.io/clinton-projects/Netflix",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Netflix",
+    },
+    {
+      title: "Vanilla js",
+      description:
+        "These are some of the projects I have been working on during my frontend programming training.",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtgzsGkfT4EzquXh4TCm66xky7OSITGbUZ-g&s",
+      demo: "https://clinton62395.github.io/javascript-class/",
+      code: "https://github.com/Clinton62395/javascript-class/tree/master/",
     },
   ];
 

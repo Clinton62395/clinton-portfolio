@@ -9,7 +9,7 @@ function PagesNavbar() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow">
       <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
+        <Link className="navbar-brand d-flex align-items-center justify-content-center" to="/">
           <img
             src="mylogo.png"
             alt="Logo"
@@ -36,7 +36,7 @@ function PagesNavbar() {
 
         {/* Collapsible menu */}
         <div className="collapse navbar-collapse" id="navbarContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-md-0">
+          <ul className="navbar-nav mx-auto d-flex gap-5 mb-2 mb-md-0">
             <li className="nav-item">
               <Link className="nav-link d-flex align-items-center" to="/about">
                 <FaAddressCard className="me-1" />
