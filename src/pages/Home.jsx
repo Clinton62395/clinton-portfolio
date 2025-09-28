@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TypingText from "../components/TypingEffect";
-import  BackgroundParticles  from "../components/Animation";
+import BackgroundParticles from "../components/Animation";
 import Loader from "../components/Loader";
 import { BiDownload } from "react-icons/bi";
 
@@ -34,9 +34,14 @@ function Home() {
                 Bienvenue sur mon portfolio
               </span>
               <p className=" bi-text-center sm:bi-text-lg md:bi-text-xl bi-text-light bi-mb-4 bi-max-w-xl bi-mx-auto lg:bi-mx-5 bi-text-center bi-leading-relaxed">
-                Je m'appelle <span> <strong >Billy Doumbouya</strong></span>. Passionné par le
-                développement web et les technologies modernes, je conçois des
-                interfaces interactives, dynamiques et efficaces.
+                Je m'appelle{" "}
+                <span>
+                  {" "}
+                  <strong>Billy Doumbouya</strong>
+                </span>
+                . Passionné par le développement web et les technologies
+                modernes, je conçois des interfaces interactives, dynamiques et
+                efficaces.
               </p>
               <p className="sm:bi-text-lg  md:bi-text-xl bi-text-light bi-mb-4 bi-max-w-xl bi-mx-auto lg:bi-mx-5 bi-text-center bi-leading-relaxed">
                 Parcourez mes projets, découvrez mes compétences et n'hésitez
@@ -63,7 +68,6 @@ function Home() {
       <section
         className="bi-relative bi-w-full sm:bi-mx-auto bi-text-white bi-py-10 bi-px-4 bi-text-center bi-rounded bi-shadow-lg bi-shadow-blue bi-backdrop-blur bi-bg-gradient-to-r bi-from-teal-500/50 bi-via-dark bi-to-purple-500/50 bi-pt-24 bi-mb-24 bi-mt-24"
         id="cv"
-       
       >
         <h2 className="bi-text-2xl sm:bi-text-3xl bi-font-bold bi-mb-4">
           Téléchargez mon CV
