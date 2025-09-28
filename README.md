@@ -84,7 +84,7 @@ Le portfolio présente plusieurs projets, notamment :
 
 ```bash
 # Cloner le repository
-git clone [URL_DU_REPO]
+git clone https://github.com/Clinton62395/clinton-portfolio.git
 
 # Installer les dépendances
 npm install
