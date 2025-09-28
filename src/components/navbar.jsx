@@ -1,15 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HiHome } from "react-icons/hi";
 import { FaAddressCard } from "react-icons/fa";
 import { MdOutlineWork, MdHomeRepairService } from "react-icons/md";
 import { BiSolidContact, BiStore } from "react-icons/bi";
 
 function PagesNavbar() {
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path
+      ? "nav-link active fw-bold text-warning"
+      : "nav-link";
+  };
+
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow">
       <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center justify-content-center" to="/">
+        <Link
+          className={`navbar-brand d-flex align-items-center justify-content-center ${
+            location.pathname === "/" ? "text-warning" : ""
+          }`}
+          to="/"
+        >
           <img
             src="mylogo.png"
             alt="Logo"
@@ -38,14 +51,17 @@ function PagesNavbar() {
         <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav mx-auto d-flex gap-5 mb-2 mb-md-0">
             <li className="nav-item">
-              <Link className="nav-link d-flex align-items-center" to="/about">
+              <Link
+                className={`${isActive("/about")} d-flex align-items-center`}
+                to="/about"
+              >
                 <FaAddressCard className="me-1" />
                 About Me
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link d-flex align-items-center"
+                className={`${isActive("/projects")} d-flex align-items-center`}
                 to="/projects"
               >
                 <MdOutlineWork className="me-1" />
@@ -54,7 +70,7 @@ function PagesNavbar() {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link d-flex align-items-center"
+                className={`${isActive("/service")} d-flex align-items-center`}
                 to="/service"
               >
                 <MdHomeRepairService className="me-1" />
@@ -63,7 +79,7 @@ function PagesNavbar() {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link d-flex align-items-center"
+                className={`${isActive("/contact")} d-flex align-items-center`}
                 to="/contact"
               >
                 <BiSolidContact className="me-1" />
@@ -72,7 +88,7 @@ function PagesNavbar() {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link d-flex align-items-center"
+                className={`${isActive("/store")} d-flex align-items-center`}
                 to="/store"
               >
                 <BiStore className="me-1" />

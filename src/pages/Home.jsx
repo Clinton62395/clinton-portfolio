@@ -3,6 +3,7 @@ import TypingText from "../components/TypingEffect";
 import BackgroundParticles from "../components/Animation";
 import Loader from "../components/Loader";
 import { BiDownload } from "react-icons/bi";
+import { FaBookOpenReader } from "react-icons/fa6";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -75,15 +76,31 @@ function Home() {
         <p className="bi-text-base sm:bi-text-lg bi-mb-6">
           Cliquez sur le bouton ci-dessous pour télécharger mon CV.
         </p>
-        <a
-          href="/cv.pdf"
-          download="Billy_Doumbouya_CV.pdf"
-          className="bi-inline-flex bi-items-center bi-justify-center bi-bg-blue-600 border border-3 border-warning hover:bi-bg-gray-500/50 hover:bi-border-dotted bi-text-white bi-font-semibold bi-px-6 bi-py-3 bi-rounded-full bi-gap-2 bi-transition bi-duration-300 animate bi-transform hover:bi-scale-105 hover:bi-animate-pulse animate__animated animate__infinite animate__pulse"
-          style={{ width: "250px", margin: "auto" }}
-        >
-          <BiDownload className="bi-text-xl" />
-          Télécharger le CV
-        </a>
+        <div className="bi-mb-4 bi-flex bi-flex-wrap bi-gap-4 sm:bi-gap-6 md:bi-gap-8 lg:bi-gap-10 bi-items-center bi-justify-center">
+          <a
+            href="/Billy-Doumbouya-FlowCV-Resume-20250526.pdf"
+            download="b"
+            className="bi-inline-flex bi-items-center bi-justify-center bi-bg-blue-600 border border-3 border-warning hover:bi-bg-gray-500/50 hover:bi-border-dotted bi-text-white bi-font-semibold bi-px-6 bi-py-3 bi-rounded-full bi-gap-2 bi-transition bi-duration-300 animate bi-transform hover:bi-scale-105 hover:bi-animate-pulse animate__animated animate__infinite animate__pulse"
+            style={{ width: "250px", margin: "auto" }}
+          >
+            <BiDownload size={20}/>
+            Télécharger le CV
+          </a>
+
+          <button
+            onClick={() =>
+              window.open(
+                "/Billy-Doumbouya-FlowCV-Resume-20250526.pdf",
+                "_blank"
+              )
+            }
+            className="bi-flex bi-items-center bi-justify-center  bg-blue-600 border-3 border-warning hover:bi-bg-gray-500/50 hover:bi-border-dotted bi-text-white bi-font-semibold bi-px-6 bi-py-3 bi-rounded-full gap-2 bi-transition duration-300 bi-transform hover:bi-scale-105 hover:bi-animate-pulse"
+            style={{ width: "250px", margin: "auto" }}
+          >
+            <FaBookOpenReader size={20}  />
+            Ouvrir le CV ici 
+          </button>
+        </div>
       </section>
     </>
   );
