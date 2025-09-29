@@ -11,8 +11,9 @@ import {
   FaReact,
   FaGitAlt,
   FaGithub,
+  FaNodeJs,
 } from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
+import { SiTailwindcss, SiMongodb, SiExpress } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 function About() {
   // la barre de progression de mes competences en languages
@@ -34,6 +35,27 @@ function About() {
           title: "JavaScript",
           icon: <FaJsSquare className="bi-text-yellow-400  icone-rotate" />,
           value: 40,
+        },
+      ],
+    },
+    // Backend Technologies
+    {
+      Categories: "Backend Technologies",
+      Langages: [
+        {
+          title: "Node.js",
+          icon: <FaNodeJs className="bi-text-green-500 icone-rotate" />,
+          value: 65,
+        },
+        {
+          title: "MongoDB",
+          icon: <SiMongodb className="bi-text-green-600 icone-rotate" />,
+          value: 60,
+        },
+        {
+          title: "Express.js",
+          icon: <SiExpress className="bi-text-gray-400 icone-rotate" />,
+          value: 70,
         },
       ],
     },
