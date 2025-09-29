@@ -8,6 +8,7 @@ import neipaltel from "../assets/neipal.png";
 import Netflix from "../assets/netflix.png";
 import pinterest from "../assets/pinterest.png";
 import whatsapp from "../assets/whasapp.png";
+import affinesale from "../assets/affinesale.png";
 import { FaCode } from "react-icons/fa";
 import { GiLookAt } from "react-icons/gi";
 import AutoScrollLogos from "../components/ImageAnime";
@@ -19,7 +20,7 @@ function Projects() {
       description:
         "Modern vacation rental platform featuring property listings, advanced search filters, booking calendar, and user authentication. Built with React.js and responsive design for seamless mobile experience.",
       image: airbnb,
-      demo: "https://clinton62395.github.io/clinton-projects/",
+      demo: "https://airbnb-web-site.vercel.app/",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/",
       technologies: ["React.js", "CSS3", "JavaScript", "Responsive Design"],
       features: [
@@ -35,7 +36,7 @@ function Projects() {
       description:
         "Comprehensive team collaboration tool with task management, project tracking, team workflows, and progress monitoring. Features modern dashboard interface and intuitive user experience design.",
       image: asana,
-      demo: "https://clinton62395.github.io/clinton-projects/Asana/",
+      demo: "https://asana-project-web.vercel.app/",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Asana",
       technologies: [
         "React.js",
@@ -56,7 +57,7 @@ function Projects() {
       description:
         "Secure file sharing and storage solution with drag-and-drop functionality, folder organization, and file management system. Clean, professional interface optimized for business productivity.",
       image: dropbox,
-      demo: "https://clinton62395.github.io/clinton-projects/Dropbox/",
+      demo: "https://dropbox-web-five.vercel.app/",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Dropbox",
       technologies: [
         "React.js",
@@ -77,7 +78,7 @@ function Projects() {
       description:
         "Interactive e-learning website with course catalog, progress tracking, and educational content management. Features engaging user interface and optimized learning experience for students and educators.",
       image: khan_academy,
-      demo: "https://clinton62395.github.io/clinton-projects/Khan-academy/",
+      demo: "https://khan-academy-web-site.vercel.app/",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Khan-academy",
       technologies: [
         "React.js",
@@ -98,7 +99,7 @@ function Projects() {
       description:
         "Modern personal portfolio showcasing professional skills, projects, and expertise. Features elegant design, smooth animations, and optimized performance for personal branding and client acquisition.",
       image: neipaltel,
-      demo: "https://clinton62395.github.io/clinton-projects/Neipatel/",
+      demo: "https://neipatel-web-site.vercel.app",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Neipatel",
       technologies: [
         "React.js",
@@ -119,7 +120,7 @@ function Projects() {
       description:
         "Pinterest-inspired social platform for visual content sharing with image galleries, user profiles, and discovery features. Implements modern grid layouts and infinite scrolling for optimal user engagement.",
       image: pinterest,
-      demo: "https://clinton62395.github.io/clinton-projects/Pinterest/",
+      demo: "https://pinterest-web-site.vercel.app/",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Pinterest",
       technologies: [
         "React.js",
@@ -140,7 +141,7 @@ function Projects() {
       description:
         "WhatsApp-inspired chat application with real-time messaging, user status, and modern communication interface. Features responsive design and optimized for both desktop and mobile platforms.",
       image: whatsapp,
-      demo: "https://clinton62395.github.io/clinton-projects/Whatsapp/",
+      demo: "https://whasapp-landing-page.vercel.app/",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Whatsapp",
       technologies: [
         "React.js",
@@ -157,11 +158,34 @@ function Projects() {
     },
 
     {
+      title: "AfineSale - E-commerce Affiliate Platform",
+      description:
+        "AfineSale is my first fullstack project — an innovative e-commerce affiliate platform. It features a comprehensive system for managing products, commissions, and partners. Built with a modern architecture and advanced e-commerce functionalities.",
+      image: affinesale,
+      demo: "https://affinesale-web-site.vercel.app/",
+      code: "https://github.com/Clinton62395/clinton-projects/tree/master/AffineSale",
+      technologies: [
+        "React.js",
+        "Node.js",
+        "MongoDB",
+        "Express.js",
+        "Authentication",
+        "Payment Integration",
+      ],
+      features: [
+        "Affiliate System",
+        "Dashboard",
+        "Commission Management",
+        "Sales Tracking",
+      ],
+    },
+
+    {
       title: "Video Streaming Platform",
       description:
         "Netflix-inspired streaming service with video player, content categories, user authentication, and personalized recommendations. Built with modern React architecture and optimized for video content delivery.",
       image: Netflix,
-      demo: "https://clinton62395.github.io/clinton-projects/Netflix",
+      demo: "https://netflix-web-site-three.vercel.app/",
       code: "https://github.com/Clinton62395/clinton-projects/tree/master/Netflix",
       technologies: [
         "React.js",
@@ -183,7 +207,7 @@ function Projects() {
         "Collection of dynamic web applications built with vanilla JavaScript showcasing DOM manipulation, API integrations, and interactive user interfaces. Demonstrates strong foundation in core web technologies.",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtgzsGkfT4EzquXh4TCm66xky7OSITGbUZ-g&s",
-      demo: "https://clinton62395.github.io/javascript-class/",
+      demo: "https://javascript-class-delta.vercel.app/",
       code: "https://github.com/Clinton62395/javascript-class/tree/master/",
       technologies: [
         "Vanilla JavaScript",
@@ -205,7 +229,7 @@ function Projects() {
       <BackgroundParticles />
 
       <div
-        className="bi-relative bi-h-full bi-z-10 bi-h-full bi-container bi-mx-auto bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-24"
+        className="bi-relative  bi-z-10 bi-h-full bi-container bi-mx-auto bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-24"
         id="projects"
       >
         <div>
