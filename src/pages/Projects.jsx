@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundParticles from "../components/Animation";
+import BackgroundParticles from "../components/Animation.jsx";
 import airbnb from "../assets/airbnb.png";
 import dropbox from "../assets/dropbox.png";
 import asana from "../assets/asana.png";
