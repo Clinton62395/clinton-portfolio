@@ -162,7 +162,7 @@ function Projects() {
       description:
         "AfineSale is my first fullstack project — an innovative e-commerce affiliate platform. It features a comprehensive system for managing products, commissions, and partners. Built with a modern architecture and advanced e-commerce functionalities.",
       image: affinesale,
-      demo: "https://affinesale-web-site.vercel.app/",
+      demo: "https://affinatesale.vercel.app/",
       code: "https://github.com/clinton62395/Affinatesale",
       technologies: [
         "React.js",
@@ -170,7 +170,7 @@ function Projects() {
         "MongoDB",
         "Express.js",
         "Authentication",
-        "Payment Integration",
+        "Internal Payment Integration",
       ],
       features: [
         "Affiliate System",
