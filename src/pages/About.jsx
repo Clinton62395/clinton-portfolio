@@ -1,13 +1,12 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import ProgressBar from "react-bootstrap/ProgressBar";
+// React-Bootstrap removed: using Tailwind CSS utilities instead
 import "aos/dist/aos.css";
 import BackgroundParticles from "../components/Animation.jsx";
 import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
-  FaBootstrap,
+  // FaBootstrap removed (migrated to Tailwind)
   FaReact,
   FaGitAlt,
   FaGithub,
@@ -23,17 +22,17 @@ function About() {
       Langages: [
         {
           title: "HTML5",
-          icon: <FaHtml5 className="bi-text-red-500 icone-rotate" />,
+          icon: <FaHtml5 className="text-red-500 icone-rotate" />,
           value: 80,
         },
         {
           title: "CSS3",
-          icon: <FaCss3Alt className="bi-text-blue-500  icone-rotate" />,
+          icon: <FaCss3Alt className="text-blue-500 icone-rotate" />,
           value: 70,
         },
         {
           title: "JavaScript",
-          icon: <FaJsSquare className="bi-text-yellow-400  icone-rotate" />,
+          icon: <FaJsSquare className="text-yellow-400 icone-rotate" />,
           value: 40,
         },
       ],
@@ -44,17 +43,17 @@ function About() {
       Langages: [
         {
           title: "Node.js",
-          icon: <FaNodeJs className="bi-text-green-500 icone-rotate" />,
+          icon: <FaNodeJs className="text-green-500 icone-rotate" />,
           value: 65,
         },
         {
           title: "MongoDB",
-          icon: <SiMongodb className="bi-text-green-600 icone-rotate" />,
+          icon: <SiMongodb className="text-green-600 icone-rotate" />,
           value: 60,
         },
         {
           title: "Express.js",
-          icon: <SiExpress className="bi-text-gray-400 icone-rotate" />,
+          icon: <SiExpress className="text-gray-400 icone-rotate" />,
           value: 70,
         },
       ],
@@ -65,17 +64,17 @@ function About() {
       Langages: [
         {
           title: "React JS",
-          icon: <FaReact className="bi-text-blue-400 icone-rotate" />,
+          icon: <FaReact className="text-blue-400 icone-rotate" />,
           value: 50,
         },
         {
-          title: "Bootstrap",
-          icon: <FaBootstrap className="bi-text-purple-500  icone-rotate" />,
-          value: 70,
+          title: "Tailwind CSS",
+          icon: <SiTailwindcss className="text-cyan-400 icone-rotate" />,
+          value: 85,
         },
         {
           title: "Tailwind CSS",
-          icon: <SiTailwindcss className="bi-text-cyan-400  icone-rotate" />,
+          icon: <SiTailwindcss className="text-cyan-400 icone-rotate" />,
           value: 60,
         },
       ],
@@ -86,17 +85,17 @@ function About() {
       Langages: [
         {
           title: "Git",
-          icon: <FaGitAlt className="bi-text-orange-500 icone-rotate" />,
+          icon: <FaGitAlt className="text-orange-500 icone-rotate" />,
           value: 60,
         },
         {
           title: "GitHub",
-          icon: <FaGithub className="bi-text-white-500 icone-rotate" />,
+          icon: <FaGithub className="text-white icone-rotate" />,
           value: 55,
         },
         {
           title: "Visual Studio Code",
-          icon: <VscVscode className="bi-text-blue-500  icone-rotate" />,
+          icon: <VscVscode className="text-blue-500 icone-rotate" />,
           value: 80,
         },
       ],
@@ -104,24 +103,24 @@ function About() {
   ];
   return (
     <>
-      <div className="bi-relative bi-h-screen bi-bg-[#0a192f] bi-text-white bi-px-6 bi-py-10 bi-flex bi-items-center bi-justify-center bi-mt-20 ">
+      <div className="relative h-screen bg-[#0a192f] text-white px-6 py-10 flex items-center justify-center mt-20">
         <BackgroundParticles />
 
         <div
-          className="bi-relative bi-z-10 bi-max-w-4xl bi-bg-black-500/80 bi-backdrop-blur-md bi-p-8 bi-rounded-xl bi-shadow-md bi-shadow-yellow-700/50 bi-text-justify"
+          className="relative z-10 max-w-4xl bg-black/80 backdrop-blur-md p-8 rounded-xl shadow-md shadow-yellow-700/50 text-justify"
           data-aos="fade-up"
         >
           <h1
-            className="bi-text-2xl bi-left-10 md:bi-text-4xl bi-font-extrabold bi-text-orange-400 bi-mb-6 border-b underling-center bi-border-orange-500 bi-pb-2 bi-text-center"
+            className="text-2xl left-10 md:text-4xl font-extrabold text-orange-400 mb-6 border-b border-orange-500 pb-2 text-center"
             data-aos="fade-right"
             data-aos-delay="800"
           >
             À propos de moi
           </h1>
-          <p className="bi-text-lg bi-leading-relaxed bi-mb-4">
+          <p className="text-lg leading-relaxed mb-4">
             Je suis{" "}
             <span
-              className="bi-font-semibold bi-text-blue-400"
+              className="font-semibold text-blue-400"
               data-aos="fade-left"
               data-aos-delay="800"
             >
@@ -133,7 +132,7 @@ function About() {
           </p>
 
           <p
-            className="bi-text-lg bi-leading-relaxed bi-mb-4"
+            className="text-lg leading-relaxed mb-4"
             data-aos="w=fade-right"
             data-aos-delay="800"
           >
@@ -143,7 +142,7 @@ function About() {
           </p>
 
           <p
-            className="bi-text-lg bi-leading-relaxed bi-mb-4"
+            className="text-lg leading-relaxed mb-4"
             data-aos="fade-bottom"
             data-aos-delay="800"
           >
@@ -154,43 +153,42 @@ function About() {
         </div>
       </div>
       <hr
-        className="bi-border-yellow-500 bi-border-[10px] bi-mx-24 bi-my-5"
+        className="border-yellow-500 border-[10px] mx-24 my-5"
         data-aos="zoom-out"
         data-aos-duration="1000"
       />
       {/* sections des competences */}
 
       <div
-        className="bi-relative bi-container bi-p-y-5  bi-mx-auto bi-text-white bi-mb-52 md:bi-d-flex bi-justify-center bi-items-center"
+        className="relative container py-5 mx-auto text-white mb-52 md:flex justify-center items-center"
         id="skills"
       >
         <h2
-          className="bi-text-3xl bi-left-10 md:bi-text-4xl bi-font-bold bi-text-center bi-text-orange-400 bi-mb-12 underling-center"
+          className="text-3xl left-10 md:text-4xl font-bold text-center text-orange-400 mb-12"
           data-aos="fade-up"
         >
           Mes Compétences
         </h2>
 
-        <div className=" bi-grid bi-grid-cols-1 md:bi-grid-cols-3 bi-gap-5  bi-rounded-xl bi-p-5 bi-shadow-lg bi-shadow-yellow-500/30 bi-m-x-auto bi-mt-10 bi-space-x-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 rounded-xl p-5 shadow-lg shadow-yellow-500/30 mx-auto mt-10">
           {/* Langages */}
-          <div className="bi-border-b-2 md:bi-border-r-2 bi-border-yellow-500/30 bi-pr-2">
+          <div className="border-b-2 md:border-r-2 border-yellow-500/30 pr-2">
             <h3
-              className="
-          className= bi-text-3xl md:bi-text-4xl bi-left-0 md:bi-text-4xl bi-font-semibold bi-text-yellow-400 bi-mb-4  underling-cente"
+              className="text-3xl md:text-4xl left-0 font-semibold text-yellow-400 mb-4"
               data-aos="fade-left"
               data-aos-delay="500"
             >
               Langages
             </h3>
-            <ul className="bi-space-y-2">
-              <li className="bi-flex bi-items-center">
-                <FaHtml5 className="bi-text-red-500 bi-mr-2" /> HTML5
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <FaHtml5 className="text-red-500 mr-2" /> HTML5
               </li>
-              <li className="bi-flex bi-items-center">
-                <FaCss3Alt className="bi-text-blue-500 bi-mr-2" /> CSS3
+              <li className="flex items-center">
+                <FaCss3Alt className="text-blue-500 mr-2" /> CSS3
               </li>
-              <li className="bi-flex bi-items-center">
-                <FaJsSquare className="bi-text-yellow-400 bi-mr-2" /> JavaScript
+              <li className="flex items-center">
+                <FaJsSquare className="text-yellow-400 mr-2" /> JavaScript
                 (ES6+)
               </li>
             </ul>
@@ -198,55 +196,52 @@ function About() {
 
           {/* Frameworks & Librairies */}
           <div
-            className="bi-border-b-2 md:bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
+            className="border-b-2 md:border-r-2 border-yellow-500/30 pr-2"
             data-aos="zoom-in"
             data-aos-delay="200"
           >
             <h3
-              className="bi-text-3xl bi-left-0 md:bi-text-4xl bi-font-semibold bi-text-yellow-400 bi-mb-2  underling-cente"
+              className="text-3xl left-0 md:text-4xl font-semibold text-yellow-400 mb-2"
               data-aos="fade-right"
               data-aos-delay="500"
             >
               Frameworks
             </h3>
-            <ul className="bi-space-y-2">
-              <li className="bi-flex bi-items-center">
-                <FaBootstrap className="bi-text-purple-500 bi-mr-2" /> Bootstrap
-                5
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <SiTailwindcss className="text-cyan-400 mr-2" /> Tailwind CSS 5
               </li>
-              <li className="bi-flex bi-items-center">
-                <SiTailwindcss className="bi-text-cyan-400 bi-mr-2" /> Tailwind
-                CSS
+              <li className="flex items-center">
+                <SiTailwindcss className="text-cyan-400 mr-2" /> Tailwind CSS
               </li>
-              <li className="bi-flex bi-items-center">
-                <FaReact className="bi-text-blue-400 bi-mr-2" /> React JS
+              <li className="flex items-center">
+                <FaReact className="text-blue-400 mr-2" /> React JS
               </li>
             </ul>
           </div>
 
           {/* Outils & Méthodes */}
           <div
-            className="bi-border-b-2 md:bi-border-r-2 bi-border-yellow-500/30 bi-pr-2"
+            className="border-b-2 md:border-r-2 border-yellow-500/30 pr-2"
             data-aos="fade-left"
             data-aos-delay="300"
           >
             <h3
-              className="bi-text-3xl bi-left-0 md:bi-text-4xl bi-font-semibold bi-text-yellow-400 bi-mb-4 underling-cente"
+              className="text-3xl left-0 md:text-4xl font-semibold text-yellow-400 mb-4"
               data-aos="fade-right"
             >
               Outils
             </h3>
-            <ul className="bi-space-y-2">
-              <li className="bi-flex bi-items-center">
-                <FaGitAlt className="bi-text-orange-500 bi-mr-2" /> Git
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <FaGitAlt className="text-orange-500 mr-2" /> Git
               </li>
-              <li className="bi-flex bi-items-center">
-                <FaGithub className="bi-text-white-500 bi-mr-2" />
+              <li className="flex items-center">
+                <FaGithub className="text-white mr-2" />
                 GitHub
               </li>
-              <li className="bi-flex bi-items-center">
-                <VscVscode className="bi-text-blue-500 bi-mr-2" /> Visual Studio
-                Code
+              <li className="flex items-center">
+                <VscVscode className="text-blue-500 mr-2" /> Visual Studio Code
               </li>
             </ul>
           </div>
@@ -258,45 +253,46 @@ function About() {
       {skillsCategories.map((category, index) => (
         <div
           key={index}
-          className="bi-mt-10 bi-container bi-mx-auto bi-p-5 bi-bg-black/50 bi-backdrop-blur-md bi-rounded-xl bi-shadow-lg  bi-shadow-yellow-500/30"
+          className="mt-10 container mx-auto p-5 bg-black/50 backdrop-blur-md rounded-xl shadow-lg shadow-yellow-500/30"
         >
-          <h3 className="bi-text-2xl bi-font-semibold bi-text-yellow-400 bi-mb-4 bi-text-center">
+          <h3 className="text-2xl font-semibold text-yellow-400 mb-4 text-center">
             {category.Categories}
           </h3>
 
-          <Row className="gap-5 d-flex bi-justify-center bi-items-center flex-wrap">
+          <div className="flex flex-wrap gap-5 justify-center items-center">
             {category.Langages.map((skill, idx) => (
-              <Col key={idx} md={3}>
+              <div key={idx} className="w-full md:w-1/4">
                 <div
                   data-aos="fade-up"
                   data-aos-delay={idx * 100}
-                  className="bi-p-4 bi-bg-gray-800/50 bi-rounded-lg bi-shadow-md bi-shadow-yellow-500/30 bi-text-white bi-text-center bi-transition-transform bi-duration-300 bi-transform bi-hover:-translate-y-2 bi-hover:scale-105"
+                  className="p-4 bg-gray-800/50 rounded-lg shadow-md shadow-yellow-500/30 text-white text-center transition-transform duration-300 transform hover:-translate-y-2 hover:scale-105"
                 >
                   {/* Icône colorée et centrée */}
-                  <div className="bi-text-4xl bi-mb-2 bi-text-center d-flex bi-items-center bi-justify-center">
+                  <div className="text-4xl mb-2 text-center d-flex items-center justify-center">
                     {skill.icon}
                   </div>
 
                   {/* Titre */}
-                  <div className="bi-text-lg bi-font-semibold bi-mb-2 bi-text-center">
+                  <div className="text-lg font-semibold mb-2 text-center">
                     {skill.title}
                   </div>
 
                   {/* Pourcentage + barre */}
-                  <div className="bi-flex bi-items-center bi-justify-between bi-text-sm bi-mb-1">
-                    <span className="bi-text-gray-300">Level</span>
+                  <div className="flex items-center justify-between text-sm mb-1">
+                    <span className="text-gray-300">Level</span>
                     <span>{skill.value}%</span>
                   </div>
-                  <ProgressBar
-                    animated
-                    now={skill.value}
-                    variant="warning"
-                    className="bi-h-6 bi-rounded-full bi-bg-yellow-500/30"
-                  />
+                  {/* Custom Tailwind progress bar */}
+                  <div className="w-full bg-gray-700/30 rounded-full h-3">
+                    <div
+                      className="bg-yellow-400 h-3 rounded-full transition-all duration-700"
+                      style={{ width: `${skill.value}%` }}
+                    />
+                  </div>
                 </div>
-              </Col>
+              </div>
             ))}
-          </Row>
+          </div>
         </div>
       ))}
     </>

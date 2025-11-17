@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import TypingText from "../components/TypingEffect.jsx";
 import BackgroundParticles from "../components/Animation.jsx";
 import Loader from "../components/Loader.jsx";
@@ -19,89 +20,204 @@ function Home() {
     return <Loader />;
   }
 
+  // Variants d'animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotate: -10 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.3,
+        yoyo: Infinity
+      }
+    },
+    tap: { scale: 0.95 }
+  };
+
   return (
     <>
-      <div className="bi-overflow-x-hidden bi-mt-24">
+      <div className="overflow-x-hidden mt-24">
         <BackgroundParticles />
 
-        <div className="bi-relative bi-pt-5 bi-mt-5 bi-w-full bi-flex bi-mt-24 bi-mx-auto bi-bg-gradient-to-r  bi-from-gray-500/10 bi-via-gray-900/50 bi-to-blue-500/10 bi-backdrop-blur bi-py-10 bi-rounded-lg bi-shadow-lg bi-shadow-blue-500/50 bi-py-24  md:pt-24">
-          <div className="bi-flex bi-flex-col-reverse lg:bi-flex-row bi-items-center bi-justify-center bi-gap-24 ">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="relative pt-5 mt-5 w-full flex mt-24 mx-auto bg-gradient-to-r from-gray-500/10 via-gray-900/50 to-blue-500/10 backdrop-blur py-10 rounded-lg shadow-lg shadow-blue-500/50 py-24 md:pt-24"
+        >
+          <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-24">
             {/* Texte */}
-            <div className="bi-text-lg md:bi-text-xl bi-w-full bi-text-center lg:bi-text-left bi-text-white bi-mx-auto bi-px-10">
-              <h1 className="bi-text-5xl md:bi-text-6xl bi-font-bold bi-mb-5 bi-text-center bi-bg-gradient-to-r bi-from-yellow-500 bi-via-purple-500 bi-to-green-500 bi-text-transparent bi-bg-clip-text">
+            <motion.div
+              variants={itemVariants}
+              className="text-lg md:text-xl w-full text-center lg:text-left text-white mx-auto px-10"
+            >
+              <motion.h1
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-5xl md:text-6xl font-bold mb-5 text-center bg-gradient-to-r from-yellow-500 via-purple-500 to-green-500 text-transparent bg-clip-text"
+              >
                 Bonjour !
-              </h1>
-              <span className="bi-text-2xl md:bi-text-5xl bi-font-semibold md:bi-text-yellow-500 bi-block bi-mb-4 md:bi-text-center bi-max-w-xl mb-5">
+              </motion.h1>
+
+              <motion.span
+                variants={itemVariants}
+                className="text-2xl md:text-5xl font-semibold md:text-yellow-500 block mb-4 md:text-center max-w-xl mb-5"
+              >
                 Bienvenue sur mon portfolio
-              </span>
-              <p className=" bi-text-center sm:bi-text-lg md:bi-text-xl bi-text-light bi-mb-4 bi-max-w-xl bi-mx-auto lg:bi-mx-5 bi-text-center bi-leading-relaxed">
+              </motion.span>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-center sm:text-lg md:text-xl text-light mb-4 max-w-xl mx-auto lg:mx-5 text-center leading-relaxed"
+              >
                 Je m'appelle{" "}
-                <span>
-                  {" "}
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.5 }}
+                >
                   <strong>Billy Doumbouya</strong>
-                </span>
+                </motion.span>
                 . Passionné par le développement web et les technologies
                 modernes, je conçois des interfaces interactives, dynamiques et
                 efficaces.
-              </p>
-              <p className="sm:bi-text-lg  md:bi-text-xl bi-text-light bi-mb-4 bi-max-w-xl bi-mx-auto lg:bi-mx-5 bi-text-center bi-leading-relaxed">
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="sm:text-lg md:text-xl text-light mb-4 max-w-xl mx-auto lg:mx-5 text-center leading-relaxed"
+              >
                 Parcourez mes projets, découvrez mes compétences et n'hésitez
                 pas à me contacter pour une collaboration.
-              </p>
+              </motion.p>
 
-              <div className="bi-absolute bi-mt-4  bi-left-0 bi-px-2 md:bi-mx-auto  md:bi-left-24 ">
+              <motion.div
+                variants={itemVariants}
+                className="absolute mt-4 left-0 px-2 md:mx-auto md:left-24"
+              >
                 <TypingText />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Image */}
-            <div className="bi-w-full sm:bi-w-72 md:bi-w-1/2 bi-mx-auto bi-h-auto]  ">
+            <motion.div
+              variants={imageVariants}
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ duration: 0.3 }}
+              className="w-full sm:w-72 md:w-1/2 mx-auto h-auto"
+            >
               <img
                 src="/image.png"
                 alt="ma photo"
-                className="bi-w-full bi-rounded"
+                className="w-full rounded"
               />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
+
       {/* Section Télécharger le CV */}
-      <section
-        className="bi-relative bi-w-full sm:bi-mx-auto bi-text-white bi-py-10 bi-px-4 bi-text-center bi-rounded bi-shadow-lg bi-shadow-blue bi-backdrop-blur bi-bg-gradient-to-r bi-from-teal-500/50 bi-via-dark bi-to-purple-500/50 bi-pt-24 bi-mb-24 bi-mt-24"
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+        className="relative w-full sm:mx-auto text-white py-10 px-4 text-center rounded shadow-lg shadow-blue backdrop-blur bg-gradient-to-r from-teal-500/50 via-dark to-purple-500/50 pt-24 mb-24 mt-24"
         id="cv"
       >
-        <h2 className="bi-text-2xl sm:bi-text-3xl bi-font-bold bi-mb-4">
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-2xl sm:text-3xl font-bold mb-4"
+        >
           Téléchargez mon CV
-        </h2>
-        <p className="bi-text-base sm:bi-text-lg bi-mb-6">
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-base sm:text-lg mb-6"
+        >
           Cliquez sur le bouton ci-dessous pour télécharger mon CV.
-        </p>
-        <div className="bi-mb-4 bi-flex bi-flex-wrap bi-gap-4 sm:bi-gap-6 md:bi-gap-8 lg:bi-gap-10 bi-items-center bi-justify-center">
-          <a
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mb-4 flex flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-10 items-center justify-center"
+        >
+          <motion.a
             href="/Billy-Doumbouya-FlowCV-Resume-20250526.pdf"
             download="b"
-            className="bi-inline-flex bi-items-center bi-justify-center bi-bg-blue-600 border border-3 border-warning hover:bi-bg-gray-500/50 hover:bi-border-dotted bi-text-white bi-font-semibold bi-px-6 bi-py-3 bi-rounded-full bi-gap-2 bi-transition bi-duration-300 animate bi-transform hover:bi-scale-105 hover:bi-animate-pulse animate__animated animate__infinite animate__pulse"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            className="inline-flex items-center justify-center bg-blue-600 border border-3 border-warning hover:bg-gray-500/50 hover:border-dotted text-white font-semibold px-6 py-3 rounded-full gap-2 transition duration-300"
             style={{ width: "250px", margin: "auto" }}
           >
             <BiDownload size={20} />
             Télécharger le CV
-          </a>
+          </motion.a>
 
-          <button
+          <motion.button
             onClick={() =>
               window.open(
                 "/Billy-Doumbouya-FlowCV-Resume-20250526.pdf",
                 "_blank"
               )
             }
-            className="bi-flex bi-items-center bi-justify-center  bg-blue-600 border-3 border-warning hover:bi-bg-gray-500/50 hover:bi-border-dotted bi-text-white bi-font-semibold bi-px-6 bi-py-3 bi-rounded-full gap-2 bi-transition duration-300 bi-transform hover:bi-scale-105 hover:bi-animate-pulse"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            className="flex items-center justify-center bg-blue-600 border-3 border-warning hover:bg-gray-500/50 hover:border-dotted text-white font-semibold px-6 py-3 rounded-full gap-2 transition duration-300"
             style={{ width: "250px", margin: "auto" }}
           >
             <FaBookOpenReader size={20} />
             Ouvrir le CV ici
-          </button>
-        </div>
-      </section>
+          </motion.button>
+        </motion.div>
+      </motion.section>
     </>
   );
 }

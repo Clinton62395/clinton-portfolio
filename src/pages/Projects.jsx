@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import BackgroundParticles from "../components/Animation.jsx";
 import airbnb from "../assets/airbnb.png";
 import dropbox from "../assets/dropbox.png";
@@ -224,96 +225,229 @@ function Projects() {
     },
   ];
 
+  // Variants d'animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const imageVariants = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.4,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        yoyo: Infinity
+      }
+    },
+    tap: { scale: 0.95 }
+  };
+
+  const techBadgeVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: (i) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: i * 0.05,
+        duration: 0.3,
+        ease: "backOut"
+      }
+    }),
+    hover: {
+      scale: 1.1,
+      backgroundColor: "rgba(59, 130, 246, 0.4)",
+      transition: { duration: 0.2 }
+    }
+  };
+
   return (
     <>
       <BackgroundParticles />
 
-      <div
-        className="bi-relative  bi-z-10 bi-h-full bi-container bi-mx-auto bi-bg-black-500/50 bi-shadow-lg bi-shadow-blue-500/50 bi-backdrop-blur bi-flex bi-items-center bi-justify-center bi-p-10 bi-mt-24"
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 h-full container mx-auto bg-black/50 shadow-lg shadow-blue-500/50 backdrop-blur flex items-center justify-center p-10 mt-24"
         id="projects"
       >
         <div>
-          <h2 className="bi-text-4xl bi-font-bold bi-text-orange-400 bi-text-center bi-mb-8 hover:bi-animate-bounce">
+          <motion.h2
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            whileHover={{ scale: 1.05 }}
+            className="text-4xl font-bold text-orange-400 text-center mb-8"
+          >
             Professional Projects Portfolio
-          </h2>
-          <p className="bi-text-gray-300 bi-text-center bi-mb-12 bi-max-w-2xl bi-mx-auto">
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-gray-300 text-center mb-12 max-w-2xl mx-auto"
+          >
             Discover my collection of modern web applications built with
             cutting-edge technologies. Each project demonstrates expertise in
             React.js, responsive design, and user-centered development.
-          </p>
+          </motion.p>
 
-          <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-2 lg:bi-grid-cols-3 bi-gap-10 bi-place-items-center bi-space-y-5 animate__animated animate__fadeIn animate__delay-1s animate__slow">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center"
+          >
             {projects.map((project, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bi-backdrop-blur border-2 bi-border-dashed border-warning bi-rounded-lg bi-shadow-md bi-text-center bi-shadow-white-500/50 bi-p-5 gap-5 bi-transition-transform bi-duration-300 hover:bi-shadow-lg hover:bi-shadow-yellow-500/50 hover:bi-scale-105 bi-h-full bi-flex bi-flex-col"
+                variants={cardVariants}
+                whileHover={{ 
+                  y: -10,
+                  boxShadow: "0 20px 40px rgba(251, 191, 36, 0.3)"
+                }}
+                className="backdrop-blur border-2 border-dashed border-yellow-400 rounded-lg shadow-md text-center shadow-white-500/50 p-5 gap-5 transition-transform duration-300 h-full flex flex-col w-full"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="bi-w-full bi-h-40 bi-object-cover bi-rounded-lg bi-transition-transform bi-duration-300 bi-hover:bi-scale-105 hover:bi-backdrop-blur image-backdrop"
-                />
+                <motion.div
+                  className="overflow-hidden rounded-lg"
+                  whileHover="hover"
+                >
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    variants={imageVariants}
+                    className="w-full h-40 object-cover rounded-lg"
+                  />
+                </motion.div>
 
-                <h3 className="bi-text-xl bi-font-bold bi-text-orange-400 bi-mt-4">
+                <motion.h3
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.1 + 0.5 }}
+                  className="text-xl font-bold text-orange-400 mt-4"
+                >
                   {project.title}
-                </h3>
+                </motion.h3>
 
-                <p className="bi-text-gray-300 bi-text-sm bi-leading-relaxed bi-mb-3 bi-flex-grow">
+                <p className="text-gray-300 text-sm leading-relaxed mb-3 flex-grow">
                   {project.description}
                 </p>
 
                 {/* Technologies utilisées */}
                 {project.technologies && (
-                  <div className="bi-flex bi-flex-wrap bi-justify-center bi-gap-2 bi-mb-4">
+                  <motion.div 
+                    className="flex flex-wrap justify-center gap-2 mb-4"
+                    initial="hidden"
+                    animate="visible"
+                  >
                     {project.technologies.map((tech, techIndex) => (
-                      <span
+                      <motion.span
                         key={techIndex}
-                        className="bi-bg-blue-500/20 bi-text-blue-300 bi-px-2 bi-py-1 bi-rounded-full bi-text-xs"
+                        custom={techIndex}
+                        variants={techBadgeVariants}
+                        whileHover="hover"
+                        className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs cursor-default"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Features principales */}
                 {project.features && (
-                  <div className="bi-grid bi-grid-cols-2 bi-gap-1 bi-text-xs bi-text-gray-400 bi-mb-4">
+                  <motion.div 
+                    className="grid grid-cols-2 gap-1 text-xs text-gray-400 mb-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: index * 0.1 + 0.7 }}
+                  >
                     {project.features.map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className="bi-flex bi-items-center"
+                      <motion.span 
+                        key={featureIndex} 
+                        className="flex items-center"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: featureIndex * 0.05 }}
                       >
-                        <span className="bi-w-1 bi-h-1 bi-bg-orange-400 bi-rounded-full bi-mr-2"></span>
+                        <motion.span 
+                          className="w-1 h-1 bg-orange-400 rounded-full mr-2"
+                          animate={{ scale: [1, 1.5, 1] }}
+                          transition={{ 
+                            repeat: Infinity, 
+                            duration: 2,
+                            delay: featureIndex * 0.2 
+                          }}
+                        />
                         {feature}
-                      </span>
+                      </motion.span>
                     ))}
-                  </div>
+                  </motion.div>
                 )}
 
-                <div className="bi-flex bi-justify-center bi-items-center bi-gap-4 bi-mt-auto">
-                  <a
+                <div className="flex justify-center items-center gap-4 mt-auto">
+                  <motion.a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bi-bg-blue-300/50 bi-px-4 bi-py-2 bi-rounded-lg bi-flex bi-gap-2 bi-justify-center bi-items-center hover:bi-bg-blue-600 bi-text-center bi-transition-colors"
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    className="bg-blue-300/50 px-4 py-2 rounded-lg flex gap-2 justify-center items-center hover:bg-blue-600 text-center transition-colors"
                   >
                     <GiLookAt /> Live Demo
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href={project.code}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bi-bg-green-500/50 bi-px-4 bi-py-2 bi-rounded-lg bi-flex bi-justify-center bi-items-center hover:bi-bg-green-600 bi-text-center bi-gap-2 bi-transition-colors"
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    className="bg-green-500/50 px-4 py-2 rounded-lg flex justify-center items-center hover:bg-green-600 text-center gap-2 transition-colors"
                   >
                     <FaCode /> Source Code
-                  </a>
+                  </motion.a>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* les images en animation */}
       <AutoScrollLogos />

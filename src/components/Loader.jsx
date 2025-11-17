@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Spinner } from "react-bootstrap";
+// Spinner from react-bootstrap removed; using Tailwind + Framer Motion instead
 function Loader() {
   return (
     <>
@@ -19,18 +19,16 @@ function Loader() {
           <h2 className="bi-text-2xl md:bi-text-6xl bi-text-center loader-text">
             Bienvenue sur Mon portfolio
           </h2>
-          <div className="d-flex text-center justify-content-center">
-            <h2 className=" text-muted fs-1 fw-bold bi-text-center mt-5 mb-5">
+          <div className="bi-flex bi-justify-center bi-text-center">
+            <h2 className="bi-text-muted bi-text-3xl bi-font-bold bi-text-center bi-mt-5 bi-mb-5">
               Chargement en cours...{" "}
             </h2>
           </div>
           <span className="bi-text-center bi-flex bi-items-center">
             {" "}
-            <Spinner
-              animation="grow"
-              variant="warning"
-              className="  bi-text-center bi-mx-auto"
-            />{" "}
+            <div className="bi-mx-auto">
+              <div className="bi-w-6 bi-h-6 bi-rounded-full bi-bg-yellow-400 bi-animate-pulse" />
+            </div>
           </span>
         </motion.div>
       </div>
