@@ -1,299 +1,177 @@
 import React from "react";
-// React-Bootstrap removed: using Tailwind CSS utilities instead
 import "aos/dist/aos.css";
-import BackgroundParticles from "../components/Animation.jsx";
 import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
-  // FaBootstrap removed (migrated to Tailwind)
   FaReact,
   FaGitAlt,
   FaGithub,
-  FaNodeJs,
 } from "react-icons/fa";
-import { SiTailwindcss, SiMongodb, SiExpress } from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { skillsCategories } from "../components/data/skillCategory.jsx";
+
 function About() {
-  // la barre de progression de mes competences en languages
-  const skillsCategories = [
-    {
-      Categories: "Web languages",
-      Langages: [
-        {
-          title: "HTML5",
-          icon: <FaHtml5 className="text-red-500 icone-rotate" />,
-          value: 80,
-        },
-        {
-          title: "CSS3",
-          icon: <FaCss3Alt className="text-blue-500 icone-rotate" />,
-          value: 70,
-        },
-        {
-          title: "JavaScript",
-          icon: <FaJsSquare className="text-yellow-400 icone-rotate" />,
-          value: 40,
-        },
-      ],
-    },
-    // Backend Technologies
-    {
-      Categories: "Backend Technologies",
-      Langages: [
-        {
-          title: "Node.js",
-          icon: <FaNodeJs className="text-green-500 icone-rotate" />,
-          value: 65,
-        },
-        {
-          title: "MongoDB",
-          icon: <SiMongodb className="text-green-600 icone-rotate" />,
-          value: 60,
-        },
-        {
-          title: "Express.js",
-          icon: <SiExpress className="text-gray-400 icone-rotate" />,
-          value: 70,
-        },
-      ],
-    },
-    // les frameworks et librairies
-    {
-      Categories: "Frameworks and Libraries",
-      Langages: [
-        {
-          title: "React JS",
-          icon: <FaReact className="text-blue-400 icone-rotate" />,
-          value: 50,
-        },
-        {
-          title: "Tailwind CSS",
-          icon: <SiTailwindcss className="text-cyan-400 icone-rotate" />,
-          value: 85,
-        },
-        {
-          title: "Tailwind CSS",
-          icon: <SiTailwindcss className="text-cyan-400 icone-rotate" />,
-          value: 60,
-        },
-      ],
-    },
-    // les outils et methodes
-    {
-      Categories: "Tools and Methods",
-      Langages: [
-        {
-          title: "Git",
-          icon: <FaGitAlt className="text-orange-500 icone-rotate" />,
-          value: 60,
-        },
-        {
-          title: "GitHub",
-          icon: <FaGithub className="text-white icone-rotate" />,
-          value: 55,
-        },
-        {
-          title: "Visual Studio Code",
-          icon: <VscVscode className="text-blue-500 icone-rotate" />,
-          value: 80,
-        },
-      ],
-    },
-  ];
   return (
     <>
-      <div className="relative h-screen bg-[#0a192f] text-white px-6 py-10 flex items-center justify-center mt-20">
-        <BackgroundParticles />
+      {/* SECTION ABOUT */}
+      <section className="relative min-h-screen flex items-center justify-center px-4 py-24 mt-16">
+        {/* décor gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent pointer-events-none" />
 
         <div
-          className="relative z-10 max-w-4xl bg-black/80 backdrop-blur-md p-8 rounded-xl shadow-md shadow-yellow-700/50 text-justify"
+          className="relative max-w-5xl w-full backdrop-blur-xl 
+          bg-gradient-to-br from-gray-900/50 via-gray-800/30 to-gray-900/50
+          rounded-3xl shadow-2xl border border-white/10 overflow-hidden"
           data-aos="fade-up"
         >
-          <h1
-            className="text-2xl left-10 md:text-4xl font-extrabold text-orange-400 mb-6 border-b border-orange-500 pb-2 text-center"
-            data-aos="fade-right"
-            data-aos-delay="800"
-          >
-            À propos de moi
-          </h1>
-          <p className="text-lg leading-relaxed mb-4">
-            Je suis{" "}
-            <span
-              className="font-semibold text-blue-400"
-              data-aos="fade-left"
-              data-aos-delay="800"
+          {/* ligne gradient */}
+          <div className="h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500" />
+
+          <div className="p-6 sm:p-10 text-justify text-white">
+            <h1
+              className="text-4xl md:text-5xl font-bold text-center mb-8"
+              data-aos="fade-right"
             >
-              Billy Doumbouya
+              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 text-transparent bg-clip-text">
+                À propos de moi
+              </span>
+            </h1>
+
+            <p className="text-lg leading-relaxed mb-6 text-gray-300">
+              Je suis{" "}
+              <span className="font-semibold text-blue-400">
+                Billy Doumbouya
+              </span>
+              , développeur passionné spécialisé dans les applications web et
+              mobile, ainsi que la création d’interfaces interactives et
+              dynamiques. Mon objectif est de concevoir des solutions modernes,
+              intuitives et engageantes.
+            </p>
+
+            <p className="text-lg leading-relaxed mb-6 text-gray-300">
+              Grâce à mon parcours en sociologie et à mes expériences
+              entrepreneuriales, je combine créativité, stratégie et approche
+              centrée utilisateur pour chaque projet.
+            </p>
+
+            <p className="text-lg leading-relaxed text-gray-300">
+              Motivé par les défis et l’innovation, je m’investis dans des
+              projets web, mobiles et UI modernes afin de transformer les idées
+              en expériences concrètes et impactantes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION COMPÉTENCES */}
+      <section className="relative px-4 py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-center mb-14"
+            data-aos="fade-up"
+          >
+            <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 text-transparent bg-clip-text">
+              Mes Compétences
             </span>
-            , passionné par le développement web, l’infographie, la
-            cybersécurité et les nouvelles technologies. Mon objectif est de
-            créer des interfaces modernes, dynamiques et accessibles.
-          </p>
+          </h2>
 
-          <p
-            className="text-lg leading-relaxed mb-4"
-            data-aos="w=fade-right"
-            data-aos-delay="800"
-          >
-            Grâce à mon parcours en sociologie et mes expériences dans
-            l'entrepreneuriat, je développe une approche humaine et stratégique
-            des projets numériques.
-          </p>
+          {/* Cartes principales */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Langages */}
+            <div className="p-6 rounded-2xl bg-gray-800/40 border border-gray-700/50 backdrop-blur-md">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">
+                Langages
+              </h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center gap-2">
+                  <FaHtml5 className="text-red-500" /> HTML5
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaCss3Alt className="text-blue-500" /> CSS3
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaJsSquare className="text-yellow-400" /> JavaScript (ES6+)
+                </li>
+              </ul>
+            </div>
 
-          <p
-            className="text-lg leading-relaxed mb-4"
-            data-aos="fade-bottom"
-            data-aos-delay="800"
-          >
-            Je suis toujours à la recherche de nouveaux défis et d'opportunités.
-            Explorez mon portfolio pour découvrir mes compétences et
-            réalisations, et n’hésitez pas à me contacter pour collaborer.
-          </p>
-        </div>
-      </div>
-      <hr
-        className="border-yellow-500 border-[10px] mx-24 my-5"
-        data-aos="zoom-out"
-        data-aos-duration="1000"
-      />
-      {/* sections des competences */}
+            {/* Frameworks */}
+            <div className="p-6 rounded-2xl bg-gray-800/40 border border-gray-700/50 backdrop-blur-md">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">
+                Frameworks
+              </h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center gap-2">
+                  <SiTailwindcss className="text-cyan-400" /> Tailwind CSS
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaReact className="text-blue-400" /> React JS
+                </li>
+              </ul>
+            </div>
 
-      <div
-        className="relative container py-5 mx-auto text-white mb-52 md:flex justify-center items-center"
-        id="skills"
-      >
-        <h2
-          className="text-3xl left-10 md:text-4xl font-bold text-center text-orange-400 mb-12"
-          data-aos="fade-up"
-        >
-          Mes Compétences
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 rounded-xl p-5 shadow-lg shadow-yellow-500/30 mx-auto mt-10">
-          {/* Langages */}
-          <div className="border-b-2 md:border-r-2 border-yellow-500/30 pr-2">
-            <h3
-              className="text-3xl md:text-4xl left-0 font-semibold text-yellow-400 mb-4"
-              data-aos="fade-left"
-              data-aos-delay="500"
-            >
-              Langages
-            </h3>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <FaHtml5 className="text-red-500 mr-2" /> HTML5
-              </li>
-              <li className="flex items-center">
-                <FaCss3Alt className="text-blue-500 mr-2" /> CSS3
-              </li>
-              <li className="flex items-center">
-                <FaJsSquare className="text-yellow-400 mr-2" /> JavaScript
-                (ES6+)
-              </li>
-            </ul>
-          </div>
-
-          {/* Frameworks & Librairies */}
-          <div
-            className="border-b-2 md:border-r-2 border-yellow-500/30 pr-2"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <h3
-              className="text-3xl left-0 md:text-4xl font-semibold text-yellow-400 mb-2"
-              data-aos="fade-right"
-              data-aos-delay="500"
-            >
-              Frameworks
-            </h3>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <SiTailwindcss className="text-cyan-400 mr-2" /> Tailwind CSS 5
-              </li>
-              <li className="flex items-center">
-                <SiTailwindcss className="text-cyan-400 mr-2" /> Tailwind CSS
-              </li>
-              <li className="flex items-center">
-                <FaReact className="text-blue-400 mr-2" /> React JS
-              </li>
-            </ul>
-          </div>
-
-          {/* Outils & Méthodes */}
-          <div
-            className="border-b-2 md:border-r-2 border-yellow-500/30 pr-2"
-            data-aos="fade-left"
-            data-aos-delay="300"
-          >
-            <h3
-              className="text-3xl left-0 md:text-4xl font-semibold text-yellow-400 mb-4"
-              data-aos="fade-right"
-            >
-              Outils
-            </h3>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <FaGitAlt className="text-orange-500 mr-2" /> Git
-              </li>
-              <li className="flex items-center">
-                <FaGithub className="text-white mr-2" />
-                GitHub
-              </li>
-              <li className="flex items-center">
-                <VscVscode className="text-blue-500 mr-2" /> Visual Studio Code
-              </li>
-            </ul>
+            {/* Outils */}
+            <div className="p-6 rounded-2xl bg-gray-800/40 border border-gray-700/50 backdrop-blur-md">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">
+                Outils
+              </h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center gap-2">
+                  <FaGitAlt className="text-orange-500" /> Git
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaGithub /> GitHub
+                </li>
+                <li className="flex items-center gap-2">
+                  <VscVscode className="text-blue-500" /> VS Code
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* l'affichage de ma barre e progression en tableau */}
-
+      {/* BARRES DE PROGRESSION */}
       {skillsCategories.map((category, index) => (
-        <div
-          key={index}
-          className="mt-10 container mx-auto p-5 bg-black/50 backdrop-blur-md rounded-xl shadow-lg shadow-yellow-500/30"
-        >
-          <h3 className="text-2xl font-semibold text-yellow-400 mb-4 text-center">
-            {category.Categories}
-          </h3>
+        <section key={index} className="relative px-4 py-20" data-aos="fade-up">
+          <div className="max-w-6xl mx-auto backdrop-blur-xl bg-gradient-to-br from-gray-900/50 via-gray-800/30 to-gray-900/50 rounded-3xl border border-white/10 shadow-xl p-8">
+            <h3 className="text-3xl font-bold text-center mb-10">
+              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 text-transparent bg-clip-text">
+                {category.Categories}
+              </span>
+            </h3>
 
-          <div className="flex flex-wrap gap-5 justify-center items-center">
-            {category.Langages.map((skill, idx) => (
-              <div key={idx} className="w-full md:w-1/4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {category.Langages.map((skill, idx) => (
                 <div
-                  data-aos="fade-up"
-                  data-aos-delay={idx * 100}
-                  className="p-4 bg-gray-800/50 rounded-lg shadow-md shadow-yellow-500/30 text-white text-center transition-transform duration-300 transform hover:-translate-y-2 hover:scale-105"
+                  key={idx}
+                  className="p-5 rounded-xl bg-gray-800/40 border border-gray-700/50 hover:scale-[1.03] transition"
                 >
-                  {/* Icône colorée et centrée */}
-                  <div className="text-4xl mb-2 text-center d-flex items-center justify-center">
-                    {skill.icon}
-                  </div>
-
-                  {/* Titre */}
-                  <div className="text-lg font-semibold mb-2 text-center">
+                  <div className="text-4xl text-center mb-3">{skill.icon}</div>
+                  <h4 className="text-center font-semibold mb-2">
                     {skill.title}
-                  </div>
+                  </h4>
 
-                  {/* Pourcentage + barre */}
-                  <div className="flex items-center justify-between text-sm mb-1">
-                    <span className="text-gray-300">Level</span>
+                  <div className="flex justify-between text-sm text-gray-400 mb-1">
+                    <span>Level</span>
                     <span>{skill.value}%</span>
                   </div>
-                  {/* Custom Tailwind progress bar */}
+
                   <div className="w-full bg-gray-700/30 rounded-full h-3">
                     <div
-                      className="bg-yellow-400 h-3 rounded-full transition-all duration-700"
+                      className="h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-700"
                       style={{ width: `${skill.value}%` }}
                     />
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       ))}
     </>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import PagesNavbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
-function RoutOutlet() {
+export default function NavbarLayout() {
   return (
     <>
       <PagesNavbar />
@@ -15,4 +15,3 @@ function RoutOutlet() {
     </>
   );
 }
-export default RoutOutlet;

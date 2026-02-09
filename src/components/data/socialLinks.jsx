@@ -1,0 +1,61 @@
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaFacebook,
+  FaInstagram,
+  FaTelegram,
+  FaYoutube,
+  FaHeart,
+} from "react-icons/fa";
+export const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/Clinton62395",
+    icon: FaGithub,
+    color: "hover:bi-text-gray-300",
+    ariaLabel: "Visitez mon profil GitHub",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/billy-doumbouya-17b330212?",
+    icon: FaLinkedin,
+    color: "hover:bi-text-blue-400",
+    ariaLabel: "Connectez-vous avec moi sur LinkedIn",
+  },
+  {
+    name: "Email",
+    href: "mailto:billydoumbouya5210@gmail.com",
+    icon: FaEnvelope,
+    color: "hover:bi-text-red-400",
+    ariaLabel: "Envoyez-moi un email",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/share/18ikXA3tPU/",
+    icon: FaFacebook,
+    color: "hover:bi-text-blue-500",
+    ariaLabel: "Suivez-moi sur Facebook",
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com/ton_instagram",
+    icon: FaInstagram,
+    color: "hover:bi-text-pink-400",
+    ariaLabel: "Suivez-moi sur Instagram",
+  },
+  {
+    name: "Telegram",
+    href: "https://t.me/BillyDoumbouya",
+    icon: FaTelegram,
+    color: "hover:bi-text-sky-400",
+    ariaLabel: "Contactez-moi sur Telegram",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@CodeavantlAI-i9w",
+    icon: FaYoutube,
+    color: "hover:bi-text-red-500",
+    ariaLabel: "Visitez ma chaîne YouTube",
+  },
+];

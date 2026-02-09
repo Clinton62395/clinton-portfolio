@@ -1,68 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaLaptopCode,
-  FaPaintBrush,
-  FaShieldAlt,
-  FaBitcoin,
-  FaMobileAlt,
-  FaChalkboardTeacher,
-} from "react-icons/fa";
-import BackgroundParticles from "../components/Animation";
+
 import { PiPhoneCall } from "react-icons/pi";
+import { services } from "../components/data/serviceData";
+import { Link } from "react-router-dom";
 
 function Services() {
-  const services = [
-    {
-      icon: <FaLaptopCode className="text-blue-500 text-5xl" />,
-      title: "Développement Web",
-      description:
-        "Création de sites web modernes, réactifs et adaptés à tous les supports.",
-      color: "from-blue-500 to-cyan-500",
-      borderColor: "border-blue-500",
-    },
-    {
-      icon: <FaPaintBrush className="text-pink-500 text-5xl" />,
-      title: "Infographie",
-      description:
-        "Conception de visuels professionnels pour vos réseaux, affiches, flyers...",
-      color: "from-pink-500 to-rose-500",
-      borderColor: "border-pink-500",
-    },
-    {
-      icon: <FaShieldAlt className="text-green-500 text-5xl" />,
-      title: "Cybersécurité (niveau débutant)",
-      description:
-        "Sensibilisation à la sécurité numérique et installation de bonnes pratiques.",
-      color: "from-green-500 to-emerald-500",
-      borderColor: "border-green-500",
-    },
-    {
-      icon: <FaBitcoin className="text-yellow-500 text-5xl" />,
-      title: "Crypto Trading",
-      description:
-        "Accompagnement à l'initiation et à la gestion des investissements crypto.",
-      color: "from-yellow-500 to-amber-500",
-      borderColor: "border-yellow-500",
-    },
-    {
-      icon: <FaMobileAlt className="text-red-500 text-5xl" />,
-      title: "Accessoires Téléphoniques",
-      description:
-        "Vente de coques, écouteurs, chargeurs et gadgets pour smartphone.",
-      color: "from-red-500 to-orange-500",
-      borderColor: "border-red-500",
-    },
-    {
-      icon: <FaChalkboardTeacher className="text-purple-500 text-5xl" />,
-      title: "Formation & Coaching",
-      description:
-        "Initiation à l'informatique, accompagnement pour lancer une activité numérique.",
-      color: "from-purple-500 to-violet-500",
-      borderColor: "border-purple-500",
-    },
-  ];
-
   // Variants d'animation
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -135,9 +78,9 @@ function Services() {
     },
   };
 
+  const MotionLink = motion(Link);
   return (
     <>
-      <BackgroundParticles />
 
       <section className="relative bg-gradient-to-br from-gray-900 via-[#111827] to-black text-white py-20 px-4 min-h-screen overflow-hidden">
         {/* Effet de particules décoratives */}
@@ -265,8 +208,8 @@ function Services() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            <motion.a
-              href="/contact"
+            <MotionLink
+              to="/contact"
               className="group relative flex items-center gap-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-2xl px-8 py-4 shadow-2xl overflow-hidden"
               variants={buttonVariants}
               initial="initial"
@@ -291,7 +234,7 @@ function Services() {
 
               {/* Effet de brillance */}
               <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            </motion.a>
+            </MotionLink>
           </motion.div>
         </motion.div>
       </section>

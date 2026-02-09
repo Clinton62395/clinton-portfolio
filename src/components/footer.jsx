@@ -1,203 +1,198 @@
 import React from "react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaFacebook,
-  FaInstagram,
-  FaTelegram,
-  FaYoutube,
-  FaHeart,
-} from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
+import { socialLinks } from "./data/socialLinks";
+import { motion } from "framer-motion";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      href: "https://github.com/Clinton62395",
-      icon: FaGithub,
-      color: "hover:bi-text-gray-300",
-      ariaLabel: "Visitez mon profil GitHub",
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1,
+      },
     },
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/billy-doumbouya-17b330212?",
-      icon: FaLinkedin,
-      color: "hover:bi-text-blue-400",
-      ariaLabel: "Connectez-vous avec moi sur LinkedIn",
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
     },
-    {
-      name: "Email",
-      href: "mailto:billydoumbouya5210@gmail.com",
-      icon: FaEnvelope,
-      color: "hover:bi-text-red-400",
-      ariaLabel: "Envoyez-moi un email",
-    },
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/share/18ikXA3tPU/",
-      icon: FaFacebook,
-      color: "hover:bi-text-blue-500",
-      ariaLabel: "Suivez-moi sur Facebook",
-    },
-    {
-      name: "Instagram",
-      href: "https://instagram.com/ton_instagram",
-      icon: FaInstagram,
-      color: "hover:bi-text-pink-400",
-      ariaLabel: "Suivez-moi sur Instagram",
-    },
-    {
-      name: "Telegram",
-      href: "https://t.me/BillyDoumbouya",
-      icon: FaTelegram,
-      color: "hover:bi-text-sky-400",
-      ariaLabel: "Contactez-moi sur Telegram",
-    },
-    {
-      name: "YouTube",
-      href: "https://youtube.com/@bill-clinton-développeur",
-      icon: FaYoutube,
-      color: "hover:bi-text-red-500",
-      ariaLabel: "Visitez ma chaîne YouTube",
-    },
-  ];
+  };
 
   return (
-    <footer className="bi-bg-gradient-to-r bi-from-gray-900 bi-via-gray-800 bi-to-gray-900 bi-text-white bi-mt-16 bi-border-t bi-border-gray-700 bi-relative">
-      <div className="bi-max-w-6xl bi-mx-auto bi-px-4 bi-py-8">
+    <motion.footer
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      className="relative mt-20 border-t border-white/10 backdrop-blur-xl bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900/80"
+    >
+      {/* Effet de glow en haut du footer */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Section principale */}
-        <div className="bi-grid bi-grid-cols-1 md:bi-grid-cols-3 bi-gap-8 bi-mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-12">
           {/* Colonne 1: Info personnelle */}
-          <div className="bi-text-center md:bi-text-left">
-            <h3 className="bi-text-xl bi-font-bold bi-mb-3 bi-bg-gradient-to-r bi-from-blue-400 bi-to-purple-500 bi-bg-clip-text bi-text-transparent">
+          <motion.div
+            variants={itemVariants}
+            className="text-center md:text-left"
+          >
+            <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-400 via-purple-500 to-teal-400 bg-clip-text text-transparent">
               Billy Doumbouya
             </h3>
-            <p className="bi-text-gray-400 bi-text-sm bi-leading-relaxed">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
               Développeur passionné créant des solutions web modernes et
-              innovantes.
+              innovantes avec les dernières technologies.
             </p>
-          </div>
+          </motion.div>
 
           {/* Colonne 2: Liens rapides */}
-          <div className="bi-text-center">
-            <h4 className="bi-text-lg bi-font-semibold bi-mb-3 bi-text-gray-200">
+          <motion.div variants={itemVariants} className="text-center">
+            <h4 className="text-lg font-semibold mb-4 text-gray-200">
               Liens Rapides
             </h4>
-            <div className="bi-flex bi-flex-col bi-space-y-2">
-              <a
-                href="#about"
-                className="bi-text-gray-400 hover:bi-text-white bi-transition-colors bi-duration-300 bi-text-sm"
-              >
-                À Propos
-              </a>
-              <a
-                href="#projects"
-                className="bi-text-gray-400 hover:bi-text-white bi-transition-colors bi-duration-300 bi-text-sm"
-              >
-                Projets
-              </a>
-              <a
-                href="#contact"
-                className="bi-text-gray-400 hover:bi-text-white bi-transition-colors bi-duration-300 bi-text-sm"
-              >
-                Contact
-              </a>
+            <div className="flex flex-col space-y-3">
+              {[
+                { href: "#about", label: "À Propos" },
+                { href: "#projects", label: "Projets" },
+                { href: "#skills", label: "Compétences" },
+                { href: "#contact", label: "Contact" },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Colonne 3: Contact */}
-          <div className="bi-text-center md:bi-text-right">
-            <h4 className="bi-text-lg bi-font-semibold bi-mb-3 bi-text-gray-200">
+          <motion.div
+            variants={itemVariants}
+            className="text-center md:text-right"
+          >
+            <h4 className="text-lg font-semibold mb-4 text-gray-200">
               Contact
             </h4>
             <a
               href="mailto:billydoumbouya5210@gmail.com"
-              className="bi-text-gray-400 hover:bi-text-white bi-transition-colors bi-duration-300 bi-text-sm bi-block bi-mb-2"
+              className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm block mb-3 hover:underline"
             >
               billydoumbouya5210@gmail.com
             </a>
-            <p className="bi-text-gray-400 bi-text-sm">
-              Disponible pour freelance
-            </p>
-          </div>
-        </div>
-
-        {/* Séparateur */}
-        <div className="bi-border-t bi-border-gray-700 bi-pt-6">
-          {/* Réseaux sociaux */}
-          <div className="bi-flex bi-flex-wrap bi-justify-center bi-gap-4 bi-mb-6">
-            {socialLinks.map((social) => {
-              const IconComponent = social.icon;
-              return (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target={
-                    social.href.startsWith("mailto:") ? "_self" : "_blank"
-                  }
-                  rel={
-                    social.href.startsWith("mailto:")
-                      ? ""
-                      : "noopener noreferrer"
-                  }
-                  className={`
-                    bi-p-3 bi-rounded-full bi-bg-gray-800 bi-text-gray-400 bi-transition-all bi-duration-300 
-                    bi-transform hover:bi-scale-110 hover:bi-bg-gray-700 ${social.color}
-                    focus:bi-outline-none focus:bi-ring-2 focus:bi-ring-blue-500 focus:bi-ring-offset-2 focus:bi-ring-offset-gray-800
-                  `}
-                  aria-label={social.ariaLabel}
-                  title={social.name}
-                >
-                  <IconComponent className="bi-w-5 bi-h-5" />
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Copyright et mentions */}
-          <div className="bi-flex bi-flex-col md:bi-flex-row bi-justify-between bi-items-center bi-text-sm bi-text-gray-400 bi-space-y-2 md:bi-space-y-0">
-            <div className="bi-flex bi-items-center bi-space-x-1">
-              <span>
-                &copy; {currentYear} Billy Doumbouya. Tous droits réservés.
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-green-400 text-xs font-medium">
+                Disponible pour freelance
               </span>
             </div>
+          </motion.div>
+        </div>
 
-            <div className="bi-flex bi-items-center bi-space-x-1 bi-text-xs">
-              <span>Fait avec</span>
-              <FaHeart className="bi-w-3 bi-h-3 bi-text-red-500 bi-animate-pulse" />
-              <span>et React</span>
-            </div>
+        {/* Séparateur avec gradient */}
+        <div className="relative mb-8">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-700"></div>
           </div>
-
-          {/* Mentions légales */}
-          <div className="bi-flex bi-flex-wrap bi-justify-center bi-gap-4 bi-mt-4 bi-text-xs bi-text-gray-500">
-            <a
-              href="#privacy"
-              className="hover:bi-text-gray-300 bi-transition-colors bi-duration-300"
-            >
-              Politique de confidentialité
-            </a>
-            <span className="bi-hidden sm:bi-inline">•</span>
-            <a
-              href="#terms"
-              className="hover:bi-text-gray-300 bi-transition-colors bi-duration-300"
-            >
-              Conditions d'utilisation
-            </a>
-            <span className="bi-hidden sm:bi-inline">•</span>
-            <a
-              href="#sitemap"
-              className="hover:bi-text-gray-300 bi-transition-colors bi-duration-300"
-            >
-              Plan du site
-            </a>
+          <div className="relative flex justify-center">
+            <span className="px-4 bg-gray-900/50 backdrop-blur-sm">
+              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            </span>
           </div>
         </div>
+
+        {/* Réseaux sociaux */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap justify-center gap-4 mb-8"
+        >
+          {socialLinks.map((social) => {
+            const IconComponent = social.icon;
+            return (
+              <motion.a
+                key={social.name}
+                href={social.href}
+                target={social.href.startsWith("mailto:") ? "_self" : "_blank"}
+                rel={
+                  social.href.startsWith("mailto:") ? "" : "noopener noreferrer"
+                }
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                  p-3 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50
+                  text-gray-400 transition-all duration-300 
+                  hover:bg-gray-700/50 hover:border-gray-600 ${social.color}
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900
+                `}
+                aria-label={social.ariaLabel}
+                title={social.name}
+              >
+                <IconComponent className="w-5 h-5" />
+              </motion.a>
+            );
+          })}
+        </motion.div>
+
+        {/* Copyright et mentions */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 space-y-3 md:space-y-0"
+        >
+          <div className="flex items-center space-x-2">
+            <span>&copy; {currentYear} Billy Doumbouya.</span>
+            <span className="hidden sm:inline">Tous droits réservés.</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-xs">
+            <span>Fait avec</span>
+            <FaHeart className="w-3 h-3 text-red-500 animate-pulse" />
+            <span>et</span>
+            <span className="font-semibold text-blue-400">React</span>
+            <span>+</span>
+            <span className="font-semibold text-purple-400">Tailwind</span>
+          </div>
+        </motion.div>
+
+        {/* Mentions légales */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap justify-center gap-3 mt-6 text-xs text-gray-500"
+        >
+          {[
+            { href: "#privacy", label: "Politique de confidentialité" },
+            { href: "#terms", label: "Conditions d'utilisation" },
+            { href: "#sitemap", label: "Plan du site" },
+          ].map((link, index) => (
+            <React.Fragment key={link.href}>
+              {index > 0 && (
+                <span className="hidden sm:inline text-gray-700">•</span>
+              )}
+              <a
+                href={link.href}
+                className="hover:text-gray-300 transition-colors duration-300 hover:underline"
+              >
+                {link.label}
+              </a>
+            </React.Fragment>
+          ))}
+        </motion.div>
       </div>
-    </footer>
+
+      {/* Gradient décoratif en bas */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 opacity-30"></div>
+    </motion.footer>
   );
 }
 

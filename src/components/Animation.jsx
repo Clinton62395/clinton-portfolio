@@ -27,16 +27,16 @@ function BackgroundParticles() {
       <div
         style={{
           position: "fixed",
-          backgroundImage: 'URL("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvLkuswwgtI7H_3SMeQtXsO7bmCAEnz4CJZA&s")',
-          backgroundRepeat:"no-repeat",
-          backgroundSize:'cover',
+          backgroundImage: 'URL("./mobile-bg.png")',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "brightness(30%)",
           top: 0,
           left: 0,
           width: "100vw",
           height: "100vh",
-          zIndex: 0,
+          zIndex: -1, // 🔹 toujours derrière
         }}
       ></div>
     );
@@ -48,7 +48,7 @@ function BackgroundParticles() {
       id="tsparticles"
       init={particlesInit}
       options={{
-        fullScreen: { enable: true, zIndex: 0 },
+        fullScreen: { enable: true, zIndex: -1 },
         background: { color: "#0f172a" },
         fpsLimit: 60,
         particles: {

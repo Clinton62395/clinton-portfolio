@@ -1,13 +1,29 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    /* overflow-x: hidden; */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* overflow-x: hidden; */
 }
 
+/* pas scroll  bar horizontal */
 
+body::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
 
 /* titre animation */
 .loader-text {
@@ -47,7 +63,7 @@ html, body {
     transform: rotate(360deg);
   }
 }
-.icone-rotate:hover{
+.icone-rotate:hover {
   animation: none;
   transform: scale(1.5);
   transition: all 10s ease-in-out;
@@ -64,15 +80,16 @@ transition: backdrop-filter 0.3s ease-in-out;
 /* whatsat-anime */
 
 .whatsat-anime {
-  background-color: #25D366; /* Couleur de fond de WhatsApp */
+  background-color: #25d366; /* Couleur de fond de WhatsApp */
   border-radius: 50%;
   display: flex;
- background-size: 200% 200%;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  background-size: 200% 200%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   animation: scale 2s linear infinite;
 }
 @keyframes scale {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(0.5);
   }
   50% {
@@ -83,9 +100,9 @@ transition: backdrop-filter 0.3s ease-in-out;
   }
 }
 .whatsat-anime:hover {
-animation: none;
-transform: scale(1.5);  
-}  
+  animation: none;
+  transform: scale(1.5);
+}
 
 /* carousel-indicator */
 .carousel-indicators [data-bs-target] {
@@ -102,20 +119,22 @@ transform: scale(1.5);
   background-color: #10b981; /* Tailwind green-500 */
 }
 .carousel-indicators [data-bs-target]:hover {
-  background-color: #effb06; 
+  background-color: #effb06;
   transform: scale(1.2);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
-
 
 /* underling center */
 .underling-center {
   position: relative;
-  right: 40% ;left: 40%;
+  right: 40%;
+  left: 40%;
   display: inline-block;
 }
 .underling-center::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px; /* Ajustez la position verticale de la ligne */
@@ -132,11 +151,12 @@ transform: scale(1.5);
 /* les titres des competences */
 .underling-cente {
   position: relative;
-  right: 0% ;left: 0%;
+  right: 0%;
+  left: 0%;
   display: inline-block;
 }
 .underling-cente::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px; /* Ajustez la position verticale de la ligne */
@@ -151,11 +171,12 @@ transform: scale(1.5);
 }
 .underling-cente {
   position: relative;
-  right: 40% ;left: 40%;
+  right: 40%;
+  left: 40%;
   display: inline-block;
 }
 .underling-cente::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px; /* Ajustez la position verticale de la ligne */
@@ -168,8 +189,6 @@ transform: scale(1.5);
 .underling-cente:hover::after {
   transform: scaleX(1);
 }
-
-
 
 /* bordure animeted 2 */
 .bordure-animed {
