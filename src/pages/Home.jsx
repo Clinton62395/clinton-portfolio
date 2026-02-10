@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import CVSection from "../components/cvSection.jsx";
 import { Loader } from "lucide-react";
 import HeroSection from "../components/HeroSection.jsx";
@@ -15,7 +14,11 @@ function Home() {
   }, []);
 
   if (loading) {
-    return <Loader />;
+    return (
+      <div className="flex items-center justify-center h-screen ">
+        <Loader className="animate-spin text-blue-500" size="xl" />
+      </div>
+    );
   }
 
   return (

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import TypingText from "./TypingEffect";
+import { span } from "framer-motion/client";
 
 const HeroSection = () => {
   // Variants d'animation optimisées
@@ -39,12 +40,13 @@ const HeroSection = () => {
     },
   };
 
+  const NameSpan = motion.create(span);
   return (
     <motion.section
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-16 md:mt-0"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-16 md:mt-10"
     >
       {/* Gradient overlay décoratif */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent pointer-events-none" />
@@ -81,14 +83,14 @@ const HeroSection = () => {
             <motion.div variants={itemVariants} className="space-y-4">
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Je m'appelle{" "}
-                <motion.span
+                <NameSpan
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1, duration: 0.5 }}
                   className="text-yellow-400 font-semibold"
                 >
                   Billy Doumbouya
-                </motion.span>
+                </NameSpan>
                 . Passionné par le développement web et les technologies
                 modernes, je conçois des interfaces interactives, dynamiques et
                 efficaces.
@@ -111,7 +113,7 @@ const HeroSection = () => {
             variants={imageVariants}
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.3 }}
-            className="flex-1 max-w-md lg:max-w-lg"
+            className="flex-1 max-w-md lg:max-w-lg mt-24"
           >
             <div className="relative">
               {/* Effet de glow derrière l'image */}
