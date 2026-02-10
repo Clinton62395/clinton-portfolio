@@ -23,7 +23,7 @@ export function useStore({ reset, setValue }) {
   // =============================
   const submitProduct = async (data) => {
     setIsSubmitting(true);
-    
+
     // Simuler un délai d'envoi
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
@@ -36,12 +36,12 @@ export function useStore({ reset, setValue }) {
     setProducts((prev) =>
       editingId
         ? prev.map((p) => (p.id === editingId ? product : p))
-        : [...prev, product]
+        : [...prev, product],
     );
 
     setIsSubmitting(false);
     setShowSuccessModal(true);
-    
+
     // Fermer le modal après 2 secondes et réinitialiser
     setTimeout(() => {
       setShowSuccessModal(false);
@@ -55,7 +55,7 @@ export function useStore({ reset, setValue }) {
   const editProduct = (id) => {
     const product = products.find((p) => p.id === id);
     if (!product) return;
-    
+
     setValue("name", product.name);
     setValue("description", product.description);
     setValue("price", product.price);
@@ -92,11 +92,11 @@ export function useStore({ reset, setValue }) {
     editingId,
     showSuccessModal,
     isSubmitting,
-    
+
     // setters
     setShowForm,
     setShowSuccessModal,
-    
+
     // actions
     handleImageChange,
     submitProduct,

@@ -61,20 +61,6 @@ export default defineConfig({
           },
         ],
         categories: ["portfolio", "business", "productivity"],
-        screenshots: [
-          {
-            src: "/screenshots/desktop1.png",
-            sizes: "1280x720",
-            type: "image/png",
-            form_factor: "wide",
-          },
-          {
-            src: "/screenshots/desktop2.png",
-            sizes: "540x720",
-            type: "image/png",
-            form_factor: "narrow",
-          },
-        ],
       },
       workbox: {
         runtimeCaching: [
