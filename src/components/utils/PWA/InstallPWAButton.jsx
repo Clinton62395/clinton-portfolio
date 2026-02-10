@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaDownload, FaTimes } from 'react-icons/fa';
-import { promptInstall, isAppInstalled } from '../utils/pwa';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaDownload, FaTimes } from "react-icons/fa";
+import { promptInstall, isAppInstalled } from "./pwa";
 
 export default function InstallPWAButton() {
   const [showPrompt, setShowPrompt] = useState(false);
@@ -23,12 +23,12 @@ export default function InstallPWAButton() {
       setShowPrompt(false);
     };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
-    window.addEventListener('appinstalled', handleAppInstalled);
+    window.addEventListener("beforeinstallprompt", handleBeforeInstall);
+    window.addEventListener("appinstalled", handleAppInstalled);
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
-      window.removeEventListener('appinstalled', handleAppInstalled);
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstall);
+      window.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, []);
 
@@ -51,7 +51,7 @@ export default function InstallPWAButton() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          transition={{ type: 'spring', damping: 20 }}
+          transition={{ type: "spring", damping: 20 }}
           className="fixed bottom-6 right-6 z-50 max-w-sm"
         >
           <div className="relative backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/95 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
@@ -74,7 +74,8 @@ export default function InstallPWAButton() {
                   Installer l'application
                 </h3>
                 <p className="text-gray-300 text-sm mb-4">
-                  Installez ce portfolio sur votre appareil pour un accès rapide et une expérience optimale, même hors ligne.
+                  Installez ce portfolio sur votre appareil pour un accès rapide
+                  et une expérience optimale, même hors ligne.
                 </p>
 
                 {/* Avantages */}
