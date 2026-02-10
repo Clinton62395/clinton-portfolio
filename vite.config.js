@@ -77,7 +77,6 @@ export default defineConfig({
         ],
       },
       workbox: {
-        debug: false,
         runtimeCaching: [
           {
             urlPattern: /^.*\.(js|css|png|jpg|jpeg|svg|webp)$/,
