@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import NavbarLayout from "./Layout/outlet.jsx";
-
+import BottomTabs from "./components/utils/BottomTabs";
 // Styles
 import "./App.css";
 import "aos/dist/aos.css";
@@ -20,7 +20,7 @@ import NotFound from "./pages/NotFound.jsx";
 import ErrorBoundary from "./components/utils/Errorboundry.jsx";
 import ConstellationParticles from "./components/animations/constellation.jsx";
 import Home from "./pages/Home.jsx";
-import InstallPWAButton from "./components/utils/PWA/InstallPWAButton.jsx";
+import InstallPWAButton from "@/components/pwa/InstallPWAButton";
 
 // Layout
 
@@ -37,6 +37,7 @@ export default function App() {
     <>
       <ErrorBoundary>
         <Routes>
+          {/* Les différents onglets */}
           <Route path="/" element={<NavbarLayout />}>
             <Route index element={<Home />} />
             <Route path="service" element={<Services />} />
@@ -44,16 +45,20 @@ export default function App() {
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="store" element={<Store />} />
+
+            {/* 404 si on arrive à une route inexistante */}
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-
-        {/* Bouton d'installation PWA */}
-        <InstallPWAButton />
       </ErrorBoundary>
 
-      {/* Particles */}
-      {/* <BackgroundParticles /> */}
+      {/* Le bouton d'installation : il "flotte" au-dessus du reste */}
+      <InstallPWAButton />
+
+      {/* Tes onglets mobiles */}
+      <BottomTabs />
+
+      {/* Tes animations de fond */}
       <ConstellationParticles />
     </>
   );

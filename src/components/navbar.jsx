@@ -93,7 +93,7 @@ function PagesNavbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed hidden md:flex top-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "backdrop-blur-xl bg-gray-900/80 shadow-xl shadow-blue-500/10 border-b border-white/10"
           : "bg-gray-900/50 backdrop-blur-sm"

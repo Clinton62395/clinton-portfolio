@@ -2,10 +2,12 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { socialLinks } from "./data/socialLinks";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const MotionButton = motion.create(Link);
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -67,13 +69,13 @@ function Footer() {
                 { href: "#skills", label: "Compétences" },
                 { href: "#contact", label: "Contact" },
               ].map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>
@@ -121,9 +123,9 @@ function Footer() {
           {socialLinks.map((social) => {
             const IconComponent = social.icon;
             return (
-              <motion.a
+              <MotionButton
                 key={social.name}
-                href={social.href}
+                to={social.href}
                 target={social.href.startsWith("mailto:") ? "_self" : "_blank"}
                 rel={
                   social.href.startsWith("mailto:") ? "" : "noopener noreferrer"
@@ -140,7 +142,7 @@ function Footer() {
                 title={social.name}
               >
                 <IconComponent className="w-5 h-5" />
-              </motion.a>
+              </MotionButton>
             );
           })}
         </motion.div>
@@ -179,12 +181,12 @@ function Footer() {
               {index > 0 && (
                 <span className="hidden sm:inline text-gray-700">•</span>
               )}
-              <a
-                href={link.href}
+              <Link
+                to={link.href}
                 className="hover:text-gray-300 transition-colors duration-300 hover:underline"
               >
                 {link.label}
-              </a>
+              </Link>
             </React.Fragment>
           ))}
         </motion.div>
