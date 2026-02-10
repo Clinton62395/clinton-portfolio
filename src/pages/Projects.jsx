@@ -1,236 +1,292 @@
-import React from "react";
-import { motion } from "framer-motion";
-
-import { FaCode } from "react-icons/fa";
-import { GiLookAt } from "react-icons/gi";
+import React, { useState, useMemo } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import AutoScrollLogos from "../components/ImageAnime";
-import { projects } from "../components/data/projectsData.js";
+
+import {
+  FaGlobe,
+  FaServer,
+  FaUser,
+  FaCodeBranch,
+  FaFilter,
+} from "react-icons/fa";
+import FilterButton from "../components/hooks/filterButton";
+import {
+  FILTER_TYPES,
+  FILTER_ICONS,
+  FILTER_LABELS,
+} from "../components/hooks/filtersData";
+import { projectsData } from "../components/data/projectsData";
+import ProjectCard from "../components/projectCard";
 
 function Projects() {
-  // Variants d'animation
+  const [activeFilter, setActiveFilter] = useState(FILTER_TYPES.ALL);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Catégoriser les projets une fois pour toutes
+  const categorizedProjects = useMemo(() => {
+    return projectsData.map((project) => {
+      // Si le projet a déjà une catégorie, on la conserve
+      if (project.category || project.type) {
+        return project;
+      }
+
+      // Sinon, on détermine la catégorie basée sur le contenu
+      const title = project.title.toLowerCase();
+      const description = project.description.toLowerCase();
+      const technologies = project.technologies?.join(" ").toLowerCase() || "";
+
+      if (title.includes("vanilla") || technologies.includes("vanilla")) {
+        return {
+          ...project,
+          category: FILTER_TYPES.VANILLA_JS,
+          type: "vanillajs",
+        };
+      }
+
+      if (title.includes("portfolio") || project.tag?.includes("Portfolio")) {
+        return {
+          ...project,
+          category: FILTER_TYPES.PORTFOLIO,
+          type: "portfolio",
+        };
+      }
+
+      if (
+        description.includes("fullstack") ||
+        technologies.includes("node") ||
+        technologies.includes("mongodb")
+      ) {
+        return {
+          ...project,
+          category: FILTER_TYPES.FULLSTACK,
+          type: "fullstack",
+        };
+      }
+      // mobile app
+      if (
+        title.includes("app") ||
+        technologies.includes("mobile") ||
+        technologies.includes("react native")
+      ) {
+        return {
+          ...project,
+          category: FILTER_TYPES.MOBILE,
+          type: "mobile",
+        };
+      }
+      // Par défaut, c'est du frontend
+      return { ...project, category: FILTER_TYPES.FRONTEND, type: "frontend" };
+    });
+  }, []);
+
+  // Filtrer les projets sans utiliser useEffect pour éviter les erreurs
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === FILTER_TYPES.ALL) {
+      return categorizedProjects;
+    }
+
+    return categorizedProjects.filter(
+      (project) =>
+        project.category === activeFilter || project.type === activeFilter,
+    );
+  }, [activeFilter, categorizedProjects]);
+
+  // Compter les projets par catégorie
+  const projectCounts = useMemo(() => {
+    const counts = {};
+
+    Object.values(FILTER_TYPES).forEach((filter) => {
+      if (filter === FILTER_TYPES.ALL) {
+        counts[filter] = categorizedProjects.length;
+      } else {
+        counts[filter] = categorizedProjects.filter(
+          (project) => project.category === filter || project.type === filter,
+        ).length;
+      }
+    });
+
+    return counts;
+  }, [categorizedProjects]);
+
+  const handleFilterClick = (filter) => {
+    if (isAnimating || filter === activeFilter) return;
+
+    setIsAnimating(true);
+    setActiveFilter(filter);
+
+    // Réinitialiser l'animation après un délai
+    setTimeout(() => setIsAnimating(false), 500);
+  };
+
+  // Variants simplifiés pour éviter les erreurs
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        when: "beforeChildren",
       },
     },
   };
 
   const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.9,
-    },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
   };
 
-  const imageVariants = {
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.4,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const buttonVariants = {
-    hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.2,
-        yoyo: Infinity,
-      },
-    },
-    tap: { scale: 0.95 },
-  };
-
-  const techBadgeVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: i * 0.05,
-        duration: 0.3,
-        ease: "backOut",
-      },
-    }),
-    hover: {
-      scale: 1.1,
-      backgroundColor: "rgba(59, 130, 246, 0.4)",
-      transition: { duration: 0.2 },
-    },
-  };
-
   return (
     <>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 h-full container mx-auto bg-black/50 shadow-lg shadow-blue-500/50 backdrop-blur flex items-center justify-center p-10 mt-24"
+      <div
+        className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 mt-16"
         id="projects"
       >
-        <div>
-          <motion.h2
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            className="text-4xl font-bold text-orange-400 text-center mb-8"
-          >
-            Professional Projects Portfolio
-          </motion.h2>
+        {/* Gradient décoratif */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent pointer-events-none" />
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-300 text-center mb-12 max-w-2xl mx-auto"
-          >
-            Discover my collection of modern web applications built with
-            cutting-edge technologies. Each project demonstrates expertise in
-            React.js, responsive design, and user-centered development.
-          </motion.p>
+        <div className="relative max-w-7xl mx-auto">
+          {/* En-tête de section */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-orange-400 via-yellow-500 to-amber-400 text-transparent bg-clip-text">
+                Portfolio de Projets
+              </span>
+            </h2>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center"
-          >
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                whileHover={{
-                  y: -10,
-                  boxShadow: "0 20px 40px rgba(251, 191, 36, 0.3)",
-                }}
-                className="backdrop-blur border-2 border-dashed border-yellow-400 rounded-lg shadow-md text-center shadow-white-500/50 p-5 gap-5 transition-transform duration-300 h-full flex flex-col w-full"
-              >
-                <motion.div
-                  className="overflow-hidden rounded-lg"
-                  whileHover="hover"
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+              Découvrez ma collection d'applications web modernes construites
+              avec les dernières technologies.
+            </p>
+
+            {/* Statistiques */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8 max-w-4xl mx-auto">
+              {Object.values(FILTER_TYPES).map((filter) => (
+                <div
+                  key={filter}
+                  className={`text-center p-3 rounded-lg backdrop-blur-sm border transition-all duration-300 ${
+                    activeFilter === filter
+                      ? "bg-gradient-to-br from-orange-500/20 to-yellow-500/10 border-orange-500/30 transform scale-105"
+                      : "bg-gray-900/30 border-white/10 hover:bg-gray-800/40"
+                  }`}
                 >
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    variants={imageVariants}
-                    className="w-full h-40 object-cover rounded-lg"
-                  />
-                </motion.div>
-
-                <motion.h3
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
-                  className="text-xl font-bold text-orange-400 mt-4"
-                >
-                  {project.title}
-                </motion.h3>
-
-                <p className="text-gray-300 text-sm leading-relaxed mb-3 flex-grow">
-                  {project.description}
-                </p>
-
-                {/* Technologies utilisées */}
-                {project.technologies && (
-                  <motion.div
-                    className="flex flex-wrap justify-center gap-2 mb-4"
-                    initial="hidden"
-                    animate="visible"
-                  >
-                    {project.technologies.map((tech, techIndex) => (
-                      <motion.span
-                        key={techIndex}
-                        custom={techIndex}
-                        variants={techBadgeVariants}
-                        whileHover="hover"
-                        className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs cursor-default"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </motion.div>
-                )}
-
-                {/* Features principales */}
-                {projects.features && (
-                  <motion.div
-                    className="grid grid-cols-2 gap-1 text-xs text-gray-400 mb-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: index * 0.1 + 0.7 }}
-                  >
-                    {project.features.map((feature, featureIndex) => (
-                      <motion.span
-                        key={featureIndex}
-                        className="flex items-center"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: featureIndex * 0.05 }}
-                      >
-                        <motion.span
-                          className="w-1 h-1 bg-orange-400 rounded-full mr-2"
-                          animate={{ scale: [1, 1.5, 1] }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 2,
-                            delay: featureIndex * 0.2,
-                          }}
-                        />
-                        {feature}
-                      </motion.span>
-                    ))}
-                  </motion.div>
-                )}
-
-                <div className="flex justify-center items-center gap-4 mt-auto">
-                  <motion.a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    className="bg-blue-300/50 px-4 py-2 rounded-lg flex gap-2 justify-center items-center hover:bg-blue-600 text-center transition-colors"
-                  >
-                    <GiLookAt /> Live Demo
-                  </motion.a>
-                  <motion.a
-                    href={project.code}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    className="bg-green-500/50 px-4 py-2 rounded-lg flex justify-center items-center hover:bg-green-600 text-center gap-2 transition-colors"
-                  >
-                    <FaCode /> Source Code
-                  </motion.a>
+                  <div className="text-2xl font-bold text-white">
+                    {projectCounts[filter]}
+                  </div>
+                  <div className="text-xs text-gray-300 mt-1 font-medium">
+                    {FILTER_LABELS[filter]}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.div>
+              ))}
+            </div>
+          </div>
 
-      {/* les images en animation */}
+          {/* Filtres */}
+          <div className="mb-12">
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              {Object.values(FILTER_TYPES).map((filter) => (
+                <FilterButton
+                  key={filter}
+                  label={FILTER_LABELS[filter]}
+                  isActive={activeFilter === filter}
+                  onClick={() => handleFilterClick(filter)}
+                  count={projectCounts[filter]}
+                  icon={FILTER_ICONS[filter]}
+                />
+              ))}
+            </div>
+
+            {/* Indicateur de filtre actif */}
+            <div className="relative h-1 bg-gray-800/50 rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-500 to-amber-500 rounded-full" />
+            </div>
+          </div>
+
+          {/* Grille de projets avec AnimatePresence pour les transitions propres */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeFilter}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={`${project.title}-${index}`}
+                  variants={cardVariants}
+                  layout
+                >
+                  <ProjectCard project={project} index={index} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Message si aucun projet */}
+          {filteredProjects.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-16"
+            >
+              <div className="text-7xl mb-6 animate-bounce">📭</div>
+              <h3 className="text-2xl font-bold text-gray-200 mb-3">
+                Aucun projet trouvé
+              </h3>
+              <p className="text-gray-400 mb-6 max-w-md mx-auto">
+                {activeFilter === FILTER_TYPES.VANILLA_JS
+                  ? "Aucun projet Vanilla JS trouvé. Ces projets démontrent l'utilisation pure de JavaScript sans frameworks."
+                  : "Aucun projet dans cette catégorie pour le moment."}
+              </p>
+              <button
+                onClick={() => handleFilterClick(FILTER_TYPES.ALL)}
+                className="px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-lg"
+              >
+                Voir tous les projets ({projectCounts[FILTER_TYPES.ALL]})
+              </button>
+            </motion.div>
+          )}
+
+          {/* Compteur de résultats */}
+          <div className="text-center mt-12 pt-6">
+            <div className="inline-flex items-center gap-3 px-5 py-2 bg-gray-800/40 rounded-full border border-white/10">
+              <span className="text-gray-300">
+                <span className="font-bold text-orange-400">
+                  {filteredProjects.length}
+                </span>{" "}
+                projet{filteredProjects.length !== 1 ? "s" : ""}
+                {activeFilter !== FILTER_TYPES.ALL && (
+                  <span className="text-gray-400">
+                    {" "}
+                    en{" "}
+                    <span className="font-semibold text-yellow-400">
+                      {FILTER_LABELS[activeFilter]}
+                    </span>
+                  </span>
+                )}
+              </span>
+              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
+              <span className="text-sm text-gray-400">
+                Total:{" "}
+                <span className="font-bold">
+                  {projectCounts[FILTER_TYPES.ALL]}
+                </span>{" "}
+                projets
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Section logos animés */}
       <AutoScrollLogos />
     </>
   );

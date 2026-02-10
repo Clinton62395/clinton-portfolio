@@ -68,7 +68,7 @@ export const skillsCategories = [
       },
       {
         title: "Expo",
-        icon: <SiExpo className="text-black icone-rotate" />,
+        icon: <SiExpo className="text-sky-400 icone-rotate" />,
         value: 70,
       },
     ],

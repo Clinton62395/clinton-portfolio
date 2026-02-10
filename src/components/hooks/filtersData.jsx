@@ -1,0 +1,26 @@
+export const FILTER_TYPES = {
+  ALL: "ALL",
+  FRONTEND: "FRONTEND",
+  FULLSTACK: "FULLSTACK",
+  PORTFOLIO: "PORTFOLIO",
+  VANILLA_JS: "VANILLA_JS",
+  MOBILE: "MOBILE",
+};
+
+export const FILTER_LABELS = {
+  [FILTER_TYPES.ALL]: "Tous les projets",
+  [FILTER_TYPES.FRONTEND]: "Frontend",
+  [FILTER_TYPES.FULLSTACK]: "Fullstack",
+  [FILTER_TYPES.PORTFOLIO]: "Portfolio",
+  [FILTER_TYPES.VANILLA_JS]: "Vanilla JS",
+  [FILTER_TYPES.MOBILE]: "Mobile",
+};
+
+export const FILTER_ICONS = {
+  [FILTER_TYPES.ALL]: "🌍",
+  [FILTER_TYPES.FRONTEND]: "⚛️",
+  [FILTER_TYPES.FULLSTACK]: "🔗",
+  [FILTER_TYPES.PORTFOLIO]: "👨‍💼",
+  [FILTER_TYPES.VANILLA_JS]: "⚡",
+  [FILTER_TYPES.MOBILE]: "📱",
+};

@@ -5,8 +5,8 @@ export function useStore({ reset, setValue }) {
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
   const [products, setProducts] = useState([]);
   const [editingId, setEditingId] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // =============================
   // Image upload
@@ -14,7 +14,6 @@ export function useStore({ reset, setValue }) {
   const handleImageChange = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
     setValue("image", file);
     setImagePreviewUrl(URL.createObjectURL(file));
   };
@@ -22,20 +21,32 @@ export function useStore({ reset, setValue }) {
   // =============================
   // Submit form
   // =============================
-  const submitProduct = (data) => {
+  const submitProduct = async (data) => {
+    setIsSubmitting(true);
+    
+    // Simuler un délai d'envoi
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     const product = {
       ...data,
-      image: imagePreviewUrl || data.image,
+      image: imagePreviewUrl || "/placeholder-product.png",
       id: editingId || Date.now(),
     };
 
     setProducts((prev) =>
       editingId
         ? prev.map((p) => (p.id === editingId ? product : p))
-        : [...prev, product],
+        : [...prev, product]
     );
 
-    resetStore();
+    setIsSubmitting(false);
+    setShowSuccessModal(true);
+    
+    // Fermer le modal après 2 secondes et réinitialiser
+    setTimeout(() => {
+      setShowSuccessModal(false);
+      resetStore();
+    }, 2000);
   };
 
   // =============================
@@ -44,12 +55,11 @@ export function useStore({ reset, setValue }) {
   const editProduct = (id) => {
     const product = products.find((p) => p.id === id);
     if (!product) return;
-
+    
     setValue("name", product.name);
     setValue("description", product.description);
     setValue("price", product.price);
     setValue("image", product.image);
-
     setImagePreviewUrl(product.image);
     setEditingId(id);
     setShowForm(true);
@@ -59,17 +69,8 @@ export function useStore({ reset, setValue }) {
   // Delete product
   // =============================
   const deleteProduct = (id) => {
-    setProducts((prev) => prev.filter((p) => p.id !== id));
-  };
-
-  // =============================
-  // Image preview modal
-  // =============================
-  const openImagePreview = (id) => {
-    const product = products.find((p) => p.id === id);
-    if (product) {
-      setPreviewImage(product);
-      setDrawerOpen(false);
+    if (window.confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
+      setProducts((prev) => prev.filter((p) => p.id !== id));
     }
   };
 
@@ -88,21 +89,19 @@ export function useStore({ reset, setValue }) {
     showForm,
     products,
     imagePreviewUrl,
-    previewImage,
-    drawerOpen,
     editingId,
-
+    showSuccessModal,
+    isSubmitting,
+    
     // setters
     setShowForm,
-    setDrawerOpen,
-    setPreviewImage,
-
+    setShowSuccessModal,
+    
     // actions
     handleImageChange,
     submitProduct,
     editProduct,
     deleteProduct,
-    openImagePreview,
     resetStore,
   };
 }
