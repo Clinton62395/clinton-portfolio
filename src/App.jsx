@@ -20,6 +20,7 @@ import NotFound from "./pages/NotFound.jsx";
 import ErrorBoundary from "./components/utils/Errorboundry.jsx";
 import ConstellationParticles from "./components/animations/constellation.jsx";
 import Home from "./pages/Home.jsx";
+import InstallPWAButton from "./components/utils/PWA/InstallPWAButton.jsx";
 
 // Layout
 
@@ -46,6 +47,9 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
+
+        {/* Bouton d'installation PWA */}
+        <InstallPWAButton />
       </ErrorBoundary>
 
       {/* Particles */}
