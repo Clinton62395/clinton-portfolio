@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import NavbarLayout from "./Layout/outlet.jsx";
 import BottomTabs from "./components/utils/BottomTabs";
@@ -11,45 +11,63 @@ import "animate.css";
 import AOS from "aos";
 
 // Pages
-import About from "./pages/About.jsx";
-import Contact from "./pages/contact.jsx";
-import Projects from "./pages/Projects.jsx";
-import Services from "./pages/service.jsx";
-import Store from "./pages/Store.jsx";
-import NotFound from "./pages/NotFound.jsx";
+// lasy load
+const Home = React.lazy(() => import("./pages/Home.jsx"));
+const About = React.lazy(() => import("./pages/About.jsx"));
+const Contact = React.lazy(() => import("./pages/contact.jsx"));
+const Projects = React.lazy(() => import("./pages/Projects.jsx"));
+const Services = React.lazy(() => import("./pages/service.jsx"));
+const Store = React.lazy(() => import("./pages/Store.jsx"));
+const NotFound = React.lazy(() => import("./pages/NotFound.jsx"));
+const InstallPWAButton = React.lazy(
+  () => import("@/components/pwa/InstallPWAButton"),
+);
+
 import ErrorBoundary from "./components/utils/Errorboundry.jsx";
 import ConstellationParticles from "./components/animations/constellation.jsx";
-import Home from "./pages/Home.jsx";
-import InstallPWAButton from "@/components/pwa/InstallPWAButton";
+import { Loader } from "lucide-react";
 
 // Layout
 
 export default function App() {
   useEffect(() => {
-    AOS.init({
+    const initAOS = AOS.init({
       duration: 1000, // Durée par défaut des animations
       once: false,
       mirror: true, // L'animation se joue une seule fois
     });
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(initAOS);
+    } else {
+      window.setTimeout(initAOS, 200);
+    }
   }, []);
 
   return (
     <>
       <ErrorBoundary>
-        <Routes>
-          {/* Les différents onglets */}
-          <Route path="/" element={<NavbarLayout />}>
-            <Route index element={<Home />} />
-            <Route path="service" element={<Services />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="store" element={<Store />} />
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center h-screen ">
+              <Loader className="animate-spin text-blue-500" size={32} />
+            </div>
+          }
+        >
+          <Routes>
+            {/* Les différents onglets */}
+            <Route path="/" element={<NavbarLayout />}>
+              <Route index element={<Home />} />
+              <Route path="service" element={<Services />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="store" element={<Store />} />
 
-            {/* 404 si on arrive à une route inexistante */}
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
+              {/* 404 si on arrive à une route inexistante */}
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </ErrorBoundary>
 
       {/* Le bouton d'installation : il "flotte" au-dessus du reste */}
