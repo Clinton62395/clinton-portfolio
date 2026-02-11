@@ -1,91 +1,215 @@
-import React, { useState, useEffect } from "react";
-import { Download, X } from "lucide-react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaDownload, FaTimes } from "react-icons/fa";
+import { useRegisterSW } from "virtual:pwa-register/react";
 
-const InstallPWAButton = () => {
+export default function InstallPWAButton() {
+  const [showPrompt, setShowPrompt] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
+
+  // Hook Vite PWA pour les mises à jour
+  const {
+    needRefresh: [needRefresh, setNeedRefresh],
+    updateServiceWorker,
+  } = useRegisterSW({
+    onRegistered(r) {
+      console.log("✅ Service Worker enregistré avec succès");
+    },
+    onRegisterError(error) {
+      console.error("❌ Erreur Service Worker:", error);
+    },
+  });
 
   useEffect(() => {
-    const handler = (e) => {
-      // Empêche Chrome d'afficher sa propre bannière moche
-      e.preventDefault();
-      console.log("✅ Événement beforeinstallprompt capturé !");
-      setDeferredPrompt(e);
-      setIsVisible(true);
+    // Vérifie si l'app est déjà installée
+    const checkInstalled = () => {
+      const isStandalone =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true;
+      setIsInstalled(isStandalone);
     };
 
-    window.addEventListener("beforeinstallprompt", handler);
+    checkInstalled();
 
-    // Vérifie si l'app est déjà installée
-    window.addEventListener("appinstalled", () => {
-      console.log("🚀 PWA installée avec succès");
-      setIsVisible(false);
+    // Écoute l'événement beforeinstallprompt
+    const handleBeforeInstall = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowPrompt(true);
+      console.log("💾 Prompt d'installation disponible");
+    };
+
+    // Écoute l'installation
+    const handleAppInstalled = () => {
+      console.log("✅ PWA installée avec succès !");
+      setIsInstalled(true);
+      setShowPrompt(false);
       setDeferredPrompt(null);
-    });
+    };
 
-    return () => window.removeEventListener("beforeinstallprompt", handler);
+    window.addEventListener("beforeinstallprompt", handleBeforeInstall);
+    window.addEventListener("appinstalled", handleAppInstalled);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstall);
+      window.removeEventListener("appinstalled", handleAppInstalled);
+    };
   }, []);
 
-  const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
+  const handleInstall = async () => {
+    if (!deferredPrompt) {
+      console.log("⚠️ Prompt d'installation non disponible");
+      return;
+    }
 
-    // Affiche l'invite système
+    // Affiche le prompt d'installation
     deferredPrompt.prompt();
 
-    // Attend la réponse de l'utilisateur
+    // Attend le choix de l'utilisateur
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`Résultat de l'installation : ${outcome}`);
+
+    console.log(
+      `L'utilisateur a ${outcome === "accepted" ? "accepté" : "refusé"} l'installation`,
+    );
+
+    if (outcome === "accepted") {
+      setShowPrompt(false);
+    }
 
     setDeferredPrompt(null);
-    setIsVisible(false);
   };
 
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-24 left-4 right-4 z-[100] md:left-auto md:right-8 md:w-80"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-[1px] rounded-2xl shadow-2xl">
-            <div className="bg-gray-900 rounded-[15px] p-4 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="bg-blue-500/20 p-2 rounded-lg">
-                  <Download className="text-blue-400" size={20} />
-                </div>
-                <div>
-                  <p className="text-white text-sm font-bold">
-                    Installer l'application
-                  </p>
-                  <p className="text-gray-400 text-xs">
-                    Pour une meilleure expérience
-                  </p>
-                </div>
-              </div>
+  // N'affiche rien si l'app est déjà installée
+  if (isInstalled) {
+    return null;
+  }
 
-              <div className="flex items-center gap-2">
+  return (
+    <>
+      {/* Prompt d'installation */}
+      <AnimatePresence>
+        {showPrompt && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ type: "spring", damping: 20 }}
+            className="fixed bottom-6 right-6 z-50 max-w-sm"
+          >
+            <div className="relative backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/95 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+              {/* Ligne de gradient en haut */}
+              <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
+
+              <div className="p-6">
+                {/* Bouton fermer */}
                 <button
-                  onClick={handleInstallClick}
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors"
+                  onClick={() => setShowPrompt(false)}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-gray-800/50 hover:bg-gray-700/50 text-gray-400 hover:text-white transition-colors"
+                  aria-label="Fermer"
                 >
-                  Installer
+                  <FaTimes />
                 </button>
-                <button
-                  onClick={() => setIsVisible(false)}
-                  className="text-gray-500 hover:text-white transition-colors"
-                >
-                  <X size={18} />
-                </button>
+
+                {/* Contenu */}
+                <div className="pr-8">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    Installer l'application
+                  </h3>
+                  <p className="text-gray-300 text-sm mb-4">
+                    Installez ce portfolio sur votre appareil pour un accès
+                    rapide et une expérience optimale, même hors ligne.
+                  </p>
+
+                  {/* Avantages */}
+                  <ul className="space-y-2 mb-4 text-sm text-gray-400">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
+                      Accès rapide depuis votre écran d'accueil
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
+                      Fonctionne hors ligne
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-pink-400 rounded-full" />
+                      Chargement ultra-rapide
+                    </li>
+                  </ul>
+
+                  {/* Boutons */}
+                  <div className="flex gap-3">
+                    <motion.button
+                      onClick={handleInstall}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all"
+                    >
+                      <FaDownload />
+                      <span>Installer</span>
+                    </motion.button>
+
+                    <motion.button
+                      onClick={() => setShowPrompt(false)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 font-medium rounded-lg transition-colors"
+                    >
+                      Plus tard
+                    </motion.button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-export default InstallPWAButton;
+      {/* Notification de mise à jour */}
+      <AnimatePresence>
+        {needRefresh && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-6 left-6 z-50 max-w-sm"
+          >
+            <div className="backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/95 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+              <div className="h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500" />
+
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">
+                  🔄 Mise à jour disponible
+                </h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  Une nouvelle version est disponible. Actualisez pour profiter
+                  des dernières améliorations.
+                </p>
+
+                <div className="flex gap-3">
+                  <motion.button
+                    onClick={() => updateServiceWorker(true)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex-1 px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-semibold rounded-lg transition-all"
+                  >
+                    Actualiser
+                  </motion.button>
+
+                  <motion.button
+                    onClick={() => setNeedRefresh(false)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 font-medium rounded-lg transition-colors"
+                  >
+                    Plus tard
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}

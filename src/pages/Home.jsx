@@ -16,7 +16,7 @@ function Home() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen ">
-        <Loader className="animate-spin text-blue-500" size="xl" />
+        <Loader className="animate-spin text-blue-500" size={32} />
       </div>
     );
   }
