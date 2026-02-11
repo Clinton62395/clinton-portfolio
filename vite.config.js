@@ -46,6 +46,37 @@ export default defineConfig({
             purpose: "any",
           },
         ],
+        screenshots: [
+          {
+            src: "/screenshots/desktop-1.png",
+            sizes: "1280x720",
+            type: "image/png",
+            form_factor: "wide",
+            label: "Page d'accueil - Desktop",
+          },
+          {
+            src: "/screenshots/mobile-1.png",
+            sizes: "540x720",
+            type: "image/png",
+            form_factor: "narrow",
+            label: "Page d'accueil - Mobile",
+          },
+          // Optionnel : Ajoute plus de screenshots
+          {
+            src: "/screenshots/Screenshot-1.png",
+            sizes: "1280x720",
+            type: "image/png",
+            form_factor: "wide",
+            label: "Projets - Desktop",
+          },
+          {
+            src: "/screenshots/Screenshot-2.png",
+            sizes: "540x720",
+            type: "image/png",
+            form_factor: "narrow",
+            label: "Projets - Mobile",
+          },
+        ],
         shortcuts: [
           {
             name: "Projets",

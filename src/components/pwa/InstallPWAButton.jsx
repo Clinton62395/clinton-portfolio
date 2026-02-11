@@ -95,7 +95,7 @@ export default function InstallPWAButton() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ type: "spring", damping: 20 }}
-            className="fixed bottom-6 right-6 z-50 max-w-sm"
+            className="fixed bottom-24 md:bottom-6 right-6 z-50 max-w-sm"
           >
             <div className="relative backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/95 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
               {/* Ligne de gradient en haut */}
