@@ -31,12 +31,17 @@ import { Loader } from "lucide-react";
 
 export default function App() {
   useEffect(() => {
-    const initAOS = AOS.init({
-      duration: 1000, // Durée par défaut des animations
-      once: false,
-      mirror: true, // L'animation se joue une seule fois
-    });
+    // ✅ On crée une VRAIE fonction que JS pourra appeler plus tard
+    const initAOS = () => {
+      AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true,
+      });
+    };
+
     if (window.requestIdleCallback) {
+      // ✅ On donne la fonction elle-même, sans les parenthèses ()
       window.requestIdleCallback(initAOS);
     } else {
       window.setTimeout(initAOS, 200);
