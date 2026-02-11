@@ -120,7 +120,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-3xl rounded-full" />
 
               <img
-                src="/image.png"
+                src="/image.webp"
                 alt="Billy Doumbouya"
                 className="relative w-full h-auto rounded-2xl shadow-2xl shadow-purple-500/20 border border-purple-500/10"
               />
