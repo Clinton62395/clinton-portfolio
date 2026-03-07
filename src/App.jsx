@@ -1,4 +1,5 @@
 import React, { useEffect, Suspense } from "react";
+import { Toaster } from "sonner";
 import { Route, Routes } from "react-router-dom";
 import NavbarLayout from "./Layout/outlet.jsx";
 import BottomTabs from "./components/utils/BottomTabs";
@@ -50,6 +51,7 @@ export default function App() {
 
   return (
     <>
+          <Toaster position="top-center" richColors />
       <ErrorBoundary>
         <Suspense
           fallback={

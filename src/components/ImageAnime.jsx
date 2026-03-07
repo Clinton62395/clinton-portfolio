@@ -15,6 +15,7 @@ const logos = [
   { src: khan_academy, title: "KHAN ACADEMY" },
   { src: neipal, title: "NEIPAL" },
   { src: netflix, title: "NETFLIX" },
+  
 ];
 
 const AutoScrollLogos = () => {

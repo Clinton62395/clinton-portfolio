@@ -12,7 +12,7 @@ export const FILTER_LABELS = {
   [FILTER_TYPES.FRONTEND]: "Frontend",
   [FILTER_TYPES.FULLSTACK]: "Fullstack",
   [FILTER_TYPES.PORTFOLIO]: "Portfolio",
-  [FILTER_TYPES.VANILLA_JS]: "Vanilla JS",
+  [FILTER_TYPES.VANILLA_JS]: "Vanilla_JS",
   [FILTER_TYPES.MOBILE]: "Mobile",
 };
 

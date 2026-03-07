@@ -2,13 +2,7 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AutoScrollLogos from "../components/ImageAnime";
 
-import {
-  FaGlobe,
-  FaServer,
-  FaUser,
-  FaCodeBranch,
-  FaFilter,
-} from "react-icons/fa";
+
 import FilterButton from "../components/hooks/filterButton";
 import {
   FILTER_TYPES,

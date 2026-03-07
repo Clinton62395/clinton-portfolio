@@ -7,6 +7,8 @@ import { BsWhatsapp } from "react-icons/bs";
 import FAQCarousel from "../components/FQA";
 import { Contactschema } from "../components/validators/storeValidator";
 import { contactInfo } from "../components/data/contactInfo";
+import axios from "axios";
+import { toast } from "sonner";
 
 const Contact = () => {
   const {
@@ -19,9 +21,20 @@ const Contact = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log("Données envoyées :", data);
+    const toastId = toast.loading("Envoi en cours...");
+    try {
+      const res = await axios.post("https://formspree.io/f/mbdzlgny", data);
+      if(res.data) {
+        toast.success("Merci pour votre message !", { id: toastId });
+        console.log("Réponse du serveur :", res.data);
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du formulaire :", error);
+      toast.error("Une erreur est survenue lors de l'envoi du formulaire.", { id: toastId });
+    }
+   
+    
     // Simuler un délai d'envoi
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     reset();
   };
 
