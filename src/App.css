@@ -8,20 +8,7 @@ body {
   background-color: #0f172a;
 }
 
-#tsparticles-constellation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-}
 
-.relative.z-10 {
-  z-index: 10 !important;
-  position: relative;
-}
 /* Si tu veux garder ton composant "bordure-animed" sans qu'il cache tout */
 
 /* pas scroll  bar horizontal */

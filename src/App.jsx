@@ -1,18 +1,25 @@
 import React, { useEffect, Suspense } from "react";
-import { Toaster } from "sonner";
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "sonner";
+import { Loader } from "lucide-react";
+
 import NavbarLayout from "./Layout/outlet.jsx";
 import BottomTabs from "./components/utils/BottomTabs";
-// Styles
+
 import "./App.css";
 import "aos/dist/aos.css";
 import "animate.css";
 
-// Animation Library
 import AOS from "aos";
 
-// Pages
-// lasy load
+// Animations
+import ConstellationParticles from "./components/animations/constellation.jsx";
+import GalaxyParticles from "./components/animations/galaxyParticles.jsx";
+
+// Error boundary
+import ErrorBoundary from "./components/utils/Errorboundry.jsx";
+
+// Lazy pages
 const Home = React.lazy(() => import("./pages/Home.jsx"));
 const About = React.lazy(() => import("./pages/About.jsx"));
 const Contact = React.lazy(() => import("./pages/contact.jsx"));
@@ -20,21 +27,14 @@ const Projects = React.lazy(() => import("./pages/Projects.jsx"));
 const Services = React.lazy(() => import("./pages/service.jsx"));
 const Store = React.lazy(() => import("./pages/Store.jsx"));
 const NotFound = React.lazy(() => import("./pages/NotFound.jsx"));
+const Test = React.lazy(() => import("./pages/Test.jsx"));
+
 const InstallPWAButton = React.lazy(
   () => import("@/components/pwa/InstallPWAButton"),
 );
 
-import ErrorBoundary from "./components/utils/Errorboundry.jsx";
-import ConstellationParticles from "./components/animations/constellation.jsx";
-import { Loader } from "lucide-react";
-import GalaxyParticles from "./components/animations/galaxyParticles.jsx";
-import Test from "./pages/Test.jsx";
-
-// Layout
-
 export default function App() {
   useEffect(() => {
-    // ✅ On crée une VRAIE fonction que JS pourra appeler plus tard
     const initAOS = () => {
       AOS.init({
         duration: 1000,
@@ -44,7 +44,6 @@ export default function App() {
     };
 
     if (window.requestIdleCallback) {
-      // ✅ On donne la fonction elle-même, sans les parenthèses ()
       window.requestIdleCallback(initAOS);
     } else {
       window.setTimeout(initAOS, 200);
@@ -53,11 +52,45 @@ export default function App() {
 
   return (
     <>
-      {/* Tes animations de fond - DOIT être rendu EN PREMIER pour ne pas bloquer le contenu */}
+      {/* Background animations */}
       <ConstellationParticles />
 
-      
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center h-screen">
+              <Loader className="animate-spin" size={40} />
+            </div>
+          }
+        >
+          <Routes>
+            {/* Layout principal */}
+            <Route element={<NavbarLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/service" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/store" element={<Store />} />
+
+            </Route>
+
+            {/* 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
+
+      {/* Navigation mobile */}
       <BottomTabs />
+
+      {/* Notifications */}
+      <Toaster richColors position="top-right" />
+
+      {/* PWA install */}
+      <Suspense fallback={null}>
+        <InstallPWAButton />
+      </Suspense>
     </>
   );
 }
