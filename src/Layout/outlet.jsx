@@ -9,7 +9,7 @@ export default function NavbarLayout() {
       <div>
         <Outlet />
       </div>
-      <footer className="bi-mt-10">
+      <footer className="mt-10">
         <Footer />
       </footer>
     </>

@@ -194,7 +194,7 @@ const Contact = () => {
                     <input
                       id="nom"
                       type="text"
-                      placeholder="Ex: Jean Dupont"
+                      placeholder="Ex: Bill Clinton "
                       {...register("nom")}
                       className={`w-full px-4 py-3 rounded-lg bg-gray-800/50 border-2 ${
                         errors.nom ? "border-red-500" : "border-gray-700"

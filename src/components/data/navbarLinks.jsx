@@ -8,4 +8,5 @@ export const menuItems = [
   { path: "/service", icon: MdHomeRepairService, label: "Services" },
   { path: "/contact", icon: BiSolidContact, label: "Contact" },
   { path: "/store", icon: BiStore, label: "Store" },
+  { path: "/test", icon: BiStore, label: "Test" },
 ];

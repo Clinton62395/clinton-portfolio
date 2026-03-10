@@ -27,6 +27,8 @@ const InstallPWAButton = React.lazy(
 import ErrorBoundary from "./components/utils/Errorboundry.jsx";
 import ConstellationParticles from "./components/animations/constellation.jsx";
 import { Loader } from "lucide-react";
+import GalaxyParticles from "./components/animations/galaxyParticles.jsx";
+import Test from "./pages/Test.jsx";
 
 // Layout
 
@@ -51,40 +53,11 @@ export default function App() {
 
   return (
     <>
-          <Toaster position="top-center" richColors />
-      <ErrorBoundary>
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center h-screen ">
-              <Loader className="animate-spin text-blue-500" size={32} />
-            </div>
-          }
-        >
-          <Routes>
-            {/* Les différents onglets */}
-            <Route path="/" element={<NavbarLayout />}>
-              <Route index element={<Home />} />
-              <Route path="service" element={<Services />} />
-              <Route path="projects" element={<Projects />} />
-              <Route path="about" element={<About />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="store" element={<Store />} />
-
-              {/* 404 si on arrive à une route inexistante */}
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
-
-      {/* Le bouton d'installation : il "flotte" au-dessus du reste */}
-      <InstallPWAButton />
-
-      {/* Tes onglets mobiles */}
-      <BottomTabs />
-
-      {/* Tes animations de fond */}
+      {/* Tes animations de fond - DOIT être rendu EN PREMIER pour ne pas bloquer le contenu */}
       <ConstellationParticles />
+
+      
+      <BottomTabs />
     </>
   );
 }

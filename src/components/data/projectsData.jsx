@@ -12,6 +12,8 @@ import estate from "../../assets/estate-image.png";
 import portfolioImage from "../../assets/portfolio-image.png";
 import Chakam from "../../assets/portfolio-image.png";
 import Edutrack from "../../assets/edutrack.png";
+import Gpayer from "../../assets/G-payer.png";
+
 
 export const projectsData = [
   // html css boostrap projects
@@ -318,6 +320,7 @@ export const projectsData = [
       "Notifications push",
       "Mode hors-ligne pour les leçons",
       "Interface mobile intuitive et réactive",
+      'Chat integre pour la communication directe'
     ],
   },
 
@@ -343,6 +346,36 @@ export const projectsData = [
       "Upload et gestion de fichiers",
       "Organisation par dossiers",
       "Partage sécurisé de fichiers",
+      "Interface mobile intuitive",
+      "Notifications et suivi des actions utilisateur",
+    ],
+  },
+
+
+  // ================= MOBILE / G-PAYER =================
+  {
+    title: "G-payer",
+    category: "MOBILE",
+    type: "mobile",
+    tag: "G-payer",
+    image: Gpayer, // import ton image correspondante
+    description:
+      "G-payer est une application mobile pour le paiement en ligne. Elle permet aux utilisateurs de générer des factures en ligne et de les envoyer par SMS ou par e-mail. L'application est conçue pour être utilisée sur différents appareils, y compris les smartphones.",
+    demo: "https://expo.dev/accounts/billydoumbouya/projects/G-payer/builds/c3a7f3b7-f9c0-4f8a-b1c7-c8c1e3f1f2f7",
+    code: "https://github.com/Clinton62395/tree/master/G-payer",
+    technologies: [
+      "React Native",
+      "Firebase",
+      "Expo",
+      "Authentication",
+      "Push Notifications",
+      "Offline Storage",
+    ],
+    features: [
+      "Génération de factures",
+      "Envoi de factures par SMS ou e-mail",
+      "Mode hors-ligne pour les factures",
+      'suivi des clients',
       "Interface mobile intuitive",
       "Notifications et suivi des actions utilisateur",
     ],
