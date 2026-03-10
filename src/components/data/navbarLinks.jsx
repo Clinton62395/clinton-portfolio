@@ -7,5 +7,4 @@ export const menuItems = [
   { path: "/projects", icon: MdOutlineWork, label: "Projects" },
   { path: "/service", icon: MdHomeRepairService, label: "Services" },
   { path: "/contact", icon: BiSolidContact, label: "Contact" },
-  { path: "/store", icon: BiStore, label: "Store" },
 ];

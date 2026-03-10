@@ -70,9 +70,8 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/service" element={<Services />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/store" element={<Store />} />
-
+              <Route path="/contact" element={<Contact />} />
             </Route>
 
             {/* 404 */}
