@@ -75,7 +75,7 @@ const CVSection = () => {
           >
             {/* Bouton Télécharger */}
             <motion.a
-              href="/Billy-Doumbouya-FlowCV-Resume-20250526.pdf"
+              href="/My-cv.pdf"
               download="Billy-Doumbouya-CV.pdf"
               variants={buttonVariants}
               whileHover="hover"
@@ -93,7 +93,7 @@ const CVSection = () => {
             <motion.button
               onClick={() =>
                 window.open(
-                  "/Billy-Doumbouya-FlowCV-Resume-20250526.pdf",
+                  "/My-cv.pdf",
                   "_blank",
                 )
               }
