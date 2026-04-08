@@ -14,7 +14,6 @@ import Chakam from "../../assets/portfolio-image.png";
 import Edutrack from "../../assets/edutrack.png";
 import Gpayer from "../../assets/G-payer.png";
 
-
 export const projectsData = [
   // html css boostrap projects
   {
@@ -304,7 +303,7 @@ export const projectsData = [
     image: Edutrack, // import ton image correspondante
     description:
       "Eductrack est une application SaaS de e-learning développée avec React Native et connectée à Firebase. Elle offre un suivi avancé des cours, la gestion des utilisateurs et des fonctionnalités interactives grâce aux capacités d’Expo.",
-    demo: "https://expo.dev/accounts/billydoumbouya/projects/EduTrack/builds/5efa4c1b-1f7f-4ece-8f67-3c8465e7f79f",
+    demo: "https://expo.dev/accounts/g-tech-academy/projects/edutrack/builds/0834e1f7-0f83-4e5a-b913-3a557d32835c",
     code: "https://github.com/Clinton62395/tree/master/Eductrack",
     technologies: [
       "React Native",
@@ -320,7 +319,7 @@ export const projectsData = [
       "Notifications push",
       "Mode hors-ligne pour les leçons",
       "Interface mobile intuitive et réactive",
-      'Chat integre pour la communication directe'
+      "Chat integre pour la communication directe",
     ],
   },
 
@@ -351,7 +350,6 @@ export const projectsData = [
     ],
   },
 
-
   // ================= MOBILE / G-PAYER =================
   {
     title: "G-payer",
@@ -375,7 +373,7 @@ export const projectsData = [
       "Génération de factures",
       "Envoi de factures par SMS ou e-mail",
       "Mode hors-ligne pour les factures",
-      'suivi des clients',
+      "suivi des clients",
       "Interface mobile intuitive",
       "Notifications et suivi des actions utilisateur",
     ],
