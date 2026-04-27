@@ -1,25 +1,28 @@
-import airbnb from "../../assets/airbnb.png";
-import dropbox from "../../assets/dropbox.png";
-import asana from "../../assets/asana.png";
-import khan_academy from "../../assets/khan_academy.png";
-import Neipaltel from "../../assets/neipal.png";
-import Netflix from "../../assets/netflix.png";
-import pinterest from "../../assets/pinterest.png";
-import whatsapp from "../../assets/whasapp.png";
+// ===== PROJETS FRONTEND - ARCHIVÉS (DÉMONSTRATION UNIQUEMENT) =====
+// Ce portfolio se concentre sur les projets professionnels full-stack et mobile.
+// Les projets frontend ci-dessous (clones UI) ont été archivés.
+// import airbnb from "../../assets/airbnb.png";
+// import dropbox from "../../assets/dropbox.png";
+// import asana from "../../assets/asana.png";
+// import khan_academy from "../../assets/khan_academy.png";
+// import Neipaltel from "../../assets/neipal.png";
+// import Netflix from "../../assets/netflix.png";
+// import pinterest from "../../assets/pinterest.png";
+// import whatsapp from "../../assets/whasapp.png";
+
 import affinesale from "../../assets/affinesale.png";
 import ecommerce from "../../assets/e-commerce-image.png";
 import estate from "../../assets/estate-image.png";
 import portfolioImage from "../../assets/portfolio-image.png";
-import Chakam from "../../assets/portfolio-image.png";
 import Edutrack from "../../assets/edutrack.png";
 import Gpayer from "../../assets/G-payer.png";
 
 export const projectsData = [
-  // html css boostrap projects
+  /* ARCHIVED - Frontend Demo Projects (UI Component Practice)
   {
     title: "Property Booking Platform",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
+    category: "FRONTEND",
+    type: "frontend",
     description:
       "Modern vacation rental platform featuring property listings, advanced search filters, booking calendar, and user authentication. Built with React.js and responsive design for seamless mobile experience.",
     image: airbnb,
@@ -32,12 +35,13 @@ export const projectsData = [
       "User Authentication",
       "Mobile Responsive",
     ],
-  },
+  }, */
 
+  /* ARCHIVED
   {
     title: "Project Management Platform",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
+    category: "FRONTEND",
+    type: "frontend",
     description:
       "Comprehensive team collaboration tool with task management, project tracking, team workflows, and progress monitoring. Features modern dashboard interface and intuitive user experience design.",
     image: asana,
@@ -54,151 +58,93 @@ export const projectsData = [
 
   {
     title: "Cloud Storage Platform",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
+    category: "FRONTEND",
+    type: "frontend",
     description:
-      "Secure file sharing and storage solution with drag-and-drop functionality, folder organization, and file management system. Clean, professional interface optimized for business productivity.",
+      "Secure file sharing and storage solution with drag-and-drop functionality, folder organization, and file management system.",
     image: dropbox,
     demo: "https://dropbox-web-five.vercel.app/",
     code: "https://github.com/Clinton62395/clinton-projects/tree/master/Dropbox",
     technologies: ["React.js", "File API", "CSS Grid", "Responsive Framework"],
-    features: [
-      "File Upload",
-      "Folder Management",
-      "Secure Sharing",
-      "Cross-Platform",
-    ],
+    features: ["File Upload", "Folder Management", "Secure Sharing", "Cross-Platform"],
   },
 
   {
     title: "Educational Learning Platform",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
+    category: "FRONTEND",
+    type: "frontend",
     description:
-      "Interactive e-learning website with course catalog, progress tracking, and educational content management. Features engaging user interface and optimized learning experience for students and educators.",
+      "Interactive e-learning website with course catalog, progress tracking, and educational content management.",
     image: khan_academy,
     demo: "https://khan-academy-web-site.vercel.app/",
     code: "https://github.com/Clinton62395/clinton-projects/tree/master/Khan-academy",
-    technologies: [
-      "React.js",
-      "Educational UI",
-      "Progress APIs",
-      "Responsive Design",
-    ],
-    features: [
-      "Course Management",
-      "Progress Tracking",
-      "Interactive Learning",
-      "Student Dashboard",
-    ],
+    technologies: ["React.js", "Educational UI", "Progress APIs", "Responsive Design"],
+    features: ["Course Management", "Progress Tracking", "Interactive Learning", "Student Dashboard"],
   },
+  
   {
-    title: "Neipatel ",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
-    description:
-      "Neipatel est un site web de référence pour les professionnels de la santé et les médecins. Il propose une interface simple et conviviale pour trouver des informations sur les services de santé disponibles dans votre région. Le site est conçu pour être accessible sur tous les appareils, y compris les smartphones.",
+    title: "Neipatel",
+    category: "FRONTEND",
+    type: "frontend",
+    description: "Healthcare professional network platform",
     image: Neipaltel,
     demo: "https://neipatel-web-site.vercel.app/",
     code: "https://github.com/clinton62395/neipaltel",
     technologies: ["React.js", "Tailwind CSS", "TypeScript", "Node.js"],
-    features: [
-      "Interface conviviale",
-      "Recherche de services de santé",
-      "Informations sur les services de santé",
-      "Navigation fluide",
-    ],
-    tag: ["Santé", "Interface conviviale", "Recherche de services de santé"],
+    features: ["Healthcare Search", "Professional Network"],
   },
 
   {
     title: "Visual Discovery Platform",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
+    category: "FRONTEND",
+    type: "frontend",
     description:
-      "Pinterest-inspired social platform for visual content sharing with image galleries, user profiles, and discovery features. Implements modern grid layouts and infinite scrolling for optimal user engagement.",
+      "Pinterest-inspired social platform for visual content sharing with image galleries, user profiles, and discovery features.",
     image: pinterest,
     demo: "https://pinterest-web-site.vercel.app/",
     code: "https://github.com/Clinton62395/clinton-projects/tree/master/Pinterest",
-    technologies: [
-      "React.js",
-      "CSS Grid",
-      "Image Optimization",
-      "Social Features",
-    ],
-    features: [
-      "Image Galleries",
-      "User Profiles",
-      "Content Discovery",
-      "Social Sharing",
-    ],
+    technologies: ["React.js", "CSS Grid", "Image Optimization", "Social Features"],
+    features: ["Image Galleries", "User Profiles", "Content Discovery", "Social Sharing"],
   },
 
   {
     title: "Real-Time Messaging Application",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
+    category: "FRONTEND",
+    type: "frontend",
     description:
-      "WhatsApp-inspired chat application with real-time messaging, user status, and modern communication interface. Features responsive design and optimized for both desktop and mobile platforms.",
+      "WhatsApp-inspired chat application with real-time messaging, user status, and modern communication interface.",
     image: whatsapp,
     demo: "https://whasapp-landing-page.vercel.app/",
     code: "https://github.com/Clinton62395/clinton-projects/tree/master/Whatsapp",
     technologies: ["React.js", "Real-time APIs", "Modern UI", "Cross-Platform"],
-    features: [
-      "Real-time Messaging",
-      "User Status",
-      "Media Sharing",
-      "Mobile Responsive",
-    ],
+    features: ["Real-time Messaging", "User Status", "Media Sharing", "Mobile Responsive"],
   },
 
   {
     title: "Video Streaming Platform",
-    category: "FRONTEND", // Ajoutez cette ligne
-    type: "frontend", // Ajoutez cette ligne
+    category: "FRONTEND",
+    type: "frontend",
     description:
-      "Netflix-inspired streaming service with video player, content categories, user authentication, and personalized recommendations. Built with modern React architecture and optimized for video content delivery.",
+      "Netflix-inspired streaming service with video player, content categories, user authentication, and personalized recommendations.",
     image: Netflix,
     demo: "https://netflix-web-site-three.vercel.app/",
     code: "https://github.com/Clinton62395/clinton-projects/tree/master/Netflix",
-    technologies: [
-      "React.js",
-      "Video APIs",
-      "Authentication",
-      "Content Management",
-    ],
-    features: [
-      "Video Streaming",
-      "User Authentication",
-      "Content Categories",
-      "Personalized Interface",
-    ],
+    technologies: ["React.js", "Video APIs", "Authentication", "Content Management"],
+    features: ["Video Streaming", "User Authentication", "Content Categories", "Personalized Interface"],
   },
 
-  //  ===================== vanillajs =================
   {
-    title: " vanilla js",
+    title: "Vanilla JavaScript - Learning Projects",
     category: "VANILLA_JS",
     type: "VANILLA_JS",
-    description:
-      "Collection of dynamic web applications built with vanilla JavaScript showcasing DOM manipulation, API integrations, and interactive user interfaces. Demonstrates strong foundation in core web technologies.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtgzsGkfT4EzquXh4TCm66xky7OSITGbUZ-g&s",
+    description: "Collection of core JavaScript learning projects demonstrating DOM manipulation and API integration.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtgzsGkfT4EzquXh4TCm66xky7OSITGbUZ-g&s",
     demo: "https://javascript-class-delta.vercel.app/",
     code: "https://github.com/Clinton62395/javascript-class/tree/master/",
-    technologies: [
-      "Vanilla JavaScript",
-      "DOM Manipulation",
-      "API Integration",
-      "Modern Web Standards",
-    ],
-    features: [
-      "Interactive UI",
-      "API Consumption",
-      "Dynamic Content",
-      "Pure JavaScript",
-    ],
+    technologies: ["Vanilla JavaScript", "DOM Manipulation", "API Integration", "Modern Web Standards"],
+    features: ["Interactive UI", "API Consumption", "Dynamic Content", "Pure JavaScript"],
   },
+  */
   // ================= PORTFOLIO =================
   {
     title: "Personal Portfolio",
@@ -320,33 +266,6 @@ export const projectsData = [
       "Mode hors-ligne pour les leçons",
       "Interface mobile intuitive et réactive",
       "Chat integre pour la communication directe",
-    ],
-  },
-
-  // ================= MOBILE / GESTION DE FICHIERS =================
-  {
-    title: "Chakam  app ",
-    category: "MOBILE",
-    type: "mobile",
-    tag: "File Manager App",
-    image: Chakam, // import ton image correspondante
-    description:
-      "Chakam est une application mobile pour le stockage et la gestion personnelle de fichiers. Les utilisateurs peuvent uploader, organiser et partager leurs images et documents en toute sécurité via Firebase.",
-    demo: "https://expo.dev/accounts/billydoumbouya/projects/Chakam-app/builds/aa51276f-4e2f-4ccc-aaff-f86a0faab563",
-    code: "https://github.com/Clinton62395/tree/master/Chakam",
-    technologies: [
-      "React Native",
-      "Firebase Storage",
-      "Authentication",
-      "Expo",
-      "Image Picker",
-    ],
-    features: [
-      "Upload et gestion de fichiers",
-      "Organisation par dossiers",
-      "Partage sécurisé de fichiers",
-      "Interface mobile intuitive",
-      "Notifications et suivi des actions utilisateur",
     ],
   },
 

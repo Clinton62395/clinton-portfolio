@@ -66,39 +66,41 @@ const HeroSection = () => {
               className="space-y-4"
             >
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-                <span className="block bg-gradient-to-r from-yellow-400 via-purple-500 to-green-400 text-transparent bg-clip-text">
-                  Bonjour !
+                <span className="block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 text-transparent bg-clip-text">
+                  Développeur Full-Stack
                 </span>
               </h1>
 
               <motion.h2
                 variants={itemVariants}
-                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-yellow-400"
+                className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-blue-300"
               >
-                Bienvenue sur mon portfolio
+                Transformez vos idées en solutions scalables
               </motion.h2>
             </motion.div>
 
             {/* Description */}
             <motion.div variants={itemVariants} className="space-y-4">
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Je m'appelle{" "}
+                Je suis{" "}
                 <NameSpan
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1, duration: 0.5 }}
-                  className="text-yellow-400 font-semibold"
+                  className="text-blue-400 font-semibold"
                 >
                   Billy Doumbouya
                 </NameSpan>
-                . Passionné par le développement web et les technologies
-                modernes, je conçois des interfaces interactives, dynamiques et
-                efficaces.
+                , développeur full-stack spécialisé dans la création
+                d'applications web et mobiles. J'accompagne les entreprises et
+                startups dans la transformation numérique et la livraison de
+                solutions innovantes.
               </p>
 
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Parcourez mes projets, découvrez mes compétences et n'hésitez
-                pas à me contacter pour une collaboration.
+                Explorez mes projets production, découvrez comment je peux
+                contribuer à votre succès, et contactez-moi pour une
+                collaboration.
               </p>
             </motion.div>
 

@@ -102,8 +102,8 @@ function PagesNavbar() {
       {/* Ligne de gradient en haut */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 opacity-50" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+      <div className="w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
           {/* Logo */}
           <Link className="flex items-center gap-3 group" to="/">
             <motion.img
@@ -172,7 +172,7 @@ function PagesNavbar() {
 
           {/* Desktop menu */}
           <div className="hidden md:block">
-            <ul className="flex gap-2 items-center">
+            <ul className="flex gap-1 items-center">
               {menuItems.map((item, index) => {
                 const Icon = item.icon;
                 const active = isActive(item.path);
@@ -187,8 +187,8 @@ function PagesNavbar() {
                   >
                     <Link
                       className={`
-                        flex items-center gap-2 px-4 py-2 rounded-lg
-                        transition-all duration-300 group
+                        flex items-center gap-2 px-3 py-2 rounded-lg text-sm
+                        transition-all duration-300 group whitespace-nowrap
                         ${
                           active
                             ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-yellow-400 font-semibold border border-blue-500/30"
@@ -207,7 +207,7 @@ function PagesNavbar() {
                       <span>{item.label}</span>
 
                       {/* Effet de brillance au survol */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 rounded-lg" />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-lg" />
                     </Link>
 
                     {/* Indicateur de page active */}
@@ -249,8 +249,8 @@ function PagesNavbar() {
                   <motion.li key={item.path} variants={itemVariants}>
                     <Link
                       className={`
-                        flex items-center gap-3 px-4 py-3 rounded-lg
-                        transition-all duration-300
+                        flex items-center gap-3 px-4 py-2 rounded-lg text-base
+                        transition-all duration-300 w-full
                         ${
                           active
                             ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-yellow-400 font-semibold border border-blue-500/30"

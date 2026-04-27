@@ -24,24 +24,35 @@ export function Mybio() {
           </h1>
 
           <p className="text-lg leading-relaxed mb-6 text-gray-300">
-            Je suis{" "}
+            je suis{" "}
             <span className="font-semibold text-blue-400">Billy Doumbouya</span>
-            , développeur passionné spécialisé dans les applications web et
-            mobile, ainsi que la création d’interfaces interactives et
-            dynamiques. Mon objectif est de concevoir des solutions modernes,
-            intuitives et engageantes.
+            , développeur full-stack spécialisé dans la conception et le
+            développement d'applications web et mobiles scalables. j'accompagne
+            les entreprises et les startups dans la transformation numérique et
+            la création de solutions technologiques innovantes.
           </p>
 
           <p className="text-lg leading-relaxed mb-6 text-gray-300">
-            Grâce à mon parcours en sociologie et à mes expériences
-            entrepreneuriales, je combine créativité, stratégie et approche
-            centrée utilisateur pour chaque projet.
+            fort de ma formation en sociologie et de mes expériences
+            entrepreneuriales, je combine une compréhension profonde des enjeux
+            métier avec des compétences techniques avancées. mon approche
+            holistique garantit que chaque solution est à la fois techniquement
+            robuste et centrée sur l'expérience utilisateur.
+          </p>
+
+          <p className="text-lg leading-relaxed mb-6 text-gray-300">
+            spécialisé dans les architectures modernes (react, node.js,
+            firebase, mongodb), j'ai livré plusieurs projets production incluant
+            des plateformes e-commerce, des applications saas, et des solutions
+            mobiles cross-platform. mes projets se distinguent par leur qualité,
+            leurs performances et leur maintenabilité.
           </p>
 
           <p className="text-lg leading-relaxed text-gray-300">
-            Motivé par les défis et l’innovation, je m’investis dans des projets
-            web, mobiles et UI modernes afin de transformer les idées en
-            expériences concrètes et impactantes.
+            motivé par l'excellence et l'innovation, je m'engage à transformer
+            les défis complexes en solutions élégantes et impactantes.
+            disponible pour des missions de consulting, développement full-stack
+            ou expertise technique.
           </p>
         </div>
       </div>

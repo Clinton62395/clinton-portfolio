@@ -2,7 +2,6 @@ import React, { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AutoScrollLogos from "../components/ImageAnime";
 
-
 import FilterButton from "../components/hooks/filterButton";
 import {
   FILTER_TYPES,
@@ -19,23 +18,21 @@ function Projects() {
   // Catégoriser les projets une fois pour toutes
   const categorizedProjects = useMemo(() => {
     return projectsData.map((project) => {
-      // Si le projet a déjà une catégorie, on la conserve
-      if (project.category || project.type) {
+      // Si le projet a déjà une catégorie valide, on la conserve
+      if (
+        project.category &&
+        Object.values(FILTER_TYPES).includes(project.category)
+      ) {
         return project;
+      }
+      if (project.type && Object.values(FILTER_TYPES).includes(project.type)) {
+        return { ...project, category: project.type };
       }
 
       // Sinon, on détermine la catégorie basée sur le contenu
       const title = project.title.toLowerCase();
       const description = project.description.toLowerCase();
       const technologies = project.technologies?.join(" ").toLowerCase() || "";
-
-      if (title.includes("vanilla") || technologies.includes("vanilla")) {
-        return {
-          ...project,
-          category: FILTER_TYPES.VANILLA_JS,
-          type: "vanillajs",
-        };
-      }
 
       if (title.includes("portfolio") || project.tag?.includes("Portfolio")) {
         return {
@@ -47,8 +44,10 @@ function Projects() {
 
       if (
         description.includes("fullstack") ||
+        description.includes("full-stack") ||
         technologies.includes("node") ||
-        technologies.includes("mongodb")
+        technologies.includes("mongodb") ||
+        technologies.includes("express")
       ) {
         return {
           ...project,
@@ -56,11 +55,13 @@ function Projects() {
           type: "fullstack",
         };
       }
+
       // mobile app
       if (
         title.includes("app") ||
         technologies.includes("mobile") ||
-        technologies.includes("react native")
+        technologies.includes("react native") ||
+        technologies.includes("expo")
       ) {
         return {
           ...project,
@@ -68,8 +69,13 @@ function Projects() {
           type: "mobile",
         };
       }
-      // Par défaut, c'est du frontend
-      return { ...project, category: FILTER_TYPES.FRONTEND, type: "frontend" };
+
+      // Par défaut, assigner au FULLSTACK ou PORTFOLIO basé sur la structure
+      return {
+        ...project,
+        category: FILTER_TYPES.FULLSTACK,
+        type: "fullstack",
+      };
     });
   }, []);
 
@@ -236,9 +242,8 @@ function Projects() {
                 Aucun projet trouvé
               </h3>
               <p className="text-gray-400 mb-6 max-w-md mx-auto">
-                {activeFilter === FILTER_TYPES.VANILLA_JS
-                  ? "Aucun projet Vanilla JS trouvé. Ces projets démontrent l'utilisation pure de JavaScript sans frameworks."
-                  : "Aucun projet dans cette catégorie pour le moment."}
+                Aucun projet dans cette catégorie pour le moment. Explorez les
+                autres catégories pour découvrir mes réalisations.
               </p>
               <button
                 onClick={() => handleFilterClick(FILTER_TYPES.ALL)}
